@@ -3,8 +3,11 @@
 // eslint-disable-next-line new-cap
 // const inter = Inter({ subsets: ["latin"] });
 
+import Hello from "@/components/Hello";
 export default function Home() {
   return (
-    <h1 className="text-3xl font-bold underline bg-slate-400">Hello world!</h1>
+    <div className="text-3xl font-bold underline bg-slate-400">
+      <Hello />
+    </div>
   );
 }
