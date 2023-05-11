@@ -34,13 +34,21 @@ const Post = () => {
       </div>
       <div>
         <Tags />
-        {/* <div className="mt-10">
-          <p className="text-white font-semibold text-2xl">
-            Make this thought private?
-          </p>
-          <button></button>
-        </div> */}
+        <div className="flex flex-col gap-y-10">
+          <div className="flex justify-between">
+            <p className="text-white font-semibold text-2xl">
+              Make this thought private?
+            </p>
+            <button>button</button>
+          </div>
+          {/* <button className="self-end bg-white p-1 px-10 rounded-3xl font-medium text-2xl">
+            Post
+          </button> */}
+        </div>
       </div>
+      <button className="self-end bg-[#F7DEED] p-1 px-10 rounded-3xl font-medium text-2xl -translate-x-40 -translate-y-10">
+        Post
+      </button>
     </div>
   );
 };
