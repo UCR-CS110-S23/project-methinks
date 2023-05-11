@@ -3,7 +3,7 @@ import Navigation from "./Navigation";
 
 const Layout = ({ children }) => {
   return (
-    <div className="h-screen w-full bg-[#24292F]">
+    <div className="bg-[#24292F]">
       <Navigation />
       {children}
     </div>

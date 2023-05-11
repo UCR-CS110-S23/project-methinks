@@ -8,7 +8,7 @@ const ThoughtPost = () => {
       <textarea
         name="thought"
         id=""
-        className="focus:outline-none resize-none w-full h-2/3 px-8 text-4xl font-normal text-[#77818A]"
+        className="focus:outline-none resize-none min-w-full h-2/3 px-8 text-4xl font-normal bg-white text-[#77818A]"
         // className="focus:outline-none resize-none w-full h-2/3 px-8 text-4xl font-normal text-[#77818A]"
         placeholder="What's on your mind?"
       />

@@ -17,10 +17,10 @@ const Post = () => {
         </div>
         <div className="bg-[#BABFF6] h-full min-w-[10%] flex items-start justify-end pt-6 pr-4 rounded-xl rounded-l-none relative translate-x-2 z-[2]">
           <p
-            className="text-start relative font-bold text-3xl rotate-180"
+            className="text-start text-black relative font-bold text-3xl rotate-180"
             style={{ writingMode: "vertical-rl" }}
           >
-            Fleeting
+            Fleeting Thought
           </p>
         </div>
         <div className="bg-[#1C1C1C] h-full min-w-[10%] flex items-start justify-end pt-6 pr-4 rounded-xl rounded-l-none">
@@ -32,21 +32,24 @@ const Post = () => {
           </p>
         </div>
       </div>
-      <div>
+      <div className="w-1/2">
         <Tags />
-        <div className="flex flex-col gap-y-10">
-          <div className="flex justify-between">
+        <div className="flex flex-col gap-y-10 w-full">
+          <div className="flex justify-between items-center">
             <p className="text-white font-semibold text-2xl">
               Make this thought private?
             </p>
-            <button>button</button>
+            <input
+              type="checkbox"
+              className="toggle toggle-custom-primary bg-white checked:bg-[#BABFF6]"
+            />
           </div>
           {/* <button className="self-end bg-white p-1 px-10 rounded-3xl font-medium text-2xl">
             Post
           </button> */}
         </div>
       </div>
-      <button className="self-end bg-[#F7DEED] p-1 px-10 rounded-3xl font-medium text-2xl -translate-x-40 -translate-y-10">
+      <button className="self-end bg-[#F7DEED] p-1 px-10 rounded-3xl font-medium text-2xl -translate-x-40 -translate-y-10 text-black">
         Post
       </button>
     </div>
