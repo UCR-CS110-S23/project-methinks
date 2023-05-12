@@ -1,0 +1,1 @@
+export const tagsList = ["Politics", "Music", "Culture", "School", "Random"];

@@ -1,6 +1,6 @@
 import React from "react";
-import ThoughtPost from "./ThoughtPost";
-import Tags from "./Tags";
+import ThoughtPost from "../components/ThoughtPost";
+import Tags from "../components/Tags";
 
 const Post = () => {
   return (
@@ -49,7 +49,7 @@ const Post = () => {
           </button> */}
         </div>
       </div>
-      <button className="self-end bg-[#F7DEED] p-1 px-10 rounded-3xl font-medium text-2xl -translate-x-40 -translate-y-10 text-black">
+      <button className="self-end bg-[#F7DEED] p-1 px-10 rounded-3xl font-medium text-2xl -translate-x-40 -translate-y-10 text-black hover:bg-white">
         Post
       </button>
     </div>
