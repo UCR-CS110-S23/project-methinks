@@ -3,11 +3,11 @@
 // eslint-disable-next-line new-cap
 // const inter = Inter({ subsets: ["latin"] });
 
-import Post from "@/pages/Post";
+import Feed from "@/pages/Feed";
 export default function Home() {
   return (
     <div className="">
-      <Post />
+      <Feed />
     </div>
   );
 }
