@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Tag from "./Tag";
+import Tag from "../Tag";
 import { tagsList } from "@/public/data/tags";
 
 const Tags = () => {
@@ -12,7 +12,7 @@ const Tags = () => {
   return (
     <div className="flex items-center gap-x-5 mb-10 w-full">
       <p className="text-white font-semibold text-xl">Tags:</p>
-      <div className="flex flex-wrap gap-x-4 gap-y-4">
+      <div className="flex flex-wrap gap-4">
         {tagsList.map((tag, index) => (
           <Tag
             key={index}

@@ -1,6 +1,6 @@
 import React from "react";
-import ThoughtPost from "../components/ThoughtPost";
-import Tags from "../components/Tags";
+import ThoughtPost from "@/components/Post/Thought";
+import Tags from "@/components/Post/Tags";
 
 const Post = () => {
   return (
