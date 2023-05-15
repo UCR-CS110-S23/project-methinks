@@ -45,17 +45,38 @@ const Comments = () => {
       date: "08:30:05 PM",
       text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
     },
+    {
+      img: "Profile",
+      username: "@blah",
+      date: "08:30:05 PM",
+      text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
+    },
+    {
+      img: "Profile",
+      username: "@blah",
+      date: "08:30:05 PM",
+      text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
+    },
   ];
 
   return (
-    <div className="h-full w-1/2 bg-red-500 p-5">
+    <div className="h-full w-1/2 bg-[#1C1C1C] p-5">
       {/* <div className="h-full w-1/2 bg-[#1C1C1C] p-5"> */}
       <div className="flex w-full h-full flex-col justify-between gap-y-10">
-        <div>
-          <div className="flex justify-between items-center mb-5 font-semibold text-2xl text-white">
-            <p className="">Comments</p>
-            <span className="">X</span>
-          </div>
+        <div
+          className={`${
+            commentData.length > 3 ? `h-[52rem]` : ``
+          } overflow-y-auto scrollbar-none`}
+        >
+          {/* <div
+          className={`${
+            commentData.length > 3 ? `h-[52rem]` : ``
+          } overflow-y-auto scrollbar-thin scrollbar-thumb-rounded-full scrollbar-thumb-rparts-bannerGray`}
+        > */}
+          {/* <div className="flex justify-between items-center mb-5 font-semibold text-2xl text-white"> */}
+          <p className="mb-5 font-semibold text-2xl text-white">Comments</p>
+          {/* <span className="">X</span> */}
+          {/* </div> */}
           <div className="gap-y-5 flex flex-col">
             {commentData.map((comment, index) => (
               <Comment
