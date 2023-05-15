@@ -1,6 +1,6 @@
 // import { Inter } from "@next/font/google";
 
-import Feed from "./feed";
+import Feed from "./Feed";
 
 // eslint-disable-next-line new-cap
 // const inter = Inter({ subsets: ["latin"] });
