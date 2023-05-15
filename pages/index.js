@@ -1,6 +1,6 @@
 // import { Inter } from "@next/font/google";
 
-import Feed from "./Feed";
+import Post from "./post";
 
 // eslint-disable-next-line new-cap
 // const inter = Inter({ subsets: ["latin"] });
@@ -9,10 +9,10 @@ import Feed from "./Feed";
 
 export default function Home() {
   return (
-    <div className="">
+    <>
       {/* <Post /> */}
       {/* {authenticated ? Landing : <Post />} */}
-      <Feed />
-    </div>
+      <Post />
+    </>
   );
 }
