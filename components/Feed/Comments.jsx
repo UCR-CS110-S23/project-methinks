@@ -45,27 +45,27 @@ const Comments = () => {
       date: "08:30:05 PM",
       text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
     },
-    {
-      img: "Profile",
-      username: "@blah",
-      date: "08:30:05 PM",
-      text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
-    },
-    {
-      img: "Profile",
-      username: "@blah",
-      date: "08:30:05 PM",
-      text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
-    },
+    // {
+    //   img: "Profile",
+    //   username: "@blah",
+    //   date: "08:30:05 PM",
+    //   text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
+    // },
+    // {
+    //   img: "Profile",
+    //   username: "@blah",
+    //   date: "08:30:05 PM",
+    //   text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
+    // },
   ];
-
+  // WHAT IF NO COMMENTS?
   return (
     <div className="h-full w-1/2 bg-[#1C1C1C] p-5">
       {/* <div className="h-full w-1/2 bg-[#1C1C1C] p-5"> */}
       <div className="flex w-full h-full flex-col justify-between gap-y-10">
         <div
           className={`${
-            commentData.length > 3 ? `h-[52rem]` : ``
+            commentData.length > 6 ? `h-[51.5rem]` : ``
           } overflow-y-auto scrollbar-none`}
         >
           {/* <div
