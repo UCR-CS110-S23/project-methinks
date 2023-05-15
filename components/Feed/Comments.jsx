@@ -61,7 +61,6 @@ const Comments = () => {
   // WHAT IF NO COMMENTS?
   return (
     <div className="h-full w-1/2 bg-[#1C1C1C] p-5">
-      {/* <div className="h-full w-1/2 bg-[#1C1C1C] p-5"> */}
       <div className="flex w-full h-full flex-col justify-between gap-y-10">
         <div
           className={`${
@@ -73,7 +72,6 @@ const Comments = () => {
             commentData.length > 3 ? `h-[52rem]` : ``
           } overflow-y-auto scrollbar-thin scrollbar-thumb-rounded-full scrollbar-thumb-rparts-bannerGray`}
         > */}
-          {/* <div className="flex justify-between items-center mb-5 font-semibold text-2xl text-white"> */}
           <p className="mb-5 font-semibold text-2xl text-white">Comments</p>
           {/* <span className="">X</span> */}
           {/* </div> */}
