@@ -39,27 +39,27 @@ const Comments = () => {
       date: "08:30:05 PM",
       text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
     },
-    // {
-    //   img: "Profile",
-    //   username: "@blah",
-    //   date: "08:30:05 PM",
-    //   text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
-    // },
-    // {
-    //   img: "Profile",
-    //   username: "@blah",
-    //   date: "08:30:05 PM",
-    //   text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
-    // },
-    // {
-    //   img: "Profile",
-    //   username: "@blah",
-    //   date: "08:30:05 PM",
-    //   text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
-    // },
+    {
+      img: "Profile",
+      username: "@blah",
+      date: "08:30:05 PM",
+      text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
+    },
+    {
+      img: "Profile",
+      username: "@blah",
+      date: "08:30:05 PM",
+      text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
+    },
+    {
+      img: "Profile",
+      username: "@blah",
+      date: "08:30:05 PM",
+      text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
+    },
   ];
   return (
-    <div className="h-full w-1/2 bg-[#1C1C1C] p-5">
+    <div className="h-full w-1/2 bg-[#1C1C1C] p-5 px-7 rounded-xl">
       <div className="flex w-full h-full flex-col gap-y-8">
         <p className="font-semibold text-2xl text-white">Comments</p>
         {commentData.length === 0 ? (
