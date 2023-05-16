@@ -1,10 +1,10 @@
 import React from "react";
-import Comments from "@/components/Feed/Comments";
+import FeedPost from "@/components/Feed/FeedPost";
 
 const Feed = () => {
   return (
-    <div className="">
-      <Comments />
+    <div className="w-full h-full">
+      <FeedPost />
     </div>
   );
 };
