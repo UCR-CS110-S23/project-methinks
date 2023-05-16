@@ -10,6 +10,7 @@ export default function Home() {
     <div className="">
       {/* <Post /> */}
       {/* {authenticated ? Landing : <Post />} */}
+
       <Feed />
     </div>
   );
