@@ -4,7 +4,7 @@ import Tags from "@/components/Post/Tags";
 
 const Post = () => {
   return (
-    <div className="flex h-screen w-full flex-col justify-center items-center gap-y-20 pt-20">
+    <div className="flex h-full w-full flex-col justify-center items-center gap-y-20 pt-20">
       <div className="w-[55%] h-1/2 flex">
         <ThoughtPost />
         <div className="bg-[#77818A] h-full min-w-[10%] flex items-start justify-end pt-6 pr-4 rounded-xl rounded-l-none relative translate-x-4 z-[3]">

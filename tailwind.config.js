@@ -6,6 +6,7 @@ module.exports = {
   ],
   theme: {
     extend: {
+
       colors: {
         methinks: {
           white: "#FFFFFF",
@@ -17,8 +18,12 @@ module.exports = {
           black: "#000000",
           background: "#24292F",
         },
+
+      fontFamily: {
+        publicSans: ["var(--font-publicSans)", "sans-serif"],
+
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), require("tailwind-scrollbar")],
 };
