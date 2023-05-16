@@ -12,7 +12,11 @@ const Tags = () => {
   return (
     <div className="flex items-center gap-x-5 mb-10 w-full">
       <p className="text-white font-semibold text-xl">Tags:</p>
-      <div className="flex flex-wrap gap-4">
+      <div
+        className={`
+        ${tagsList.length > 6 ? `w-5/6` : ``}
+        flex gap-4 overflow-x-auto scrollbar-none`}
+      >
         {tagsList.map((tag, index) => (
           <Tag
             key={index}
