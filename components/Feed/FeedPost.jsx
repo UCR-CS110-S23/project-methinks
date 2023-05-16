@@ -51,11 +51,11 @@ const FeedPost = () => {
         </div>
       </div>
       {newPostToggle ? (
-        <button onClick={() => setPostToggle(false)}>
+        <button onMouseEnter={() => setPostToggle(false)}>
           <BlueCloud />
         </button>
       ) : (
-        <button onClick={() => setPostToggle(true)}>
+        <button onMouseLeave={() => setPostToggle(true)}>
           <BlackCloud />
         </button>
       )}
