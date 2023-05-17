@@ -16,12 +16,12 @@ const Post = () => {
             </p>
             <input
               type="checkbox"
-              className="toggle toggle-custom-primary bg-gray-400 checked:bg-[#BABFF6]"
+              className="toggle toggle-custom-primary bg-gray-400 checked:bg-methinks-green"
             />
           </div>
         </div>
       </div>
-      <button className="self-end bg-[#FFFFFF] p-1 px-5 rounded-3xl font-medium text-lg text-black hover:bg-[#F7DEED] -translate-x-32 -translate-y-14">
+      <button className="self-end bg-[#FFFFFF] p-1 px-5 rounded-3xl font-medium text-lg text-black hover:bg-methinks-green -translate-x-32 -translate-y-14">
         Post
       </button>
     </div>

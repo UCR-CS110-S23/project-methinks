@@ -38,7 +38,7 @@ const Cards = () => {
       ) : (
         <>
           <div
-            className={`bg-methinks-darkgray h-full w-[15%] flex items-start cursor-pointer rounded-xl ${
+            className={`bg-methinks-lightgray h-full w-[15%] flex items-start cursor-pointer rounded-xl ${
               current === "fleeting" || current === "loud"
                 ? `justify-start pl-4 pt-6 rounded-r-none z-[4] translate-x-0`
                 : `justify-end pr-4 pt-6 rounded-l-none z-[5] -translate-x-0`
@@ -46,7 +46,7 @@ const Cards = () => {
             onClick={() => setCurrent("prompt")}
           >
             <p
-              className="text-methinks-white text-start relative font-bold text-2xl rotate-180"
+              className="text-methinks-black text-start relative font-bold text-2xl rotate-180"
               style={{ writingMode: "vertical-rl" }}
             >
               Prompt
