@@ -8,7 +8,6 @@ const Tags = () => {
   const handleTagClick = (tagName) => {
     setSelectedTag(tagName);
   };
-  console.log(selectedTag);
   return (
     <div className="flex items-baseline gap-x-4 w-full">
       <p className="text-white font-semibold text-lg">Tags:</p>

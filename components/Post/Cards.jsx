@@ -4,7 +4,7 @@ import Prompt from "@/components/Post/Prompt";
 import FleetingThought from "@/components/Post/FleetingThought";
 import ThinkOutLoud from "@/components/Post/ThinkOutLoud";
 
-const Cards = () => {
+const Cards = ({ text, setText }) => {
   const [current, setCurrent] = useState("thought");
 
   return (
@@ -12,7 +12,7 @@ const Cards = () => {
       {current === "thought" ? (
         <>
           <div className="w-full h-full translate-x-3 z-[6]">
-            <Thought />
+            <Thought text={text} setText={setText} />
           </div>
         </>
       ) : (
@@ -33,7 +33,7 @@ const Cards = () => {
 
       {current === "prompt" ? (
         <>
-          <Prompt />
+          <Prompt text={text} setText={setText} />
         </>
       ) : (
         <>
@@ -57,7 +57,7 @@ const Cards = () => {
 
       {current === "fleeting" ? (
         <div className="w-full h-full -translate-x-3 z-[4]">
-          <FleetingThought />
+          <FleetingThought text={text} setText={setText} />
         </div>
       ) : (
         <>

@@ -10,6 +10,7 @@ const Fleeting = () => {
         name="thought"
         className="focus:outline-none resize-none w-full h-2/3 px-6 text-3xl font-normal text-methinks-white bg-methinks-lightblack text-whhite"
         placeholder="Speak now or forever hold your peace!"
+        disabled
       />
     </div>
   );

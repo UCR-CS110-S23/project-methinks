@@ -1,6 +1,6 @@
 import React from "react";
 
-const Fleeting = () => {
+const Fleeting = ({ text, setText }) => {
   return (
     <div className="w-full h-full bg-methinks-purple rounded-xl relative z-[5] p-6">
       <div className="flex justify-between items-baseline w-full">
@@ -11,8 +11,10 @@ const Fleeting = () => {
       </div>
       <textarea
         name="thought"
-        className="focus:outline-none resize-none w-full h-2/3 text-3xl font-normal bg-methinks-purple text-methinks-black"
+        value={text}
         placeholder="Quick, first thought that comes to mind!"
+        className="focus:outline-none resize-none w-full h-2/3 text-3xl font-normal bg-methinks-purple text-methinks-black"
+        onChange={(e) => setText(e.target.value)}
       />
     </div>
   );
