@@ -8,6 +8,7 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 const FeedPost = () => {
   const [toggle, setToggle] = useState(false);
   const [newPostToggle, setPostToggle] = useState(false);
+  const [counter, setCounter] = useState(0);
 
   return (
     <div>
@@ -22,7 +23,7 @@ const FeedPost = () => {
               alt="hot hot henry"
             />
             <div className="flex items-baseline gap-x-5">
-              <div className=" text-black text-2xl font-semibold">@mariam</div>
+              <div className=" text-black text-2xl font-semibold ">@mariam</div>
               <div className="text-[##77818A]  text-base ">8:30:05 PM</div>
             </div>
           </div>
@@ -38,25 +39,31 @@ const FeedPost = () => {
           {toggle ? (
             <AiFillHeart
               className="hover: cursor-pointer"
-              onClick={() => setToggle(!toggle)}
+              onClick={() => {
+                setCounter(counter - 1);
+                setToggle(!toggle);
+              }}
             />
           ) : (
             <AiOutlineHeart
               className="hover: cursor-pointer"
-              onClick={() => setToggle(!toggle)}
+              onClick={() => {
+                setCounter(counter + 1);
+                setToggle(!toggle);
+              }}
             />
           )}
 
-          <div className="pl-2"> 78</div>
+          <div className="pl-2"> {counter}</div>
         </div>
       </div>
       {newPostToggle ? (
-        <button onMouseEnter={() => setPostToggle(false)}>
-          <BlueCloud />
+        <button onMouseLeave={() => setPostToggle(false)}>
+          <BlackCloud />
         </button>
       ) : (
-        <button onMouseLeave={() => setPostToggle(true)}>
-          <BlackCloud />
+        <button onMouseEnter={() => setPostToggle(true)}>
+          <BlueCloud />
         </button>
       )}
     </div>
