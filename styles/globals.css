@@ -67,7 +67,7 @@ button:hover {
   display: flex;
   flex-wrap: wrap;
   /* margin: 0px 10px; */
-  height: 14%;
+  height: 13%;
   /* width: 100%; */
 }
 
@@ -84,6 +84,7 @@ button:hover {
 .week.day-labels {
   background: #24292f;
   border: none !important;
+  font-size: 25px;
 }
 
 .day {
@@ -91,22 +92,22 @@ button:hover {
   flex-basis: calc(100% / 7);
   padding: 1rem 0.5rem;
   text-align: center;
-  cursor: default;
+  cursor: pointer;
   color: black;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 700;
   height: 100%;
   /* width: 50%; */
 }
 
 .day[disabled] {
-  /* color: #dedede; */
   color: #24292f;
-  cursor: not-allowed !important;
+  cursor: default;
+  user-select: none;
   background: inherit !important;
 }
 
@@ -116,15 +117,9 @@ button:hover {
   /* background-color: red; */
 }
 
-.week:not(.day-labels) .day {
-  cursor: pointer;
-  /* background-color: red; */
-}
-
 .week:not(.day-labels) .day.is-selected.is-selected {
   background-color: #77818a;
-  border-radius: 50px;
-  /* background-color: crimson; */
+  border-radius: 15px;
   color: #fff;
 }
 
@@ -139,6 +134,6 @@ button:hover {
 
 .week:not(.day-labels) .day:hover {
   background-color: #f3f3f3;
-  border-radius: 50px;
+  border-radius: 15px;
   color: #24292f;
 }

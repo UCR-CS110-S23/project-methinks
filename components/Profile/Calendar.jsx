@@ -28,8 +28,25 @@ function MyCalendar(Kalendaryo) {
   const isDisabled = (dateValue) => !isSameMonth(date, dateValue);
 
   return (
+    // <div className="w-full h-full p-0 m-0 text-[#333] bg-methinks-background">
     <div className="my-calendar">
+      {/* <div className="flex justify-between items-center text-3xl w-full px-10 py-2"> */}
       <div className="my-calendar-header">
+        {/* <button
+          className="text-[2rem] text-methinks-white cursor-pointer"
+          onClick={setDatePrevMonth}
+        >
+          <BsFillCaretLeftFill />
+        </button>
+
+        <span className="text-methinks-white font-bold">{currentDate}</span>
+
+        <button
+          className="text-[2rem] text-methinks-white cursor-pointer"
+          onClick={setDateNextMonth}
+        >
+          <BsFillCaretRightFill />
+        </button> */}
         <button onClick={setDatePrevMonth}>
           <BsFillCaretLeftFill />
         </button>
