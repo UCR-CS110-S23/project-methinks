@@ -1,12 +1,9 @@
-import Post from "./post";
+import Landing from "./landing";
 
 export default function Home() {
   return (
     <>
-      {/* <Post /> */}
-      {/* {authenticated ? Landing : <Post />} */}
-
-      <Post />
+      <Landing />
     </>
   );
 }
