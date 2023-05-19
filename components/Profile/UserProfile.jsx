@@ -190,7 +190,7 @@ const UserProfile = () => {
           <p className="text-methinks-white font-bold text-4xl m-0">Memories</p>
           <p className="text-methinks-darkgray text-2xl m-0">5.16.23</p>
         </div>
-        <div className="flex flex-wrap justify-center gap-x-5 text-methinks-white">
+        <div className="flex flex-wrap justify-between gap-x-5 text-methinks-white w-full px-4">
           <div className="flex gap-x-2 items-center">
             <span className="rounded-full bg-methinks-white pr-1 w-[20px] h-[20px]"></span>
             <p className="mb-0">Thought</p>
@@ -208,12 +208,14 @@ const UserProfile = () => {
             <p className="m-0">Think Out Loud</p>
           </div>
         </div>
-        <div className="flex flex-col gap-y-5 bg-methinks-gray p-3 rounded-xl h-full">
-          <div className="h-1/5 w-full bg-white rounded-xl"></div>
-          <div className="h-1/5 w-full bg-white rounded-xl"></div>
-          <div className="h-1/5 w-full bg-white rounded-xl"></div>
-          <div className="h-1/5 w-full bg-white rounded-xl"></div>
-          <div className="h-1/5 w-full bg-white rounded-xl"></div>
+        <div className="w-full h-[750px] bg-methinks-gray p-3 rounded-xl overflow-y-auto">
+          <div className="flex flex-col gap-y-5 p-3">
+            <div className=" h-[180px] w-full bg-white rounded-xl"></div>
+            <div className=" h-[180px] w-full bg-white rounded-xl"></div>
+            <div className=" h-[180px] w-full bg-white rounded-xl"></div>
+            <div className=" h-[180px] w-full bg-white rounded-xl"></div>
+            <div className=" h-[180px] w-full bg-white rounded-xl"></div>
+          </div>
         </div>
       </div>
     </div>

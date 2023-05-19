@@ -97,6 +97,7 @@ button:hover {
   background: #24292f;
   border: none !important;
   font-size: 25px;
+  cursor: default;
 }
 
 .day {

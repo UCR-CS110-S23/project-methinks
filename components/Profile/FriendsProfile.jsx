@@ -30,11 +30,11 @@ const FriendsProfile = () => {
           </p>
           <div className="w-full h-[750px] bg-methinks-gray p-4 rounded-xl overflow-y-auto">
             <div className="flex flex-col gap-y-5">
-              <div className="w-full h-[180px] bg-white rounded-xl"></div>
-              <div className="w-full h-[180px] bg-white rounded-xl"></div>
-              <div className="w-full h-[180px] bg-white rounded-xl"></div>
-              <div className="w-full h-[180px] bg-white rounded-xl"></div>
-              <div className="w-full h-[180px] bg-white rounded-xl"></div>
+              <div className="w-full h-[180px] bg-white rounded-xl" />
+              <div className="w-full h-[180px] bg-white rounded-xl" />
+              <div className="w-full h-[180px] bg-white rounded-xl" />
+              <div className="w-full h-[180px] bg-white rounded-xl" />
+              <div className="w-full h-[180px] bg-white rounded-xl" />
             </div>
           </div>
         </div>

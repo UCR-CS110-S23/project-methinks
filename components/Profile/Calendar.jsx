@@ -1,4 +1,5 @@
 import React from "react";
+// import React, { useState } from "react";
 import Kalendaryo from "kalendaryo";
 import classes from "classnames";
 import { isToday, isSameMonth } from "date-fns";
@@ -6,7 +7,7 @@ import "../../styles/Home.module.css";
 import { BsFillCaretLeftFill } from "react-icons/bs";
 import { BsFillCaretRightFill } from "react-icons/bs";
 
-function MyCalendar(Kalendaryo) {
+const MyCalendar = (Kalendaryo) => {
   const {
     getFormattedDate,
     getWeeksInMonth,
@@ -91,8 +92,10 @@ function MyCalendar(Kalendaryo) {
       </div>
     </div>
   );
-}
+};
 
 export default function Calendar() {
+  // const [selected, setSelected] = useState();
+
   return <Kalendaryo render={MyCalendar} />;
 }
