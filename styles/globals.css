@@ -1,8 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* 
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro"); */
+
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+
+@import url("https://fonts.googleapis.com/css?family=Public+Sans");
 * {
   padding: 0;
   margin: 0;
@@ -47,8 +49,9 @@ button:hover {
   padding: 0;
   margin: 0;
   color: #333;
-  font-family: "Source Sans Pro", sans-serif;
+  /* font-family: "Source Sans Pro", sans-serif; */
   box-sizing: border-box;
+  font-family: "Public Sans", sans-serif;
 }
 
 .my-calendar-header {

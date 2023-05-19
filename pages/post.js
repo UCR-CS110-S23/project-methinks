@@ -16,7 +16,7 @@ const Post = () => {
     }
   };
   return (
-    <div className="bg-methinks-background h-full w-full flex flex-col justify-center items-center">
+    <div className="bg-methinks-background h-full w-full flex flex-col justify-center items-center font-publicSans">
       <div className="w-[55%] h-full flex flex-col justify-center items-center gap-y-10">
         <Cards text={text} setText={setText} />
         <div className="flex flex-col justify-center items-center gap-y-4">

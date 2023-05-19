@@ -9,7 +9,7 @@ const PromptPost = ({ text, setText }) => {
         name="thought"
         value={text}
         placeholder="________________."
-        className="focus:outline-none resize-none w-full h-2/3 text-3xl font-normal bg-methinks-lightgray"
+        className="focus:outline-none resize-none w-full h-2/3 text-3xl font-serif bg-methinks-lightgray"
         onChange={(e) => setText(e.target.value)}
       />
     </div>

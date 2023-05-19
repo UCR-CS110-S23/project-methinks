@@ -67,7 +67,7 @@ const UserProfile = () => {
                 onMouseLeave={() => setShowNamePen(false)}
               >
                 {!editName && (
-                  <p className="m-0 pl-1 text-methinks-white font-bold text-4xl">
+                  <p className="m-0 pl-1 text-methinks-white font-bold text-4xl font-publicSans">
                     {name}
                   </p>
                 )}
@@ -100,7 +100,7 @@ const UserProfile = () => {
                 }}
               >
                 {!editUsername && (
-                  <p className="m-0 pl-1 text-methinks-lightgray font-medium text-2xl">
+                  <p className="m-0 pl-1 text-methinks-lightgray font-medium text-2xl font-publicSans">
                     {username}
                   </p>
                 )}
@@ -136,7 +136,7 @@ const UserProfile = () => {
                 }}
               >
                 {!editBio && (
-                  <p className="m-0 pl-1 text-methinks-lightgray font-medium text-lg">
+                  <p className="m-0 pl-1 text-methinks-lightgray font-medium text-lg font-publicSans">
                     {bio}
                   </p>
                 )}
@@ -165,11 +165,17 @@ const UserProfile = () => {
             <div className="h-full select-none">&nbsp;&nbsp;</div>
           )}
           {(editName || editUsername || editBio) && (
-            <div className="self-end flex items-center gap-x-5 m-0 h-full">
-              <p className="text-methinks-white m-0" onClick={handleCancel}>
+            <div className="self-end flex items-center gap-x-5 m-0 h-full font-publicSans font-medium">
+              <p
+                className="text-methinks-white m-0 cursor-pointer hover:text-methinks-lightgray"
+                onClick={handleCancel}
+              >
                 Cancel
               </p>
-              <p className="text-methinks-white m-0" onClick={handleSave}>
+              <p
+                className="text-methinks-white m-0 cursor-pointer hover:text-methinks-lightgray"
+                onClick={handleSave}
+              >
                 Save
               </p>
             </div>
@@ -179,7 +185,7 @@ const UserProfile = () => {
           <Calendar />
         </div>
       </div>
-      <div className="w-1/2 flex flex-col gap-y-10 m-10">
+      <div className="w-1/2 flex flex-col gap-y-10 m-10 font-publicSans">
         <div className="flex gap-x-7 items-center">
           <p className="text-methinks-white font-bold text-4xl m-0">Memories</p>
           <p className="text-methinks-darkgray text-2xl m-0">5.16.23</p>
@@ -187,7 +193,7 @@ const UserProfile = () => {
         <div className="flex flex-wrap justify-center gap-x-5 text-methinks-white">
           <div className="flex gap-x-2 items-center">
             <span className="rounded-full bg-methinks-white pr-1 w-[20px] h-[20px]"></span>
-            <p className="font-publicSans mb-0">Thought</p>
+            <p className="mb-0">Thought</p>
           </div>
           <div className="flex gap-x-2 items-center">
             <span className="rounded-full bg-methinks-darkgray pr-1 w-[20px] h-[20px]"></span>
