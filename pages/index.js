@@ -12,6 +12,7 @@ export default function Home() {
     <>
       {/* <Post /> */}
       {/* {authenticated ? Landing : <Post />} */}
+
       <Post />
     </>
   );
