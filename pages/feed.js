@@ -18,7 +18,7 @@ const Feed = () => {
           </button>
         ) : (
           <button onMouseEnter={() => setPostToggle(true)}>
-            <BlueCloud />
+            <BlueCloud classname="fixed-top" />
           </button>
         )}
       </div>
