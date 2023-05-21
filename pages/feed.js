@@ -1,10 +1,27 @@
-import React from "react";
-import FeedPost from "@/components/Feed/FeedPost";
+import React, { useState } from "react";
+import FeedPosts from "@/components/Feed/FeedPosts";
+import BlueCloud from "@/components/SVGs/BlueCloud";
+import BlackCloud from "@/components/SVGs/BlackCloud";
 
 const Feed = () => {
+  const [newPostToggle, setPostToggle] = useState(false);
   return (
-    <div className="w-full h-full">
-      <FeedPost />
+    <div className="w-full h-full flex flex-col justify-center items-center m-2 ">
+      <div className="">
+        <FeedPosts />
+      </div>
+
+      <div className="w-full flex justify-end pr-8">
+        {newPostToggle ? (
+          <button onMouseLeave={() => setPostToggle(false)}>
+            <BlackCloud />
+          </button>
+        ) : (
+          <button onMouseEnter={() => setPostToggle(true)}>
+            <BlueCloud />
+          </button>
+        )}
+      </div>
     </div>
   );
 };
