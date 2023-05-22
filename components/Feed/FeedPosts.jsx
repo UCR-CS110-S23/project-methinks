@@ -23,7 +23,7 @@ const FeedPosts = () => {
     },
   ];
   return (
-    <div className="w-full  flex flex-col justify-center">
+    <div className="w-full  flex flex-col justify-center 0 ">
       {postData.map((feed, index) => (
         <FeedPost
           key={index}
