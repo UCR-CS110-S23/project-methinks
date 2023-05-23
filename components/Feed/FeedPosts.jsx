@@ -7,19 +7,49 @@ const FeedPosts = () => {
       pic: "/henry2.jpg",
       name: "@henry",
       time: "11:11:11 PM",
-      post: "Tell your boyfriend if says he's got beef that I'm a vegetarian and I aint fuckin scared of him",
+      post: "1 Tell your boyfriend if says he's got beef that I'm a vegetarian and I aint fuckin scared of him",
     },
     {
       pic: "/henry2.jpg",
       name: "@henry",
       time: "11:11:11 PM",
-      post: "Tell your boyfriend if says he's got beef that I'm a vegetarian and I aint fuckin scared of him",
+      post: "2 Tell your boyfriend if says he's got beef that I'm a vegetarian and I aint fuckin scared of him",
     },
     {
       pic: "/henry2.jpg",
       name: "@henry",
       time: "11:11:11 PM",
-      post: "Tell your boyfriend if says he's got beef that I'm a vegetarian and I aint fuckin scared of him",
+      post: "3 Tell your boyfriend if says he's got beef that I'm a vegetarian and I aint fuckin scared of him",
+    },
+    {
+      pic: "/henry2.jpg",
+      name: "@henry",
+      time: "11:11:11 PM",
+      post: "4 Tell your boyfriend if says he's got beef that I'm a vegetarian and I aint fuckin scared of him",
+    },
+    {
+      pic: "/henry2.jpg",
+      name: "@henry",
+      time: "11:11:11 PM",
+      post: "5 Tell your boyfriend if says he's got beef that I'm a vegetarian and I aint fuckin scared of him",
+    },
+    {
+      pic: "/henry2.jpg",
+      name: "@henry",
+      time: "11:11:11 PM",
+      post: "6 Tell your boyfriend if says he's got beef that I'm a vegetarian and I aint fuckin scared of him",
+    },
+    {
+      pic: "/henry2.jpg",
+      name: "@henry",
+      time: "11:11:11 PM",
+      post: "7 Tell your boyfriend if says he's got beef that I'm a vegetarian and I aint fuckin scared of him",
+    },
+    {
+      pic: "/henry2.jpg",
+      name: "@henry",
+      time: "11:11:11 PM",
+      post: "8 Tell your boyfriend if says he's got beef that I'm a vegetarian and I aint fuckin scared of him",
     },
   ];
   return (
