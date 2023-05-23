@@ -17,6 +17,7 @@
     "bootstrap": "^5.2.3",
     "date-fns": "^2.30.0",
     "kalendaryo": "^1.11.1",
+    "moment": "^2.29.4",
     "next": "13.4.1",
     "react": "18.2.0",
     "react-big-calendar": "^1.6.9",

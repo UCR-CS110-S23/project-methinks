@@ -2,7 +2,7 @@ import React from "react";
 
 const FriendsProfile = () => {
   return (
-    <div className="w-full flex justify-center items-center bg-methinks-background my-4">
+    <div className="w-full h-full flex justify-center items-center bg-methinks-background py-4">
       <div className="w-[40%] flex flex-col justify-center items-center gap-y-8">
         <div className="gap-y-2 flex flex-col justify-center items-center">
           <div className="rounded-full bg-methinks-darkgray pr-1 w-[120px] h-[120px]" />

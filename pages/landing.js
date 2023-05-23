@@ -15,7 +15,7 @@ const Landing = () => {
     setIsClicked(false);
   };
   return (
-    <div className="bg-methinks-black w-full h-full flex flex-col justify-center items-center">
+    <div className="bg-methinks-black w-full h-screen flex flex-col justify-center items-center">
       <Image src={Cloud} alt="bird" draggable="false" />
       <span
         onMouseEnter={() => setIsHover(true)}
@@ -36,12 +36,15 @@ const Landing = () => {
             onMouseLeave={handleUnclick}
           />
         )}
-        {/* {isHover && (
-          <FaGoogle className="text-methinks-white text-8xl stroke-[1px] cursor-pointer" />
-        )} */}
       </span>
     </div>
   );
 };
 
 export default Landing;
+
+{
+  /* {isHover && (
+  <FaGoogle className="text-methinks-white text-8xl stroke-[1px] cursor-pointer" />
+)} */
+}

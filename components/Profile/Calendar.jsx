@@ -40,9 +40,7 @@ const MyCalendar = (Kalendaryo) => {
         >
           <BsFillCaretLeftFill />
         </button>
-
         <span className="text-methinks-white font-bold">{currentDate}</span>
-
         <button
           className="text-[2rem] text-methinks-white cursor-pointer"
           onClick={setDateNextMonth}

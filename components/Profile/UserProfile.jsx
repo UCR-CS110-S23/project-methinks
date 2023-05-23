@@ -18,6 +18,8 @@ const UserProfile = () => {
   const [showBioPen, setShowBioPen] = useState(false);
   const [editBio, setEditBio] = useState(false);
 
+  // const [date, setDate] = useState("");
+
   const handleName = () => {
     setEditName(true);
     setPreviousName(name);
@@ -55,7 +57,7 @@ const UserProfile = () => {
   };
   console.log(editBio);
   return (
-    <div className="h-full w-full flex justify-between bg-methinks-background p-10">
+    <div className="h-screen w-full flex justify-between bg-methinks-background p-10">
       <div className="flex flex-col w-1/2 m-10 gap-y-10">
         <div className="flex flex-col bg-methinks-gray p-7 pb-3 rounded-xl">
           <div className="flex items-center gap-x-5">
@@ -120,7 +122,7 @@ const UserProfile = () => {
                     <input
                       type="text"
                       placeholder="___________________"
-                      className="bg-transparent focus:outline-none rounded-md w-full text-methinks-lightgray font-medium text-2xl"
+                      className="bg-methinks-gray focus:outline-none rounded-md w-full text-methinks-lightgray font-medium text-2xl"
                       onChange={(e) => setUsername("@" + e.target.value)}
                     />
                   </div>
@@ -153,7 +155,7 @@ const UserProfile = () => {
                     <input
                       type="text"
                       placeholder="_______________________________"
-                      className="pl-1 focus:outline-none rounded-md w-full text-methinks-lightgray font-medium text-lg"
+                      className="pl-1 bg-methinks-gray focus:outline-none rounded-md w-full text-methinks-lightgray font-medium text-lg"
                       onChange={(e) => setBio(e.target.value)}
                     />
                   </div>
@@ -183,6 +185,7 @@ const UserProfile = () => {
         </div>
         <div className="!h-full !w-full mb-10 bg-slate-300">
           <Calendar />
+          {/* <Calendar setDate={setdate} /> */}
         </div>
       </div>
       <div className="w-1/2 flex flex-col gap-y-10 m-10 font-publicSans">
