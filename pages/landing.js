@@ -2,18 +2,26 @@ import React, { useState } from "react";
 import Cloud from "@/public/assets/landing_cloud.svg";
 import Image from "next/image";
 import { TbMoodLookRight } from "react-icons/tb";
-// import { TbMoodEmpty } from "react-icons/tb";
 import { TbMoodSing } from "react-icons/tb";
-// import { TbMoodUnamused } from "react-icons/tb";
 import { FaGoogle } from "react-icons/fa";
+import { useSession, signIn } from "next-auth/react";
 
 const Landing = () => {
+  const { data: session } = useSession();
+
   const [isHover, setIsHover] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const handleUnclick = () => {
     setIsHover(false);
     setIsClicked(false);
   };
+
+  // const handleClick = () => {
+  //   setIsClicked(true);
+  //   signIn();
+  // };
+
+  console.log(session?.user);
   return (
     <div className="bg-methinks-black w-full h-screen flex flex-col justify-center items-center">
       <Image src={Cloud} alt="bird" draggable="false" />
@@ -27,7 +35,8 @@ const Landing = () => {
         {isHover && !isClicked && (
           <TbMoodSing
             className="text-methinks-white text-8xl stroke-[1px] cursor-pointer"
-            onClick={() => setIsClicked(true)}
+            onClick={() => signIn()}
+            // onClick={() => setIsClicked(true)}
           />
         )}
         {isClicked && (
@@ -42,9 +51,3 @@ const Landing = () => {
 };
 
 export default Landing;
-
-{
-  /* {isHover && (
-  <FaGoogle className="text-methinks-white text-8xl stroke-[1px] cursor-pointer" />
-)} */
-}

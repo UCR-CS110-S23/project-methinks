@@ -1,5 +1,7 @@
 import Layout from "@/components/Layout";
 import "../styles/globals.css";
+import { SessionProvider } from "next-auth/react";
+
 /* eslint-disable camelcase */
 import { Public_Sans } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -20,12 +22,17 @@ const outfit = Outfit({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
-export default function App({ Component, pageProps }) {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
   return (
-    <main className={`${publicSans.variable} ${outfit.variable}`}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </main>
+    <SessionProvider session={pageProps.session}>
+      <main className={`${publicSans.variable} ${outfit.variable}`}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </main>
+    </SessionProvider>
   );
 }
