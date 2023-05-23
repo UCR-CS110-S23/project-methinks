@@ -9,9 +9,19 @@ const Feed = () => {
   const [newPostToggle, setPostToggle] = useState(false);
   return (
     <div className="w-full relative flex flex-col justify-center items-center py-5">
-      <div className="w-[12%] absolute right-20 top-0 z-[20]">
+      {/* MAYBE TAGS HERE? */}
+      {/* <div className="flex bg-red-500">
+        <div className="flex">
+          <p className="text-methinks-white">Helo</p>
+          <p className="text-methinks-white">Helo</p>
+          <p className="text-methinks-white">Helo</p>
+          <p className="text-methinks-white">Helo</p>
+          <p className="text-methinks-white">Helo</p>
+        </div> */}
+      <div className="w-[12%] absolute top-0 right-20 z-[20]">
         <SortButton />
       </div>
+      {/* </div> */}
       <div className="w-1/2 mt-24">
         <Posts />
       </div>
