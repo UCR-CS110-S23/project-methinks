@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
     return <div className="w-full bg-methinks-background">{children}</div>;
   }
   return (
-    <div className="w-full h-screen bg-methinks-background">
+    <div className="w-full bg-methinks-background">
       <Navigation />
       {children}
     </div>
