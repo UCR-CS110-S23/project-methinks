@@ -1,24 +1,25 @@
 import React, { useState } from "react";
 import FeedPosts from "@/components/Feed/FeedPosts";
-import BlueCloud from "@/components/SVGs/BlueCloud";
-import BlackCloud from "@/components/SVGs/BlackCloud";
+import mintcloud from "@/public/mintcloud.svg";
+import hovercloud from "@/public/hovercloud.svg";
+import Image from "next/image";
 
 const Feed = () => {
   const [newPostToggle, setPostToggle] = useState(false);
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center m-2 ">
+    <div className="w-full h-full flex flex-col justify-center items-center m-2  ">
       <div className="">
         <FeedPosts />
       </div>
 
-      <div className="w-full flex justify-end pr-8">
+      <div className="w-full flex justify-end">
         {newPostToggle ? (
           <button onMouseLeave={() => setPostToggle(false)}>
-            <BlackCloud />
+            <Image src={hovercloud} alt="hover cloud img" />
           </button>
         ) : (
           <button onMouseEnter={() => setPostToggle(true)}>
-            <BlueCloud classname="fixed-top" />
+            <Image src={mintcloud} alt="mint cloud img" />
           </button>
         )}
       </div>
