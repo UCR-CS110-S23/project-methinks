@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
-const Post = ({ pic, name, time, post }) => {
+const Post = ({ pic, name, time, post, tag }) => {
   const [toggle, setToggle] = useState(false);
 
   const [counter, setCounter] = useState(0);
@@ -25,8 +25,8 @@ const Post = ({ pic, name, time, post }) => {
               <div className="text-[##77818A]  text-base ">{time}</div>
             </div>
           </div>
-          <div className="text-black text-2xl flex justify-end items-center w-full">
-            Politics
+          <div className="text-methinks-purple text-2xl flex justify-end items-center w-full">
+            {tag}
           </div>
         </div>
 
@@ -34,7 +34,7 @@ const Post = ({ pic, name, time, post }) => {
         <div className=" flex justify-end text-3xl w-full  items-center">
           {toggle ? (
             <AiFillHeart
-              className="hover: cursor-pointer"
+              className="hover:cursor-pointer"
               onClick={() => {
                 setCounter(counter - 1);
                 setToggle(!toggle);
@@ -42,7 +42,7 @@ const Post = ({ pic, name, time, post }) => {
             />
           ) : (
             <AiOutlineHeart
-              className="hover: cursor-pointer"
+              className="hover:cursor-pointer"
               onClick={() => {
                 setCounter(counter + 1);
                 setToggle(!toggle);
