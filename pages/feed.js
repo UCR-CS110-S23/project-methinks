@@ -9,14 +9,14 @@ const Feed = () => {
   const [newPostToggle, setPostToggle] = useState(false);
   return (
     <div className="w-full relative flex flex-col justify-center items-center py-5">
-      <div className="relative w-full">
+      <div className="w-[12%] absolute right-20 top-0 z-[20]">
         <SortButton />
       </div>
-      <div className="w-1/2">
+      <div className="w-1/2 mt-24">
         <Posts />
       </div>
 
-      <div className="fixed right-[12%] bottom-[12%] z-[20]">
+      <div className="fixed right-[12%] bottom-[10%] z-[20]">
         {newPostToggle ? (
           <Image
             src={hovercloud}
