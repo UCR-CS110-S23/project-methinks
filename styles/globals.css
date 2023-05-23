@@ -1,3 +1,152 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+
+@import url("https://fonts.googleapis.com/css?family=Public+Sans");
+* {
+  padding: 0;
+  margin: 0;
+  /* color: #333; */
+  /* font-family: "Source Sans Pro", sans-serif; */
+  /* box-sizing: border-box; */
+  /* height: 100%; */
+}
+
+/* .rbc-header {
+  background: blue !important;
+} */
+
+.penEdit {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid white;
+  color: white;
+  font-weight: 700;
+  font-size: 2.25rem;
+}
+
+button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+}
+
+button:hover {
+  color: #77818a;
+}
+
+.my-calendar {
+  margin: 5% auto;
+  /* box-shadow: 0 1px 3px #aeaeae; */
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0;
+  margin: 0;
+  color: #333;
+  /* font-family: "Source Sans Pro", sans-serif; */
+  box-sizing: border-box;
+  font-family: "Public Sans", sans-serif;
+}
+
+.my-calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: #24292f;
+  /* height: 10%; */
+  font-size: xx-large;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+.my-calendar-header span {
+  color: #fff;
+  font-weight: bold;
+}
+
+.my-calendar-body {
+  background-color: #24292f;
+  height: 100% !important;
+}
+
+.week {
+  display: flex;
+  flex-wrap: wrap;
+  /* margin: 0px 10px; */
+  height: 14%;
+  /* width: 100%; */
+}
+
+.week:not(:first-of-type) {
+  border-top: 1px solid #efefef;
+  border: none !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 15%; */
+}
+
+.week.day-labels {
+  background: #24292f;
+  border: none !important;
+  font-size: 25px;
+  cursor: default;
+}
+
+.day {
+  width: calc(100% / 7);
+  flex-basis: calc(100% / 7);
+  padding: 1rem 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  height: 100%;
+  /* width: 50%; */
+}
+
+.day[disabled] {
+  color: #24292f;
+  cursor: default;
+  user-select: none;
+  background: inherit !important;
+}
+
+.week:not(.day-labels) .day:not(:last-of-type) {
+  border-right: 1px solid #efefef;
+  border: none !important;
+  /* background-color: red; */
+}
+
+.week:not(.day-labels) .day.is-selected.is-selected {
+  background-color: #77818a;
+  border-radius: 15px;
+  color: #fff;
+}
+
+.week:not(.day-labels) .day.is-today.is-today {
+  font-weight: bold;
+  color: #77818a;
+}
+
+.week:not(.day-labels) .day.is-today.is-today.is-selected {
+  color: #fff;
+}
+
+.week:not(.day-labels) .day:hover {
+  background-color: #f3f3f3;
+  border-radius: 15px;
+  color: #24292f;
+}

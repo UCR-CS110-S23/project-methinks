@@ -9,6 +9,7 @@ module.exports = {
       colors: {
         methinks: {
           white: "#FFFFFF",
+          gray: "#313840",
           lightgray: "#D0D7E1",
           darkgray: "#77818A",
           green: "#C6E7EC",
@@ -22,6 +23,7 @@ module.exports = {
 
       fontFamily: {
         publicSans: ["var(--font-publicSans)", "sans-serif"],
+        outfit: ["var(--font-outfit)", "sans-serif"],
       },
     },
   },

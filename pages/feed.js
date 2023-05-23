@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import FeedPosts from "@/components/Feed/FeedPosts";
+import Posts from "@/components/Feed/Posts";
+import SortButton from "@/components/Feed/SortButton";
 import mintcloud from "@/public/mintcloud.svg";
 import hovercloud from "@/public/hovercloud.svg";
 import Image from "next/image";
@@ -7,20 +8,37 @@ import Image from "next/image";
 const Feed = () => {
   const [newPostToggle, setPostToggle] = useState(false);
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center m-2  ">
-      <div className="">
-        <FeedPosts />
+    <div className="w-full relative flex flex-col justify-center items-center py-5">
+      {/* MAYBE TAGS HERE? */}
+      {/* <div className="flex bg-red-500">
+        <div className="flex">
+          <p className="text-methinks-white">Helo</p>
+          <p className="text-methinks-white">Helo</p>
+          <p className="text-methinks-white">Helo</p>
+          <p className="text-methinks-white">Helo</p>
+          <p className="text-methinks-white">Helo</p>
+        </div> */}
+      <div className="w-[12%] absolute top-0 right-20 z-[20]">
+        <SortButton />
+      </div>
+      {/* </div> */}
+      <div className="w-1/2 mt-24">
+        <Posts />
       </div>
 
-      <div className="w-full flex justify-end">
+      <div className="fixed right-[12%] bottom-[10%] z-[20]">
         {newPostToggle ? (
-          <button onMouseLeave={() => setPostToggle(false)}>
-            <Image src={hovercloud} alt="hover cloud img" />
-          </button>
+          <Image
+            src={hovercloud}
+            alt="hover cloud img"
+            onMouseLeave={() => setPostToggle(false)}
+          />
         ) : (
-          <button onMouseEnter={() => setPostToggle(true)}>
-            <Image src={mintcloud} alt="mint cloud img" />
-          </button>
+          <Image
+            src={mintcloud}
+            alt="mint cloud img"
+            onMouseEnter={() => setPostToggle(true)}
+          />
         )}
       </div>
     </div>
