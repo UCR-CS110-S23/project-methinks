@@ -18,7 +18,7 @@ const SortButton = () => {
           <div className="text-lg">Sort </div>
         </button>
         {sortDropDown && (
-          <button className="bg-methinks-darkgray rounded-xl p-3 w-1/6 text-white  flex flex-col text-md m-2">
+          <button className="bg-methinks-darkgray rounded-xl p-3 w-2/3 text-white  flex flex-col text-md m-2">
             <div
               className=" w-full  flex justify-between items-baseline"
               onClick={() => {
