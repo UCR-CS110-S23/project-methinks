@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Posts from "@/components/Feed/Posts";
-import SortButton from "@/components/Feed/SortButton";
 import mintcloud from "@/public/mintcloud.svg";
 import hovercloud from "@/public/hovercloud.svg";
 import Image from "next/image";
@@ -21,7 +20,7 @@ const Feed = () => {
           <p className="text-methinks-white">Helo</p>
           <p className="text-methinks-white">Helo</p>
         </div> */}
-      <div className="translate-y-20">
+      <div className="">
         <TopicBar />
       </div>
       {/* </div> */}

@@ -57,7 +57,7 @@ const TopicBar = () => {
   };
 
   return (
-    <div className="flex   items-center justify-center  -translate-y-24  ">
+    <div className="flex   items-center justify-center  ">
       <div className="   flex justify-center  ">
         <button
           className={`${buttonStyles.buttonAll.backgroundColor} ${buttonStyles.buttonAll.textColor} rounded-full py-2 px-4 m-1`}
