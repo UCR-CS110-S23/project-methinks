@@ -86,7 +86,7 @@ const TopicBar = () => {
         </button>
         <button
           className={`${buttonStyles.buttonLife.backgroundColor} ${buttonStyles.buttonLife.textColor}  rounded-full py-2 px-4 m-1`}
-          onClick={() => handleClick("Life")}
+          onClick={() => handleClick("buttonLife")}
         >
           Lifestyle
         </button>

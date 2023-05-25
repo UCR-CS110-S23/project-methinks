@@ -1,5 +1,5 @@
 import Dropdown from "react-bootstrap/Dropdown";
-import { FaArrowDown, FaCircle } from "react-icons/fa";
+import { FaCircle } from "react-icons/fa";
 import { useState } from "react";
 import React from "react";
 

@@ -1,8 +1,11 @@
 import Layout from "@/components/Layout";
 import "../styles/globals.css";
 /* eslint-disable camelcase */
-import { Public_Sans } from "@next/font/google";
+import { Public_Sans } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
+
+/* eslint-disable new-cap */
+import { Outfit } from "next/font/google";
 
 /* eslint-disable new-cap */
 const publicSans = Public_Sans({
@@ -11,9 +14,15 @@ const publicSans = Public_Sans({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
+
 export default function App({ Component, pageProps }) {
   return (
-    <main className={`${publicSans.className}`}>
+    <main className={`${publicSans.variable} ${outfit.variable}`}>
       <Layout>
         <Component {...pageProps} />
       </Layout>

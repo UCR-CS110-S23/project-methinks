@@ -3,14 +3,14 @@ import Image from "next/image";
 
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
-const FeedPost = ({ pic, name, time, post }) => {
+const Post = ({ pic, name, time, post, tag }) => {
   const [toggle, setToggle] = useState(false);
 
   const [counter, setCounter] = useState(0);
 
   return (
     <div className="flex justify-center">
-      <div className="bg-gray-200 w-3/5 flex flex-col rounded-xl gap-y-5 py-4 px-4 m-2 ">
+      <div className="bg-gray-200 w-full flex flex-col rounded-xl gap-y-5 py-4 px-4 m-2 ">
         <div className="flex w-full">
           <div className="gap-x-4 w-3/4 flex justify-start items-center  ">
             <Image
@@ -25,8 +25,8 @@ const FeedPost = ({ pic, name, time, post }) => {
               <div className="text-[##77818A]  text-base ">{time}</div>
             </div>
           </div>
-          <div className="text-black text-2xl flex justify-end items-center w-full">
-            Politics
+          <div className="text-methinks-purple text-2xl flex justify-end items-center w-full">
+            {tag}
           </div>
         </div>
 
@@ -34,7 +34,7 @@ const FeedPost = ({ pic, name, time, post }) => {
         <div className=" flex justify-end text-3xl w-full  items-center">
           {toggle ? (
             <AiFillHeart
-              className="hover: cursor-pointer"
+              className="hover:cursor-pointer"
               onClick={() => {
                 setCounter(counter - 1);
                 setToggle(!toggle);
@@ -42,7 +42,7 @@ const FeedPost = ({ pic, name, time, post }) => {
             />
           ) : (
             <AiOutlineHeart
-              className="hover: cursor-pointer"
+              className="hover:cursor-pointer"
               onClick={() => {
                 setCounter(counter + 1);
                 setToggle(!toggle);
@@ -57,4 +57,4 @@ const FeedPost = ({ pic, name, time, post }) => {
   );
 };
 
-export default FeedPost;
+export default Post;
