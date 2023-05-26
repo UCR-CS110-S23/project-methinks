@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Cards from "@/components/Post/Cards";
 import Tags from "@/components/Post/Tags";
+import Navigation from "./Navigation";
 
 const Post = () => {
   const [text, setText] = useState("");
@@ -43,6 +44,7 @@ const Post = () => {
       >
         Post
       </button>
+      <Navigation />
     </div>
   );
 };
