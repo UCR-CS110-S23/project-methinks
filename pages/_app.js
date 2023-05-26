@@ -4,7 +4,6 @@ import { SessionProvider } from "next-auth/react";
 
 /* eslint-disable camelcase */
 import { Public_Sans } from "next/font/google";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 /* eslint-disable new-cap */
 import { Outfit } from "next/font/google";
@@ -27,12 +26,12 @@ export default function App({
   pageProps: { session, ...pageProps },
 }) {
   return (
-    <SessionProvider session={pageProps.session}>
-      <main className={`${publicSans.variable} ${outfit.variable}`}>
+    <main className={`${publicSans.variable} ${outfit.variable}`}>
+      <SessionProvider session={pageProps.session}>
         <Layout>
           <Component {...pageProps} />
         </Layout>
-      </main>
-    </SessionProvider>
+      </SessionProvider>
+    </main>
   );
 }

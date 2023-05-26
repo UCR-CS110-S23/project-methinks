@@ -7,7 +7,7 @@ import { FaGoogle } from "react-icons/fa";
 import { useSession, signIn } from "next-auth/react";
 
 const Landing = () => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
   const [isHover, setIsHover] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
@@ -21,7 +21,7 @@ const Landing = () => {
   //   signIn();
   // };
 
-  console.log(session?.user);
+  console.log("Session: ", session, status);
   return (
     <div className="bg-methinks-black w-full h-screen flex flex-col justify-center items-center">
       <Image src={Cloud} alt="bird" draggable="false" />

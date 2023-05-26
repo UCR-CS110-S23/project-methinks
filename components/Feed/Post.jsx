@@ -31,7 +31,7 @@ const Post = ({ pic, name, time, post, tag }) => {
         </div>
 
         <div className="text-black text-4xl pl-5 font-normal">{post}</div>
-        <div className=" flex justify-end text-3xl w-full  items-center">
+        <div className=" flex justify-end text-3xl w-full  items-center text-methinks-black">
           {toggle ? (
             <AiFillHeart
               className="hover:cursor-pointer"

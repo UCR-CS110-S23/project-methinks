@@ -20,7 +20,7 @@ const SortButton = () => {
         {sortDropDown && (
           <button className="bg-methinks-darkgray rounded-xl p-3 text-white  flex flex-col text-md w-full">
             <div
-              className=" w-full  flex justify-between items-baseline hover:text-methinks-lightgray"
+              className=" w-full  flex justify-between items-baseline hover:text-methinks-darkgray"
               onClick={() => {
                 setSortFilter(false);
               }}
@@ -28,7 +28,7 @@ const SortButton = () => {
               Latest {!sortFilter && <FaCircle className="text-xs" />}
             </div>
             <div
-              className=" w-full flex  justify-between items-baseline hover:text-methinks-lightgray"
+              className=" w-full flex  justify-between items-baseline hover:text-methinks-darkgray"
               onClick={() => {
                 setSortFilter(true);
               }}
