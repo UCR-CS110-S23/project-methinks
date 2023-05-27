@@ -5,10 +5,10 @@ const Layout = ({ children }) => {
   const authenticated = false;
 
   if (authenticated) {
-    return <div className="w-full bg-methinks-background">{children}</div>;
+    return <div className="bg-methinks-background">{children}</div>;
   }
   return (
-    <div className="w-full bg-methinks-background">
+    <div className="bg-methinks-background">
       <Navigation />
       {children}
     </div>

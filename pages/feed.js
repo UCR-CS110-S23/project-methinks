@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSession } from "next-auth/react";
 import Posts from "@/components/Feed/Posts";
 import mintcloud from "@/public/mintcloud.svg";
 import hovercloud from "@/public/hovercloud.svg";
@@ -8,7 +9,9 @@ import TopicBar from "@/components/Feed/TopicBar";
 
 const Feed = () => {
   const [newPostToggle, setPostToggle] = useState(false);
+  const { data: session, status } = useSession();
 
+  console.log("session", session, status);
   return (
     <div className="w-full relative flex flex-col justify-center items-center py-5">
       {/* MAYBE TAGS HERE? */}

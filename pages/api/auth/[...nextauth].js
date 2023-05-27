@@ -34,123 +34,75 @@ export default async function auth(req, res) {
           //   password: "123",
           // };
           // console.log(db.collection("users"));
-          const user = await db.collection("users").insertMany([
-            // {
-            //   name: "MARIAM",
-            //   email: "MARIAM@gmail.com",
-            //   password: "123",
-            // },
-            {
-              name: "adkjflk;ad",
-              email: "i42@gmail.com",
-              password: "kkkkkkkk",
-            },
-            {
-              name: "BOB;ad",
-              email: "bob@gmail.com",
-              password: "bleh",
-            },
-          ]);
-          // const user = await db
-          //   .collection("users")
-          //   .findOne({ email: "mcaro008@ucr.edu" }); // await db
-          //   .collection("test")
-          //   .insertOne(
-          //     { _id: "00000" },
-          //     { $push: { records: user } },
-          //     (err, result) => {
-          //       if (err) {
-          //         console.error("Error inserting record:", err);
-          //         return;
-          //       }
+          const user = await db.collection("users").findOne({
+            email: credentials.email,
+            // password: credentials.password,
+          });
 
-          //       console.log(
-          //         "Record inserted successfully:",
-          //         user
-          //         // result.modifiedCount
-          //       );
-          //     }
-          //   );
+          // console.log(user);
+          // const user = await db.collection("users").insertMany([
+          //   // {
+          //   //   name: "MARIAM",
+          //   //   email: "MARIAM@gmail.com",
+          //   //   password: "123",
+          //   // },
+          //   {
+          //     name: "kkkkkk;ad",
+          //     email: "ooooo@gmail.com",
+          //     password: "kkkkkkkk",
+          //   },
+          //   {
+          //     name: "BOB;ad",
+          //     email: "bob@gmail.com",
+          //     password: "bleh",
+          //   },
+          // ]);
 
           if (user) {
             // Any object returned will be saved in `user` property of the JWT
-            return { name: "HI", email: "m@gmail.com" };
+            // return user;
+            return {
+              email: user.email,
+              image: user.image,
+              name: user.name,
+              provider: user.provider,
+              username: user.username,
+            };
+            // return {
+            //   name: user.name,
+            //   username: "b",
+            //   email: user.email,
+            // };
             // return user;
           } else {
             // If you return null then an error will be displayed advising the user to check their details.
-            console.log("USER NOT FOUND");
+            console.log("[...nextauth]: User not found!");
             return null;
 
             // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
           }
+          // if (user) {
+          //   // Any object returned will be saved in `user` property of the JWT
+          //   return { name: "HI", email: "m@gmail.com" };
+          //   // return user;
+          // } else {
+          //   // If you return null then an error will be displayed advising the user to check their details.
+          //   console.log("USER NOT FOUND");
+          //   return null;
+
+          //   // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
+          // }
         },
       }),
-      // CredentialsProvider({
-      //   name: "Credentials",
-
-      //   credentials: {
-      //     username: { label: "Username", type: "text", placeholder: "jsmith" },
-      //     password: { label: "Password", type: "password" },
-      //   },
-      //   async authorize(credentials, req) {
-      //     const user = true;
-
-      //     if (user) {
-      //       return {
-      //         name: "mika",
-      //         username: "mika",
-      //         password: "123",
-      //       };
-      //     } else {
-      //       return null;
-      //     }
-      //   },
-      // }),
-
-      // CredentialsProvider({
-      //   id: "credentials",
-      //   name: "Credentials",
-      //   async authorize(credentials) {
-      //     console.log("custom");
-      //     // const db = (await clientPromise).db(process.env.MONGODB_DB);
-      //     // console.log(db);
-      //     //   await db.connect();
-
-      //     //   const user = await db
-      //     //     .collection("users")
-      //     //     .findOne({ email: credentials.email });
-
-      //     //   // Check if user exists
-      //     //   if (!user) {
-      //     //     return null;
-      //     //   }
-
-      //     //   // Validate password
-      //     //   const isPasswordMatch = await isPasswordValid(
-      //     //     credentials.password,
-      //     //     user.password
-      //     //   );
-
-      //     //   if (!isPasswordMatch) {
-      //     //     return null;
-      //     //   }
-      //     //   console.log("custom end");
-
-      //     return {
-      //       name: "M",
-      //       email: "m@gmail.com",
-      //     };
-      //   },
-      // }),
     ],
     // adapter: MongoDBAdapter({
     //   db: (await clientPromise).db(process.env.MONGODB_DB),
     // }),
     adapter: MongoDBAdapter(clientPromise),
 
-    pages: {
-      signIn: "/signin",
-    },
+    // pages: {
+    //   signIn: "/signin",
+    // },
     // callbacks: {
     //   async signIn({ user, account, profile }) {
     //     if (account.provider === "google") {
@@ -172,6 +124,36 @@ export default async function auth(req, res) {
     session: {
       // Set to jwt in order to CredentialsProvider works properly
       strategy: "jwt",
+    },
+    callbacks: {
+      // async signIn({ user, account, profile }) {
+      //   if (account.provider === "google") {
+      //     // first and last name attributes are available for GoogleProfile
+      //     // -- https://github.com/nextauthjs/next-auth/blob/main/packages/next-auth/src/providers/google.ts
+
+      //     user.username = profile.name;
+      //     // user.name = {
+      //     //   first: String(profile.name.split(' ')[0]),
+      //     //   last: String(profile.name.split(' ')[1])
+      //     // };
+      //   }
+      //   return true;
+      // },
+      async jwt({ user, token, account }) {
+        // console.log(user);
+        if (account?.provider === "google") {
+          user.username = user.name.toLowerCase().replace(/ /g, "_");
+          user.provider = "google";
+        }
+        if (user) {
+          token.user = user;
+        }
+        return token;
+      },
+      async session({ session, token }) {
+        session.user = token.user;
+        return session;
+      },
     },
     // session: {
     //   strategy: "jwt",

@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import "../styles/globals.css";
 import { SessionProvider } from "next-auth/react";
+import { useSSR } from "@nextui-org/react";
 
 /* eslint-disable camelcase */
 import { Public_Sans } from "next/font/google";
@@ -25,13 +26,17 @@ export default function App({
   Component,
   pageProps: { session, ...pageProps },
 }) {
+  const { isBrowser } = useSSR();
+
   return (
-    <main className={`${publicSans.variable} ${outfit.variable}`}>
+    isBrowser && (
       <SessionProvider session={pageProps.session}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <main className={`${publicSans.variable} ${outfit.variable}`}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </main>
       </SessionProvider>
-    </main>
+    )
   );
 }

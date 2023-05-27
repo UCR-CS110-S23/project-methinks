@@ -11,10 +11,11 @@ export default async function handler(req, res) {
     const userExists = await db
       .collection("users")
       .findOne({ email: newUser.email });
+
     if (userExists) {
       res.status(422).json({
         success: false,
-        message: "A user with the same email already exists!",
+        message: "Email already exists!",
         userExists: true,
       });
       return;
@@ -24,10 +25,6 @@ export default async function handler(req, res) {
     newUser.password = await hashPassword(newUser.password);
 
     await db.collection("users").insertOne(newUser);
-
-    // // Store new user
-    // const storeUser = new User(newUser);
-    // await storeUser.save();
 
     res
       .status(201)
