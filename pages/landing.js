@@ -1,26 +1,16 @@
 import React, { useState } from "react";
-import Cloud from "@/public/assets/landing_cloud.svg";
+import Link from "next/link";
+import { useSession } from "next-auth/react";
+import { getSession } from "next-auth/react";
 import Image from "next/image";
+import Cloud from "@/public/assets/landing_cloud.svg";
 import { TbMoodLookRight } from "react-icons/tb";
 import { TbMoodSing } from "react-icons/tb";
-// import { FaGoogle } from "react-icons/fa";
-import { useSession } from "next-auth/react";
-import Link from "next/link";
 
 const Landing = () => {
   const { data: session, status } = useSession();
 
   const [isHover, setIsHover] = useState(false);
-  // const [isClicked, setIsClicked] = useState(false);
-  // const handleUnclick = () => {
-  //   setIsHover(false);
-  //   setIsClicked(false);
-  // };
-
-  // const handleClick = () => {
-  //   setIsClicked(true);
-  //   signIn();
-  // };
 
   console.log("Session: ", session, status);
   return (
@@ -35,22 +25,31 @@ const Landing = () => {
         )}
         {isHover && (
           <Link href="/signin">
-            <TbMoodSing
-              className="text-methinks-white text-8xl stroke-[1px] cursor-pointer"
-              // onClick={() => signIn()}
-              // onClick={() => setIsClicked(true)}
-            />
+            <TbMoodSing className="text-methinks-white text-8xl stroke-[1px] cursor-pointer" />
           </Link>
         )}
-        {/* {isClicked && (
-          <FaGoogle
-            className="text-methinks-white text-8xl stroke-[2px] cursor-pointer"
-            onMouseLeave={handleUnclick}
-          />
-        )} */}
       </span>
     </div>
   );
 };
+
+// export const getServerSideProps = async (context) => {
+//   console.log("HELLLOOOOOOOO");
+//   const session = await getSession({ req: context.req });
+
+//   if (session) {
+//     console.log("session");
+//     return {
+//       redirect: {
+//         destination: "/feed",
+//         permanent: false,
+//       },
+//     };
+//   }
+//   console.log("no session");
+//   return {
+//     props: { session },
+//   };
+// };
 
 export default Landing;

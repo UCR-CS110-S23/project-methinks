@@ -1,0 +1,30 @@
+import React, { useEffect } from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+
+const PublicPage = ({ children }) => {
+  const { status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    console.log("LAYOUT PUBLIC");
+    if (status !== "loading" && status === "authenticated") {
+      router.replace("/feed");
+    }
+  }, [status, router]);
+
+  //   if (status === "loading") {
+  //     return <p className="bg-red-500 h-screen w-screen">Loading...</p>;
+  //   }
+
+  return (
+    status !== "loading" &&
+    status === "unauthenticated" && (
+      <div className="bg-methinks-background">
+        <>{children}</>
+      </div>
+    )
+  );
+};
+
+export default PublicPage;

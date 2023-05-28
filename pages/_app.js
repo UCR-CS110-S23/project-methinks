@@ -1,7 +1,10 @@
-import Layout from "@/components/Layout";
-import "../styles/globals.css";
+import { useRouter } from "next/router";
 import { SessionProvider } from "next-auth/react";
 import { useSSR } from "@nextui-org/react";
+
+import PublicPage from "@/components/Layout/PublicPage";
+import ProtectedPage from "@/components/Layout/ProtectedPage";
+import "../styles/globals.css";
 
 /* eslint-disable camelcase */
 import { Public_Sans } from "next/font/google";
@@ -27,14 +30,25 @@ export default function App({
   pageProps: { session, ...pageProps },
 }) {
   const { isBrowser } = useSSR();
+  const router = useRouter();
 
+  const publicPages = ["/landing", "/signin", "/signup"];
+  const isPagePublic = publicPages.includes(router.pathname);
+
+  console.log(isPagePublic, router.pathname);
   return (
     isBrowser && (
       <SessionProvider session={pageProps.session}>
         <main className={`${publicSans.variable} ${outfit.variable}`}>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+          {isPagePublic ? (
+            <PublicPage>
+              <Component {...pageProps} />
+            </PublicPage>
+          ) : (
+            <ProtectedPage>
+              <Component {...pageProps} />
+            </ProtectedPage>
+          )}
         </main>
       </SessionProvider>
     )

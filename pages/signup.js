@@ -60,19 +60,16 @@ const Signup = () => {
     });
   };
 
-  //   console.log(name, username, email, password);
-
   return (
     <div className="h-screen w-full bg-methinks-black flex justify-center items-center font-publicSans">
       <Link
         href="/signin"
-        className="absolute left-[10%] top-[20%] flex items-center text-methinks-lightgray hover:text-methinks-lightgrayHover duration-300 cursor-pointer text-lg"
+        className="absolute left-[10%] top-[15%] flex items-center text-methinks-lightgray hover:text-methinks-lightgrayHover duration-300 cursor-pointer text-lg"
       >
         <FaChevronLeft className="text-2xl" />
         <span>Back to Login</span>
       </Link>
       <div className="w-1/4 h-full flex flex-col justify-center py-20 items-center gap-y-8">
-        {/* <div className="w-full flex flex-col justify-center items-center"> */}
         <Image src={Cloud} alt="cloud" draggable="false" />
         <form
           autoComplete="none"
@@ -123,22 +120,6 @@ const Signup = () => {
         <div className="w-full h-[30px] flex justify-center items-center">
           <p className="text-red-500">{error} </p>
         </div>
-        {/* </div> */}
-        {/* <p className="text-methinks-white text-sm">OR</p> */}
-        {/* <button className="bg-methinks-white hover:bg-methinks-green w-full text-xl text-methinks-black hover:text-methinks-black py-2 rounded-xl flex items-center justify-center gap-x-3">
-          <span>
-            <FcGoogle className="text-2xl" />
-          </span>
-          Continue with Google
-        </button> */}
-        {/* <div className="self-start">
-          <p className="text-methinks-lightgray">
-            {`Don't`} Have an Account?{" "}
-            <span className="text-methinks-green hover:text-methinks-white cursor-pointer underline underline-offset-2">
-              Sign Up
-            </span>
-          </p>
-        </div> */}
       </div>
     </div>
   );

@@ -21,30 +21,6 @@ const Signin = () => {
     });
   };
 
-  // const handleCredentials = async () => {
-  //   if (!email || !password) {
-  //     setError("Incorrect username or password!");
-  //   } else {
-  //     await signIn("credentials", {
-  //       email,
-  //       password,
-  //       redirect: false,
-  //       // callbackUrl: "/feed",
-  //     }).then((response) => {
-  //       if (response.error) {
-  //         setError("Incorrect username or password!");
-  //         console.log("[Signin-Error]:", response);
-  //       } else {
-  //         console.log("[Signin-Success]:", response);
-  //         setError("");
-  //         setEmail("");
-  //         setPassword("");
-  //         router.replace("/feed");
-  //       }
-  //     });
-  //   }
-  // };
-
   const handleCredentials = async () => {
     if (!email || !password) {
       setError("Incorrect username or password!");
@@ -54,7 +30,6 @@ const Signin = () => {
           email,
           password,
           redirect: false,
-          // callbackUrl: "/feed",
         });
 
         if (response.status === 200) {
@@ -86,7 +61,7 @@ const Signin = () => {
               placeholder="Email"
               type="text"
               value={email}
-              className="border-b-2 border-methinks-white bg-methinks-black w-full py-2 px-1 text-methinks-white focus:outline-none"
+              className="border-b-2 border-methinks-white bg-methinks-black w-full py-2 px-1 text-methinks-white focus:outline-none duration"
               onChange={(e) => setEmail(e.target.value)}
             />
             <input
@@ -117,14 +92,8 @@ const Signin = () => {
         <Link href="/signup" className="self-start">
           <p className="text-methinks-lightgray">
             {`Don't`} Have an Account?{" "}
-            {/* <span className="text-methinks-green hover:text-methinks-greenHover cursor-pointer underline underline-offset-2 duration-300">
+            <span className="text-methinks-green hover:text-methinks-greenHover cursor-pointer underline underline-offset-2 duration-300">
               Sign Up
-            </span> */}
-            <span
-              className="text-methinks-green hover:text-methinks-greenHover cursor-pointer underline underline-offset-2 duration-300"
-              onClick={() => signOut()}
-            >
-              Sign Out
             </span>
           </p>
         </Link>
@@ -133,29 +102,6 @@ const Signin = () => {
         </div>
       </div>
     </div>
-    // <div className="flex flex-col w-1/4 gap-x-5">
-    //   <p className="text-methinks-white text-lg">signin</p>
-    //   <div className="flex gap-x-10">
-    //     <button
-    //       className="bg-methinks-darkgray text-methinks-white hover:text-methinks-black"
-    //       onClick={handleCredential}
-    //     >
-    //       Credential
-    //     </button>
-    //     <button
-    //       className="bg-methinks-darkgray text-methinks-white hover:text-methinks-black"
-    //       onClick={handleGoogle}
-    //     >
-    //       Google
-    //     </button>
-    //     <button
-    //       className="bg-methinks-darkgray text-methinks-white hover:text-methinks-black w-fit"
-    //       onClick={() => signOut()}
-    //     >
-    //       Sign Out
-    //     </button>
-    //   </div>
-    // </div>
   );
 };
 
