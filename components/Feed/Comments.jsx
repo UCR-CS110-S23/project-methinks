@@ -1,5 +1,6 @@
 import React from "react";
 import Comment from "./Comment";
+import { FiSend } from "react-icons/fi";
 
 const Comments = () => {
   const commentData = [
@@ -91,7 +92,8 @@ const Comments = () => {
             placeholder="Expand this thought..."
             className="w-full bg-white focus:outline-none"
           />
-          <p className="cursor-pointer">{`>`}</p>
+          {/* <p className="cursor-pointer">{`>`}</p> */}
+          <FiSend className="text-lg" />
         </div>
       </div>
     </div>

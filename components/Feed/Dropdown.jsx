@@ -1,21 +1,23 @@
 import Dropdown from "react-bootstrap/Dropdown";
 import { FaCircle } from "react-icons/fa";
+import { TbSortDescending } from "react-icons/tb";
 import { useState } from "react";
 import React from "react";
 
 function BasicExample() {
-  let [sortFilter, setSortFilter] = useState(false);
+  const [sortFilter, setSortFilter] = useState(false);
   return (
     <div>
       <Dropdown>
-        <Dropdown.Toggle className="!bg-methinks-darkgray !rounded-full  !flex !justify-center !items-center !border-none !normal-case !animate-none">
+        <Dropdown.Toggle className="!bg-methinks-darkgray !rounded-full after:!hidden !flex !justify-center !items-center !border-none !normal-case !animate-none">
+          <TbSortDescending className="text-lg mr-2" />
           Sort
         </Dropdown.Toggle>
         <Dropdown.Menu className="!bg-methinks-darkgray ">
           <Dropdown.Item
             className="!text-methinks-white hover:!bg-methinks-darkgray !flex !justify-between !items-center"
             onClick={() => {
-              setSortFilter((sortFilter = false));
+              setSortFilter(false);
             }}
           >
             Latest {!sortFilter && <FaCircle className="text-xs" />}
@@ -23,7 +25,7 @@ function BasicExample() {
           <Dropdown.Item
             className="!text-methinks-white hover:!bg-methinks-darkgray !flex !justify-between !items-center"
             onClick={() => {
-              setSortFilter((sortFilter = true));
+              setSortFilter(true);
             }}
           >
             Highest Rating {sortFilter && <FaCircle className="text-xs" />}
