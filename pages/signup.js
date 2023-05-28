@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-import { useSession, signIn, signOut } from "next-auth/react";
-import Image from "next/image";
-import Cloud from "@/public/assets/landing_cloud.svg";
-import { FaChevronLeft } from "react-icons/fa";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import Image from "next/image";
+import { signIn } from "next-auth/react";
+import { FaChevronLeft } from "react-icons/fa";
+import Cloud from "@/public/assets/landing_cloud.svg";
+import { generateRandomUID } from "@/lib/generate_uid";
 
 const Signup = () => {
-  const { data: session, status } = useSession();
-  const router = useRouter();
-
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -21,13 +18,16 @@ const Signup = () => {
       setError("Please Complete your Information!");
     } else {
       const newUser = {
-        email,
-        image: "@/public/henry2.jpg",
         name,
-        password,
-        provider: "credential",
+        email,
+        image: "public/henry2.jpg",
+        uid: generateRandomUID(),
         username,
+        password,
+        provider: "credentials",
       };
+
+      console.log(newUser);
 
       const response = await fetch("/api/auth/signup", {
         method: "POST",
@@ -47,7 +47,6 @@ const Signup = () => {
         setPassword("");
 
         handleSignin();
-        // router.push("/feed");
       }
     }
   };
@@ -61,8 +60,8 @@ const Signup = () => {
     });
   };
 
-  console.log(name, username, email, password);
-  //   console.log("session", session, status);
+  //   console.log(name, username, email, password);
+
   return (
     <div className="h-screen w-full bg-methinks-black flex justify-center items-center font-publicSans">
       <Link
@@ -75,13 +74,17 @@ const Signup = () => {
       <div className="w-1/4 h-full flex flex-col justify-center py-20 items-center gap-y-8">
         {/* <div className="w-full flex flex-col justify-center items-center"> */}
         <Image src={Cloud} alt="cloud" draggable="false" />
-        <div className="flex flex-col gap-y-5 w-full text-xl">
+        <form
+          autoComplete="none"
+          className="flex flex-col gap-y-5 w-full text-xl"
+        >
           <p className="self-start text-methinks-white text-4xl font-bold">
             Create an Account
           </p>
           <input
             placeholder="Name"
             type="text"
+            autoComplete="none"
             value={name}
             className="border-b-2 border-methinks-white bg-methinks-black w-full py-2 px-1 text-methinks-white focus:outline-none"
             onChange={(e) => setName(e.target.value)}
@@ -89,6 +92,7 @@ const Signup = () => {
           <input
             placeholder="Username"
             type="text"
+            autoComplete="none"
             value={username}
             className="border-b-2 border-methinks-white bg-methinks-black w-full py-2 px-1 text-methinks-white focus:outline-none"
             onChange={(e) => setUsername(e.target.value)}
@@ -96,6 +100,7 @@ const Signup = () => {
           <input
             placeholder="Email"
             type="text"
+            autoComplete={"" + Math.random()}
             value={email}
             className="border-b-2 border-methinks-white bg-methinks-black w-full py-2 px-1 text-methinks-white focus:outline-none"
             onChange={(e) => setEmail(e.target.value)}
@@ -103,11 +108,12 @@ const Signup = () => {
           <input
             placeholder="Password"
             type="password"
+            autoComplete={"" + Math.random()}
             value={password}
             className="border-b-2 border-methinks-white bg-methinks-black w-full py-2 px-1 text-methinks-white focus:outline-none"
             onChange={(e) => setPassword(e.target.value)}
           />
-        </div>
+        </form>
         <button
           className="w-full bg-methinks-white hover:bg-methinks-green text-xl text-methinks-black hover:text-methinks-black py-2 rounded-xl duration-300"
           onClick={handleSignup}

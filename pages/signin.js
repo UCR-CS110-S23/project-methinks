@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import Cloud from "@/public/assets/landing_cloud.svg";
 import { FcGoogle } from "react-icons/fc";
@@ -7,6 +8,7 @@ import Link from "next/link";
 
 const Signin = () => {
   const { data: session, status } = useSession();
+  const router = useRouter();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,30 +21,61 @@ const Signin = () => {
     });
   };
 
+  // const handleCredentials = async () => {
+  //   if (!email || !password) {
+  //     setError("Incorrect username or password!");
+  //   } else {
+  //     await signIn("credentials", {
+  //       email,
+  //       password,
+  //       redirect: false,
+  //       // callbackUrl: "/feed",
+  //     }).then((response) => {
+  //       if (response.error) {
+  //         setError("Incorrect username or password!");
+  //         console.log("[Signin-Error]:", response);
+  //       } else {
+  //         console.log("[Signin-Success]:", response);
+  //         setError("");
+  //         setEmail("");
+  //         setPassword("");
+  //         router.replace("/feed");
+  //       }
+  //     });
+  //   }
+  // };
+
   const handleCredentials = async () => {
     if (!email || !password) {
       setError("Incorrect username or password!");
     } else {
-      await signIn("credentials", {
-        // redirect: false,
-        email,
-        password,
-        // email,
-        // password,
-        redirect: true,
-        callbackUrl: "/feed",
-      }).catch((error) => {
+      try {
+        const response = await signIn("credentials", {
+          email,
+          password,
+          redirect: false,
+          // callbackUrl: "/feed",
+        });
+
+        if (response.status === 200) {
+          console.log("[Signin-Success]:", response);
+
+          setError("");
+          setEmail("");
+          setPassword("");
+
+          router.replace("/feed");
+        } else {
+          setError("Incorrect username or password!");
+          console.log("[Signin-Error]:", response);
+        }
+      } catch (error) {
         console.log("[Signin-Error]:", error);
-      });
-      // ADD .then to check if response is null and error is account cant be found
-      setError("");
-      setEmail("");
-      setPassword("");
+      }
     }
   };
 
   console.log("session", session, status);
-  console.log(email, password, error);
   return (
     <div className="h-screen w-full bg-methinks-black flex justify-center items-center font-publicSans">
       <div className="w-1/4 h-full flex flex-col justify-center py-20 items-center gap-y-5">

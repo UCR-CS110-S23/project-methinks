@@ -4,7 +4,7 @@ import Image from "next/image";
 import { TbMoodLookRight } from "react-icons/tb";
 import { TbMoodSing } from "react-icons/tb";
 // import { FaGoogle } from "react-icons/fa";
-import { useSession, signIn } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 
 const Landing = () => {

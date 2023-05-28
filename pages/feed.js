@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import Posts from "@/components/Feed/Posts";
 import mintcloud from "@/public/mintcloud.svg";
 import hovercloud from "@/public/hovercloud.svg";
@@ -12,6 +12,7 @@ const Feed = () => {
   const { data: session, status } = useSession();
 
   console.log("session", session, status);
+  console.log("id", session?.user);
   return (
     <div className="w-full relative flex flex-col justify-center items-center py-5">
       {/* MAYBE TAGS HERE? */}
@@ -31,7 +32,14 @@ const Feed = () => {
         <Posts />
       </div>
 
-      <div className="fixed right-[12%] bottom-[10%] z-[20]">
+      <div
+        className="fixed right-[12%] bottom-[10%] z-[20]"
+        onClick={() =>
+          signOut({
+            callbackUrl: "/signin",
+          })
+        }
+      >
         {newPostToggle ? (
           <Image
             src={hovercloud}
