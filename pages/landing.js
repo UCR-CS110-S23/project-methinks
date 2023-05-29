@@ -6,6 +6,7 @@ import { TbMoodLookRight } from "react-icons/tb";
 import { TbMoodSing } from "react-icons/tb";
 // import { TbMoodUnamused } from "react-icons/tb";
 import { FaGoogle } from "react-icons/fa";
+// import Navigation from "./Navigation";
 
 const Landing = () => {
   const [isHover, setIsHover] = useState(false);
