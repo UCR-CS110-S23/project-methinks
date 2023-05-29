@@ -13,12 +13,15 @@ export default async function signup(req, res) {
   const db = (await clientPromise).db(process.env.MONGODB_DB);
   const collectionName = process.env.USERS_COLLECTION_NAME;
 
-  const newUserName = req.body;
+  const { username } = req.body;
+
+  console.log("req", req.body);
+  console.log(session.user.uid, session.user.username, username);
 
   // Check if user exists
   const userAlreadyExists = await db
     .collection(collectionName)
-    .findOne({ email: newUserName.username });
+    .findOne({ username: username });
 
   if (userAlreadyExists) {
     res.status(422).json({
@@ -28,10 +31,17 @@ export default async function signup(req, res) {
     });
     return;
   }
-
-  await db.collection(collectionName).insertOne(newUserName);
-
+  await db.collection(collectionName).updateOne(
+    {
+      uid: session.user.uid,
+    },
+    {
+      $set: {
+        username,
+      },
+    }
+  );
   res
-    .status(201)
-    .json({ success: true, message: "User signed up successfuly" });
+    .status(200)
+    .json({ success: true, message: "Username updated successfuly" });
 }

@@ -60,7 +60,7 @@ export const authOptions = {
     strategy: "jwt",
   },
   callbacks: {
-    // executed after a user successfully signs in using any provider
+    // Executed after a user successfully signs in using any provider
     async signIn({ user, account, isNewUser }) {
       // Add custom fields to the user object
       if (account.provider === "google") {
@@ -76,10 +76,15 @@ export const authOptions = {
       return true;
     },
 
-    // used to generate a JSON Web Token (JWT) for a user session
-    async jwt({ user, token, account }) {
+    // Used to generate a JSON Web Token (JWT) for a user session
+    async jwt({ token, session, user, trigger }) {
       if (user) {
         token.user = user;
+      }
+      // Listens for mutated attributes in session object
+      if (trigger === "update" && session?.username) {
+        console.log(session?.name);
+        token.user.username = session.username;
       }
       return token;
     },
@@ -92,7 +97,6 @@ export const authOptions = {
   },
   pages: {
     signIn: "/signin",
-    // signOut: "/signin",
     newUser: "/newUser",
   },
 };

@@ -27,6 +27,6 @@ export default async function signup(req, res) {
   await db.collection(collectionName).insertOne(newUser);
 
   res
-    .status(201)
+    .status(200)
     .json({ success: true, message: "User signed up successfuly" });
 }
