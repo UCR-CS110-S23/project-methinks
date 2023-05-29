@@ -32,7 +32,7 @@ export default function App({
   const { isBrowser } = useSSR();
   const router = useRouter();
 
-  const publicPages = ["/landing", "/signin", "/signup"];
+  const publicPages = ["/", "/landing", "/signin", "/signup"];
   const isPagePublic = publicPages.includes(router.pathname);
 
   console.log("publicPage?", isPagePublic, router.pathname);

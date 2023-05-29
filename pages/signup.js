@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { signIn } from "next-auth/react";
+import axios from "axios";
+
+import { generateRandomUID } from "@/lib/generate_uid";
 import { FaChevronLeft } from "react-icons/fa";
 import Cloud from "@/public/assets/landing_cloud.svg";
-import { generateRandomUID } from "@/lib/generate_uid";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -25,32 +27,34 @@ const Signup = () => {
         username,
         password,
         provider: "credentials",
+        admin: false,
       };
 
       console.log(newUser);
 
-      const response = await fetch("/api/auth/signup", {
-        method: "POST",
-        body: JSON.stringify(newUser),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const data = await response.json();
-      if (data.userExists) {
-        setError(data.message);
-      } else {
-        setError("");
-        setName("");
-        setUsername("");
-        setEmail("");
-        setPassword("");
+      try {
+        const response = await axios.post("/api/auth/signup", newUser);
 
-        handleSignin();
+        const data = response.data;
+
+        if (data.success) {
+          setError("");
+          setName("");
+          setUsername("");
+          setEmail("");
+          setPassword("");
+
+          handleSignin();
+        }
+      } catch (error) {
+        if (error.response.data.userAlreadyExists) {
+          setError(error.response.data.message);
+        }
+        console.error(error);
       }
     }
   };
-
+  console.log(error, name);
   const handleSignin = async () => {
     await signIn("credentials", {
       email,

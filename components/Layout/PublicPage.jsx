@@ -12,9 +12,9 @@ const PublicPage = ({ children }) => {
     }
   }, [status, router]);
 
-  //   if (status === "loading") {
-  //     return <p className="bg-red-500 h-screen w-screen">Loading...</p>;
-  //   }
+  // if (status === "loading") {
+  //   return <p className="bg-red-500 h-screen w-screen">Loading...</p>;
+  // }
 
   return (
     status !== "loading" &&

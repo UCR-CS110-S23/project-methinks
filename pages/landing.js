@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Link from "next/link";
-// import { getSession } from "next-auth/react";
 import Image from "next/image";
-import Cloud from "@/public/assets/landing_cloud.svg";
+
 import { TbMoodLookRight } from "react-icons/tb";
 import { TbMoodSing } from "react-icons/tb";
+import Cloud from "@/public/assets/landing_cloud.svg";
 
 const Landing = () => {
   const [isHover, setIsHover] = useState(false);

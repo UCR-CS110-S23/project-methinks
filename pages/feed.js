@@ -11,7 +11,6 @@ const Feed = () => {
   const { data: session, status } = useSession();
 
   console.log("session", session, status);
-  console.log("id", session?.user);
   return (
     <div className="w-full relative flex flex-col justify-center items-center gap-y-10 py-10">
       <div className="max-w-3/4 h-[50px] flex justify-center">

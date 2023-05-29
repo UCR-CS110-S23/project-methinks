@@ -1,14 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSession, signIn } from "next-auth/react";
-import { useRouter } from "next/router";
-import Image from "next/image";
-import Cloud from "@/public/assets/landing_cloud.svg";
-import { FcGoogle } from "react-icons/fc";
 import Link from "next/link";
+import Image from "next/image";
+
+import { FcGoogle } from "react-icons/fc";
+import Cloud from "@/public/assets/landing_cloud.svg";
 
 const Signin = () => {
   const { data: session, status } = useSession();
-  const router = useRouter();
+
+  useEffect(() => {
+    const url = window.location.href;
+    const searchParams = new URLSearchParams(url);
+    const error = searchParams.get("error");
+
+    if (error === "OAuthAccountNotLinked") {
+      setError(
+        "Email already exists! Please Sign-in with your Original Account."
+      );
+      console.log("Error:", error);
+    } else {
+      setError("");
+    }
+  }, []);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,28 +39,20 @@ const Signin = () => {
     if (!email || !password) {
       setError("Incorrect username or password!");
     } else {
-      try {
-        const response = await signIn("credentials", {
-          email,
-          password,
-          redirect: false,
-        });
-
-        if (response.status === 200) {
-          console.log("[Signin-Success]:", response);
-
+      await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+      }).then((response) => {
+        if (response.ok) {
           setError("");
           setEmail("");
           setPassword("");
-
-          router.replace("/feed");
         } else {
           setError("Incorrect username or password!");
           console.log("[Signin-Error]:", response);
         }
-      } catch (error) {
-        console.log("[Signin-Error]:", error);
-      }
+      });
     }
   };
 

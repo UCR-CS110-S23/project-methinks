@@ -1,35 +1,32 @@
 import clientPromise from "@/lib/mongodb";
 import { hashPassword } from "@/lib/password";
 
-export default async function handler(req, res) {
-  if (req.method === "POST") {
-    const newUser = req.body;
-    const db = (await clientPromise).db(process.env.MONGODB_DB);
-    // await db.connect();
+export default async function signup(req, res) {
+  const db = (await clientPromise).db(process.env.MONGODB_DB);
+  const collectionName = process.env.USERS_COLLECTION_NAME;
 
-    // Check if user exists
-    const userExists = await db
-      .collection("users")
-      .findOne({ email: newUser.email });
+  const newUser = req.body;
 
-    if (userExists) {
-      res.status(422).json({
-        success: false,
-        message: "Email already exists!",
-        userExists: true,
-      });
-      return;
-    }
+  // Check if user exists
+  const userAlreadyExists = await db.collection(collectionName).findOne({
+    $or: [{ email: newUser.email }, { username: newUser.username }],
+  });
 
-    // Hash Password
-    newUser.password = await hashPassword(newUser.password);
-
-    await db.collection("users").insertOne(newUser);
-
-    res
-      .status(201)
-      .json({ success: true, message: "User signed up successfuly" });
-  } else {
-    res.status(400).json({ success: false, message: "Invalid signup!" });
+  if (userAlreadyExists) {
+    res.status(422).json({
+      success: false,
+      message: "An account with this email or username already exists!",
+      userAlreadyExists: true,
+    });
+    return;
   }
+
+  // Hash Password
+  newUser.password = await hashPassword(newUser.password);
+
+  await db.collection(collectionName).insertOne(newUser);
+
+  res
+    .status(201)
+    .json({ success: true, message: "User signed up successfuly" });
 }
