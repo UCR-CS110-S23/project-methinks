@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
 // import { getSession } from "next-auth/react";
 import Image from "next/image";
 import Cloud from "@/public/assets/landing_cloud.svg";
