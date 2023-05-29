@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Cloud from "@/public/assets/landing_cloud.svg";
@@ -55,7 +55,14 @@ const Signin = () => {
     <div className="h-screen w-full bg-methinks-black flex justify-center items-center font-publicSans">
       <div className="w-1/4 h-full flex flex-col justify-center py-20 items-center gap-y-5">
         <div className="w-full flex flex-col justify-center items-center">
-          <Image src={Cloud} alt="cloud" draggable="false" className="mb-10" />
+          <Link href="/landing">
+            <Image
+              src={Cloud}
+              alt="cloud"
+              draggable="false"
+              className="mb-10"
+            />
+          </Link>
           <div className="flex flex-col gap-y-3 w-full text-xl">
             <input
               placeholder="Email"

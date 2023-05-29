@@ -7,7 +7,6 @@ const PublicPage = ({ children }) => {
   const router = useRouter();
 
   useEffect(() => {
-    console.log("LAYOUT PUBLIC");
     if (status !== "loading" && status === "authenticated") {
       router.replace("/feed");
     }

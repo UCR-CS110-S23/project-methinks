@@ -1,48 +1,56 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
 import Cards from "@/components/Post/Cards";
 import Tags from "@/components/Post/Tags";
 
 const Post = () => {
   const [text, setText] = useState("");
-  const [error, setError] = useState(false);
+  const [tag, setTag] = useState("");
+  const [error, setError] = useState("");
+
+  const router = useRouter();
 
   console.log(text);
   const handleSubmit = () => {
     if (!text) {
-      setError(true);
+      setError("You need to write something!");
+    } else if (!tag) {
+      setError("Attach a tag!");
     } else {
-      setError(false);
+      setError("");
       setText("");
+      setTag("");
+      router.replace("/feed");
     }
   };
+
   return (
     <div className="bg-methinks-background h-screen w-full flex flex-col justify-center items-center font-publicSans">
       <div className="w-[55%] h-full flex flex-col justify-center items-center gap-y-10">
         <Cards text={text} setText={setText} />
         <div className="flex flex-col justify-center items-center gap-y-4">
-          <Tags />
+          <Tags tag={tag} setTag={setTag} />
           <div className="flex w-full justify-between items-center">
             <p className="text-white font-semibold text-lg">
               Make this thought private?
             </p>
             <input
               type="checkbox"
-              className="toggle toggle-custom-primary bg-gray-400 checked:bg-methinks-green"
+              className="toggle toggle-custom-primary bg-gray-400 checked:bg-methinks-green duration-300"
             />
           </div>
           <div className="w-full h-[30px] flex justify-center items-center">
-            {error && (
-              <p className="text-red-500">Please complete your thought!</p>
-            )}
+            <p className="text-red-500">{error}</p>
           </div>
         </div>
       </div>
-      <button
-        className="self-end bg-[#FFFFFF] p-1 px-5 rounded-3xl font-medium text-lg text-black hover:bg-methinks-green -translate-x-32 -translate-y-14"
+      <p
+        className="self-end bg-[#FFFFFF] p-1 px-5 rounded-3xl font-medium text-lg text-black hover:bg-methinks-green  hover:text-methinks-black -translate-x-32 -translate-y-14 duration-300 cursor-pointer"
         onClick={handleSubmit}
       >
         Post
-      </button>
+      </p>
     </div>
   );
 };
