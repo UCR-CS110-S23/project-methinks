@@ -83,7 +83,6 @@ export const authOptions = {
       }
       // Listens for mutated attributes in session object
       if (trigger === "update" && session?.username) {
-        console.log(session?.name);
         token.user.username = session.username;
       }
       return token;

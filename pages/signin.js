@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSession, signIn } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -7,7 +7,9 @@ import { FcGoogle } from "react-icons/fc";
 import Cloud from "@/public/assets/landing_cloud.svg";
 
 const Signin = () => {
-  const { data: session, status } = useSession();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const url = window.location.href;
@@ -23,10 +25,6 @@ const Signin = () => {
       setError("");
     }
   }, []);
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
 
   const handleGoogle = async () => {
     await signIn("google", {
@@ -46,6 +44,7 @@ const Signin = () => {
       }).then((response) => {
         if (response.ok) {
           setError("");
+
           setEmail("");
           setPassword("");
         } else {
@@ -56,7 +55,6 @@ const Signin = () => {
     }
   };
 
-  console.log("session", session, status);
   return (
     <div className="h-screen w-full bg-methinks-black flex justify-center items-center font-publicSans">
       <div className="w-1/4 h-full flex flex-col justify-center py-20 items-center gap-y-5">
@@ -74,7 +72,7 @@ const Signin = () => {
               placeholder="Email"
               type="text"
               value={email}
-              className="border-b-2 border-methinks-white bg-methinks-black w-full py-2 px-1 text-methinks-white focus:outline-none duration"
+              className="border-b-2 border-methinks-white bg-methinks-black w-full py-2 px-1 text-methinks-white focus:outline-none"
               onChange={(e) => setEmail(e.target.value)}
             />
             <input

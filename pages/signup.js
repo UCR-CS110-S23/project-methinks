@@ -15,7 +15,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSignup = async () => {
+  const handleSignup = () => {
     if (!name || !username || !email || !password) {
       setError("Please Complete your Information!");
     } else {
@@ -30,28 +30,26 @@ const Signup = () => {
         admin: false,
       };
 
-      console.log(newUser);
+      axios
+        .post("/api/auth/signup", newUser)
+        .then(({ data }) => {
+          if (data.success) {
+            setError("");
+            setName("");
+            setUsername("");
+            setEmail("");
+            setPassword("");
 
-      try {
-        const response = await axios.post("/api/auth/signup", newUser);
-
-        const data = response.data;
-
-        if (data.success) {
-          setError("");
-          setName("");
-          setUsername("");
-          setEmail("");
-          setPassword("");
-
-          handleSignin();
-        }
-      } catch (error) {
-        if (error.response.data.userAlreadyExists) {
-          setError(error.response.data.message);
-        }
-        console.error(error);
-      }
+            handleSignin();
+          }
+        })
+        .catch((error) => {
+          if (error.response.data.userAlreadyExists) {
+            setError(error.response.data.message);
+            return;
+          }
+          console.log("[Signup-Error]", error);
+        });
     }
   };
   console.log(error, name);

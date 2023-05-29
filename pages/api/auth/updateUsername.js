@@ -6,7 +6,7 @@ export default async function signup(req, res) {
   const session = await getServerSession(req, res, authOptions);
 
   if (!session) {
-    res.status(401).json({ message: "You must be logged in." });
+    res.status(401).json({ success: false, message: "You must be logged in." });
     return;
   }
 
@@ -14,9 +14,6 @@ export default async function signup(req, res) {
   const collectionName = process.env.USERS_COLLECTION_NAME;
 
   const { username } = req.body;
-
-  console.log("req", req.body);
-  console.log(session.user.uid, session.user.username, username);
 
   // Check if user exists
   const userAlreadyExists = await db
@@ -26,7 +23,7 @@ export default async function signup(req, res) {
   if (userAlreadyExists) {
     res.status(422).json({
       success: false,
-      message: "An account with this username already exists!",
+      message: "Username already exists!",
       userAlreadyExists: true,
     });
     return;

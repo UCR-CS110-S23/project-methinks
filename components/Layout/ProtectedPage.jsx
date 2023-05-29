@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import Navigation from "../Navigation";
 
 const ProtectedPage = ({ children }) => {
-  const { status } = useSession();
+  const { data: session, status } = useSession();
   const router = useRouter();
 
   useEffect(() => {
@@ -12,6 +12,16 @@ const ProtectedPage = ({ children }) => {
       router.replace("/signin");
     }
   }, [status, router]);
+
+  console.log("session", session?.user, status);
+
+  if (router.pathname === "/newUser") {
+    return (
+      <div className="bg-methinks-background">
+        <>{children}</>;
+      </div>
+    );
+  }
 
   //   if (status === "loading") {
   //     return <p className="bg-red-500 h-screen w-screen text-8xl">Loading...</p>;

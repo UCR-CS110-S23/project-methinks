@@ -35,7 +35,6 @@ export default function App({
   const publicPages = ["/", "/landing", "/signin", "/signup"];
   const isPagePublic = publicPages.includes(router.pathname);
 
-  console.log("publicPage?", isPagePublic, router.pathname);
   return (
     isBrowser && (
       <SessionProvider session={pageProps.session}>

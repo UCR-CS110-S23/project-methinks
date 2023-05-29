@@ -29,23 +29,4 @@ const Landing = () => {
   );
 };
 
-// export const getServerSideProps = async (context) => {
-//   console.log("HELLLOOOOOOOO");
-//   const session = await getSession({ req: context.req });
-
-//   if (session) {
-//     console.log("session");
-//     return {
-//       redirect: {
-//         destination: "/feed",
-//         permanent: false,
-//       },
-//     };
-//   }
-//   console.log("no session");
-//   return {
-//     props: { session },
-//   };
-// };
-
 export default Landing;
