@@ -64,7 +64,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="h-screen w-full bg-methinks-black flex justify-center items-center font-publicSans">
+    <div className="h-screen w-full bg-methinks-background flex justify-center items-center font-publicSans">
       <Link
         href="/signin"
         className="absolute left-[10%] top-[15%] flex items-center text-methinks-lightgray hover:text-methinks-lightgrayHover duration-300 cursor-pointer text-lg"
@@ -79,14 +79,14 @@ const Signup = () => {
           className="flex flex-col gap-y-5 w-full text-xl"
         >
           <p className="self-start text-methinks-white text-4xl font-bold">
-            Create an Account
+            Create Your Account
           </p>
           <input
             placeholder="Name"
             type="text"
             autoComplete="none"
             value={name}
-            className="border-b-2 border-methinks-white bg-methinks-black w-full py-2 px-1 text-methinks-white focus:outline-none"
+            className="border-b-2 border-methinks-white bg-methinks-background w-full py-2 px-1 text-methinks-white focus:outline-none"
             onChange={(e) => setName(e.target.value)}
           />
           <input
@@ -94,7 +94,7 @@ const Signup = () => {
             type="text"
             autoComplete="none"
             value={username}
-            className="border-b-2 border-methinks-white bg-methinks-black w-full py-2 px-1 text-methinks-white focus:outline-none"
+            className="border-b-2 border-methinks-white bg-methinks-background w-full py-2 px-1 text-methinks-white focus:outline-none"
             onChange={(e) => setUsername(e.target.value)}
           />
           <input
@@ -102,7 +102,7 @@ const Signup = () => {
             type="text"
             autoComplete={"" + Math.random()}
             value={email}
-            className="border-b-2 border-methinks-white bg-methinks-black w-full py-2 px-1 text-methinks-white focus:outline-none"
+            className="border-b-2 border-methinks-white bg-methinks-background w-full py-2 px-1 text-methinks-white focus:outline-none"
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
@@ -110,12 +110,12 @@ const Signup = () => {
             type="password"
             autoComplete={"" + Math.random()}
             value={password}
-            className="border-b-2 border-methinks-white bg-methinks-black w-full py-2 px-1 text-methinks-white focus:outline-none"
+            className="border-b-2 border-methinks-white bg-methinks-background w-full py-2 px-1 text-methinks-white focus:outline-none"
             onChange={(e) => setPassword(e.target.value)}
           />
         </form>
         <button
-          className="w-full bg-methinks-white hover:bg-methinks-green text-xl text-methinks-black hover:text-methinks-darkgray py-2 rounded-xl duration-300"
+          className="w-full bg-methinks-white hover:bg-methinks-green text-xl text-methinks-black hover:text-methinks-darkgray py-2 rounded-xl duration-300 hover:drop-shadow-glow"
           onClick={handleSignup}
         >
           Sign up

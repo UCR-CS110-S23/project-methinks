@@ -61,7 +61,7 @@ const Posts = () => {
     },
   ];
   return (
-    <div className="w-full  flex flex-col justify-center">
+    <div className="w-full  flex flex-col justify-center gap-y-6">
       {postData.map((feed, index) => (
         <Post
           key={index}

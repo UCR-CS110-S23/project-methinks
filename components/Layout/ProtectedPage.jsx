@@ -18,7 +18,7 @@ const ProtectedPage = ({ children }) => {
   if (router.pathname === "/newUser") {
     return (
       <div className="bg-methinks-background">
-        <>{children}</>;
+        <>{children}</>
       </div>
     );
   }

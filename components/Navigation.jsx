@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
 import Link from "next/link";
+import { useSession, signOut } from "next-auth/react";
 
 const Navigation = () => {
   const { data: session } = useSession();
@@ -14,7 +14,7 @@ const Navigation = () => {
   }, [session]);
 
   return (
-    <div className="text-white flex items-center justify-end px-40 py-5 pb-0 gap-x-5">
+    <div className="text-white flex items-center justify-end px-40 py-5 pb-0 gap-x-5 font-publicSans font-semibold">
       <Link
         className="cursor-pointer hover:text-methinks-lightgray"
         href="/feed"
@@ -26,6 +26,17 @@ const Navigation = () => {
         href={profileLink}
       >
         Profile
+      </Link>
+      <Link
+        className="cursor-pointer hover:text-methinks-lightgray"
+        href={profileLink}
+        onClick={() =>
+          signOut({
+            callbackUrl: "/signin",
+          })
+        }
+      >
+        Sign Out
       </Link>
     </div>
   );

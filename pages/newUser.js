@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-// import { getServerSession } from "next-auth/next";
+import { TypeAnimation } from "react-type-animation";
 
+// import { getServerSession } from "next-auth/next";
 // import { authOptions } from "pages/api/auth/[...nextauth]";
 
 export default function NewUser() {
@@ -22,10 +23,6 @@ export default function NewUser() {
       );
     }
   }, [session]);
-
-  // const sessionName = session?.user?.name.split(" ")[0];
-  // const name =
-  //   sessionName?.charAt(0).toUpperCase() + sessionName?.split(" ")[0].slice(1);
 
   const handleSubmit = () => {
     if (!username) {
@@ -56,12 +53,27 @@ export default function NewUser() {
     }
   };
   return (
-    <div className="h-screen w-screen bg-methinks-black flex justify-center items-center">
+    <div className="h-screen w-screen bg-methinks-background flex justify-center items-center">
       <div className="flex flex-col w-1/4 gap-y-3">
-        <div>
-          <p className="self-start text-methinks-white text-4xl font-bold">
-            Welcome, {displayName}!
-          </p>
+        <div className="flex flex-col gap-y-1">
+          {displayName && (
+            <TypeAnimation
+              sequence={[
+                `Salutations, ${displayName}!`,
+                4000,
+                "Cloudy thoughts ahead... ",
+                4000,
+                "Ready to wander?",
+                4000,
+              ]}
+              speed={30}
+              deletionSpeed={60}
+              wrapper="span"
+              cursor={true}
+              repeat={Infinity}
+              className="self-start text-methinks-white text-4xl font-bold"
+            />
+          )}
           <p className="self-start text-methinks-lightGray text-lg font-medium ">
             {"Let's"} setup your username.
           </p>
@@ -70,11 +82,11 @@ export default function NewUser() {
           value={username}
           type="text"
           placeholder="Username"
-          className="border-b-2 border-methinks-white bg-methinks-black w-full py-2 px-1 text-methinks-white focus:outline-none text-xl"
+          className="border-b-2 border-methinks-white bg-methinks-background w-full py-2 px-1 text-methinks-white focus:outline-none text-xl"
           onChange={(e) => setUsername(e.target.value)}
         />
         <button
-          className="bg-methinks-white hover:bg-methinks-green text-xl text-methinks-black hover:text-methinks-darkgray py-2 rounded-xl duration-300"
+          className="bg-methinks-white hover:bg-methinks-green text-xl text-methinks-black hover:text-methinks-darkgray py-2 rounded-xl duration-500 hover:drop-shadow-glow"
           onClick={handleSubmit}
         >
           Start Thinking...

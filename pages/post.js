@@ -43,13 +43,13 @@ const Post = () => {
             <p className="text-red-500">{error}</p>
           </div>
         </div>
+        <p
+          className="self-end bg-[#FFFFFF] p-1 px-5 rounded-3xl font-medium text-lg text-black hover:bg-methinks-green  hover:text-methinks-black duration-300 cursor-pointer"
+          onClick={handleSubmit}
+        >
+          Post
+        </p>
       </div>
-      <p
-        className="self-end bg-[#FFFFFF] p-1 px-5 rounded-3xl font-medium text-lg text-black hover:bg-methinks-green  hover:text-methinks-black -translate-x-32 -translate-y-14 duration-300 cursor-pointer"
-        onClick={handleSubmit}
-      >
-        Post
-      </p>
     </div>
   );
 };

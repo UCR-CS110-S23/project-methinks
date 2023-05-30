@@ -10,7 +10,7 @@ const Landing = () => {
   const [isHover, setIsHover] = useState(false);
 
   return (
-    <div className="bg-methinks-black w-full h-screen flex flex-col justify-center items-center">
+    <div className="bg-methinks-background w-full h-screen flex flex-col justify-center items-center">
       <Image src={Cloud} alt="Cloud" draggable="false" />
       <span
         onMouseEnter={() => setIsHover(true)}

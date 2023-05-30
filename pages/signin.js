@@ -56,10 +56,10 @@ const Signin = () => {
   };
 
   return (
-    <div className="h-screen w-full bg-methinks-black flex justify-center items-center font-publicSans">
+    <div className="h-screen w-full bg-methinks-background flex justify-center items-center font-publicSans">
       <div className="w-1/4 h-full flex flex-col justify-center py-20 items-center gap-y-5">
         <div className="w-full flex flex-col justify-center items-center">
-          <Link href="/landing">
+          <Link href="/">
             <Image
               src={Cloud}
               alt="cloud"
@@ -72,18 +72,18 @@ const Signin = () => {
               placeholder="Email"
               type="text"
               value={email}
-              className="border-b-2 border-methinks-white bg-methinks-black w-full py-2 px-1 text-methinks-white focus:outline-none"
+              className="border-b-2 border-methinks-white bg-methinks-background w-full py-2 px-1 text-methinks-white focus:outline-none"
               onChange={(e) => setEmail(e.target.value)}
             />
             <input
               placeholder="Password"
               type="password"
               value={password}
-              className="border-b-2 border-methinks-white bg-methinks-black w-full py-2 px-1 text-methinks-white focus:outline-none"
+              className="border-b-2 border-methinks-white bg-methinks-background w-full py-2 px-1 text-methinks-white focus:outline-none"
               onChange={(e) => setPassword(e.target.value)}
             />
             <button
-              className="bg-methinks-white hover:bg-methinks-green text-xl text-methinks-black hover:text-methinks-darkgray py-2 rounded-xl duration-300"
+              className="bg-methinks-white hover:bg-methinks-green text-xl text-methinks-background hover:text-methinks-darkgray py-2 rounded-xl duration-500 hover:drop-shadow-glow"
               onClick={handleCredentials}
             >
               Sign in
@@ -92,7 +92,7 @@ const Signin = () => {
         </div>
         <p className="text-methinks-white text-sm">OR</p>
         <button
-          className="bg-methinks-white hover:bg-methinks-green w-full text-xl text-methinks-black hover:text-methinks-black py-2 rounded-xl flex items-center justify-center gap-x-3 duration-300"
+          className="bg-methinks-white hover:bg-methinks-green w-full text-xl text-methinks-black hover:text-methinks-darkgray py-2 rounded-xl flex items-center justify-center gap-x-3 duration-500 hover:drop-shadow-glow"
           onClick={handleGoogle}
         >
           <span>
