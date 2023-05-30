@@ -17,10 +17,11 @@ export const authOptions = {
     }),
     CredentialsProvider({
       name: "Credentials",
-      async authorize(credentials, req) {
+      async authorize(credentials) {
         const db = (await clientPromise).db(process.env.MONGODB_DB);
+        const collectionName = process.env.USERS_COLLECTION_NAME;
 
-        const user = await db.collection("users").findOne({
+        const user = await db.collection(collectionName).findOne({
           email: credentials.email,
         });
 
@@ -50,6 +51,7 @@ export const authOptions = {
           username: user.username,
           provider: user.provider,
           admin: user.admin,
+          bio: user.bio,
         };
       },
     }),
@@ -70,6 +72,7 @@ export const authOptions = {
         );
         user.provider = account.provider;
         user.admin = false;
+        user.bio = "";
       }
 
       console.log("isNewUser", isNewUser);

@@ -83,7 +83,7 @@ const Signin = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
             <button
-              className="bg-methinks-white hover:bg-methinks-green text-xl text-methinks-black hover:text-methinks-black py-2 rounded-xl duration-300"
+              className="bg-methinks-white hover:bg-methinks-green text-xl text-methinks-black hover:text-methinks-darkgray py-2 rounded-xl duration-300"
               onClick={handleCredentials}
             >
               Sign in

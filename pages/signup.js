@@ -22,12 +22,13 @@ const Signup = () => {
       const newUser = {
         name,
         email,
-        image: "public/henry2.jpg",
+        image: "/henry2.jpg",
         uid: generateRandomUID(),
         username,
         password,
         provider: "credentials",
         admin: false,
+        bio: "",
       };
 
       axios
@@ -114,7 +115,7 @@ const Signup = () => {
           />
         </form>
         <button
-          className="w-full bg-methinks-white hover:bg-methinks-green text-xl text-methinks-black hover:text-methinks-black py-2 rounded-xl duration-300"
+          className="w-full bg-methinks-white hover:bg-methinks-green text-xl text-methinks-black hover:text-methinks-darkgray py-2 rounded-xl duration-300"
           onClick={handleSignup}
         >
           Sign up

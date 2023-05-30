@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
@@ -10,15 +10,29 @@ export default function NewUser() {
   const { data: session, update } = useSession();
   const router = useRouter();
 
+  const [displayName, setDisplayName] = useState("");
   const [username, setUsername] = useState("");
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (session) {
+      const name = session.user.name.split(" ")[0];
+      setDisplayName(
+        name.charAt(0).toUpperCase() + name?.split(" ")[0].slice(1)
+      );
+    }
+  }, [session]);
+
+  // const sessionName = session?.user?.name.split(" ")[0];
+  // const name =
+  //   sessionName?.charAt(0).toUpperCase() + sessionName?.split(" ")[0].slice(1);
 
   const handleSubmit = () => {
     if (!username) {
       setError("Please enter a username!");
     } else {
       axios
-        .post("/api/auth/updateUsername", {
+        .post("/api/auth/setupUsername", {
           username,
         })
         .then(({ data }) => {
@@ -46,10 +60,10 @@ export default function NewUser() {
       <div className="flex flex-col w-1/4 gap-y-3">
         <div>
           <p className="self-start text-methinks-white text-4xl font-bold">
-            Welcome, {session?.user?.name.split(" ")[0]}!
+            Welcome, {displayName}!
           </p>
           <p className="self-start text-methinks-lightGray text-lg font-medium ">
-            {"Let's"} set your username.
+            {"Let's"} setup your username.
           </p>
         </div>
         <input
@@ -60,10 +74,10 @@ export default function NewUser() {
           onChange={(e) => setUsername(e.target.value)}
         />
         <button
-          className="bg-methinks-white hover:bg-methinks-green text-xl text-methinks-black hover:text-methinks-black py-2 rounded-xl duration-300"
+          className="bg-methinks-white hover:bg-methinks-green text-xl text-methinks-black hover:text-methinks-darkgray py-2 rounded-xl duration-300"
           onClick={handleSubmit}
         >
-          Submit
+          Start Thinking...
         </button>
         <div className="w-full h-[30px] flex justify-center items-center">
           <p className="text-red-500">{error} </p>
