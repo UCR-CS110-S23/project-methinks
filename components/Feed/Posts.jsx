@@ -1,6 +1,9 @@
 import React from "react";
 import Post from "./Post";
 
+// import Navigation from "./Navigation";
+
+
 const Posts = () => {
   const postData = [
     {
@@ -72,6 +75,7 @@ const Posts = () => {
           tag={feed.tag}
         />
       ))}
+      {/* <Navigation/> */}
     </div>
   );
 };

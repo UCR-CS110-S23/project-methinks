@@ -1,5 +1,6 @@
 import React from "react";
 import FeedPost from "./FeedPost";
+import Navigation from "./Navigation";
 
 const FeedPosts = () => {
   const postData = [
@@ -33,6 +34,7 @@ const FeedPosts = () => {
           post={feed.post}
         />
       ))}
+      <Navigation/>
     </div>
   );
 };
