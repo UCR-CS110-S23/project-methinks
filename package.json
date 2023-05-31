@@ -37,6 +37,7 @@
     "eslint-plugin-react": "^7.32.2",
     "husky": "^8.0.0",
     "lint-staged": "^13.2.2",
+    "nodemon": "^2.0.22",
     "postcss": "^8.4.23",
     "prettier": "^2.8.8",
     "react-router-dom": "^6.11.2",
