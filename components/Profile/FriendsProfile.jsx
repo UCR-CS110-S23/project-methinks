@@ -1,9 +1,10 @@
 import React from "react";
+import Posts from "../Feed/Posts";
 
 const FriendsProfile = () => {
   return (
     <div className="w-full h-full flex justify-center items-center bg-methinks-background py-4">
-      <div className="w-[40%] flex flex-col justify-center items-center gap-y-8">
+      <div className="w-[50%] flex flex-col justify-center items-center gap-y-8">
         <div className="gap-y-2 flex flex-col justify-center items-center">
           <div className="rounded-full bg-methinks-darkgray pr-1 w-[120px] h-[120px]" />
           <p className="text-methinks-white m-0 font-bold text-4xl">Name</p>
@@ -19,9 +20,7 @@ const FriendsProfile = () => {
             Today
           </p>
           <div className="w-full h-full flex flex-col gap-y-5 bg-methinks-gray p-4 rounded-xl">
-            <div className="w-full h-[180px] bg-white rounded-xl"></div>
-            <div className="w-full h-[180px] bg-white rounded-xl"></div>
-            <div className="w-full h-[180px] bg-white rounded-xl"></div>
+            <Posts />
           </div>
         </div>
         <div className="w-full flex flex-col justify-center items-center gap-y-5 mb-5">
@@ -30,11 +29,7 @@ const FriendsProfile = () => {
           </p>
           <div className="w-full h-[750px] bg-methinks-gray p-4 rounded-xl overflow-y-auto">
             <div className="flex flex-col gap-y-5">
-              <div className="w-full h-[180px] bg-white rounded-xl" />
-              <div className="w-full h-[180px] bg-white rounded-xl" />
-              <div className="w-full h-[180px] bg-white rounded-xl" />
-              <div className="w-full h-[180px] bg-white rounded-xl" />
-              <div className="w-full h-[180px] bg-white rounded-xl" />
+              <Posts />
             </div>
           </div>
         </div>
