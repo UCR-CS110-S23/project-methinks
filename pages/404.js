@@ -9,8 +9,8 @@ export default function Error404() {
         <Image src={GreyCloud} alt="cloud" draggable={false} />
       </div>
 
-      <div className="flex flex-col items-center justify-center h-fit w-[480px] h-[480px] z-10 absolute">
-        <p className=" text-9xl m-0 mt-2">404</p>
+      <div className="flex flex-col items-center justify-center h-fit w-[480px] h-[480px] z-10 absolute m-0 p-0">
+        <p className=" text-9xl m-0 mt-2 font-semibold">404</p>
         <p className=" text-lg mt-4">Page not found!</p>
       </div>
     </div>
