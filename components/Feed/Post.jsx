@@ -19,6 +19,7 @@ const Post = ({ pic, name, time, post, tag }) => {
               height="50"
               src={pic}
               alt="hot hot henry"
+              draggable={false}
             />
             <div className="flex items-baseline gap-x-5">
               <div className=" text-black text-2xl font-semibold ">{name}</div>

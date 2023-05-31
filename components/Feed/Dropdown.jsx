@@ -13,7 +13,7 @@ function BasicExample() {
           <TbSortDescending className="text-lg mr-2" />
           Sort
         </Dropdown.Toggle>
-        <Dropdown.Menu className="!bg-methinks-darkgray ">
+        <Dropdown.Menu className="!bg-methinks-darkgray mt-2 !rounded-lg">
           <Dropdown.Item
             className="!text-methinks-white hover:!bg-methinks-darkgray !flex !justify-between !items-center"
             onClick={() => {
