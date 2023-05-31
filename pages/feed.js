@@ -34,6 +34,7 @@ const Feed = () => {
             src={hovercloud}
             alt="hover cloud img"
             onMouseLeave={() => setPostToggle(false)}
+            draggable={false}
           />
         ) : (
           <Image
