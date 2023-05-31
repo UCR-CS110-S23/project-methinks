@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Posts from "../Feed/Posts";
 
 const FriendsProfile = ({ user }) => {
   return (
@@ -7,7 +8,6 @@ const FriendsProfile = ({ user }) => {
       <div className="w-[40%] flex flex-col justify-center items-center gap-y-8">
         <div className="gap-y-1 flex flex-col justify-center items-center">
           <Image
-            // src={"/henry2.jpg"}
             referrerPolicy="no-referrer"
             src={user.image}
             alt="Profile Picture"
@@ -31,9 +31,7 @@ const FriendsProfile = ({ user }) => {
             Today
           </p>
           <div className="w-full h-full flex flex-col gap-y-5 bg-methinks-gray p-4 rounded-xl">
-            <div className="w-full h-[180px] bg-white rounded-xl"></div>
-            <div className="w-full h-[180px] bg-white rounded-xl"></div>
-            <div className="w-full h-[180px] bg-white rounded-xl"></div>
+            <Posts />
           </div>
         </div>
         <div className="w-full flex flex-col justify-center items-center gap-y-5 mb-5">
@@ -42,11 +40,7 @@ const FriendsProfile = ({ user }) => {
           </p>
           <div className="w-full h-[750px] bg-methinks-gray p-4 rounded-xl overflow-y-auto">
             <div className="flex flex-col gap-y-5">
-              <div className="w-full h-[180px] bg-white rounded-xl" />
-              <div className="w-full h-[180px] bg-white rounded-xl" />
-              <div className="w-full h-[180px] bg-white rounded-xl" />
-              <div className="w-full h-[180px] bg-white rounded-xl" />
-              <div className="w-full h-[180px] bg-white rounded-xl" />
+              <Posts />
             </div>
           </div>
         </div>

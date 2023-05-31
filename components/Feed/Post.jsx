@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import Image from "next/image";
-
+import Link from "next/link";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
-const Post = ({ pic, name, time, text, tag }) => {
+const Post = ({ id, image, username, date, text, tag }) => {
   const [toggle, setToggle] = useState(false);
 
   const [counter, setCounter] = useState(0);
 
   return (
-    <div className="flex justify-center drop-shadow-xl hover:shadow-2xl hover:scale-[1.01] hover:shadow-methinks-black duration-300 cursor-pointer rounded-xl font-publicSans">
+    <Link
+      href={`/feed/${id}`}
+      className="flex justify-center drop-shadow-xl hover:shadow-2xl hover:scale-[1.01] hover:shadow-methinks-black duration-300 cursor-pointer rounded-xl font-publicSans no-underline"
+    >
       <div className="bg-gray-200 w-full flex flex-col rounded-xl gap-y-5 p-5 pr-7">
         <div className="flex w-full">
           <div className="gap-x-4 w-3/4 flex justify-start items-center  ">
@@ -17,12 +20,13 @@ const Post = ({ pic, name, time, text, tag }) => {
               className="rounded-full"
               width="50"
               height="50"
-              src={pic}
+              src={image}
               alt="hot hot henry"
+              draggable={false}
             />
             <div className="flex items-baseline gap-x-5">
-              <div className=" text-black text-2xl font-medium">{name}</div>
-              <div className="text-[##77818A] text-base ">{time}</div>
+              <div className=" text-black text-2xl font-medium">{username}</div>
+              <div className="text-[##77818A] text-base ">{date}</div>
             </div>
           </div>
           <div className="text-methinks-darkpurple text-2xl flex justify-end items-center w-full">
@@ -52,7 +56,7 @@ const Post = ({ pic, name, time, text, tag }) => {
           <span className="text-2xl">{counter}</span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

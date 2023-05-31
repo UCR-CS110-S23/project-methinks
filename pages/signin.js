@@ -35,10 +35,10 @@ const Signin = () => {
 
   const handleCredentials = async () => {
     if (!email || !password) {
-      setError("Incorrect username or password!");
+      setError("Incorrect email or password!");
     } else {
       await signIn("credentials", {
-        email,
+        email: email.toLowerCase(),
         password,
         redirect: false,
       }).then((response) => {

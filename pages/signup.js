@@ -21,7 +21,7 @@ const Signup = () => {
       const newUser = {
         name,
         username: username.toLowerCase(),
-        email,
+        email: email.toLowerCase(),
         password,
       };
 
@@ -50,7 +50,7 @@ const Signup = () => {
   console.log(error, name);
   const handleSignin = async () => {
     await signIn("credentials", {
-      email,
+      email: email.toLowerCase(),
       password,
       redirect: true,
       callbackUrl: "/feed",
