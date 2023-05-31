@@ -7,9 +7,11 @@ import { getAllUserIds, getUserData } from "@/lib/users";
 export default function Profile({ userData }) {
   const user = JSON.parse(userData)[0];
   return (
-    <>
-      <FriendsProfile user={user} />
-    </>
+    user && (
+      <>
+        <FriendsProfile user={user} />
+      </>
+    )
   );
 }
 
@@ -23,6 +25,7 @@ export async function getStaticPaths() {
 }
 
 // gets current route id's data
+// localhost:3000/feed/[id]
 export async function getStaticProps({ params }) {
   const userData = await getUserData(params.id);
   return {

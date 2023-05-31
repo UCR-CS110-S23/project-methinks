@@ -30,7 +30,7 @@ export default function NewUser() {
     } else {
       axios
         .post("/api/auth/setupUsername", {
-          username,
+          username: username.toLowerCase(),
         })
         .then(({ data }) => {
           if (data.success) {

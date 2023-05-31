@@ -1,4 +1,5 @@
 import clientPromise from "@/lib/mongodb";
+import { v4 as uuidv4 } from "uuid";
 import { hashPassword } from "@/lib/password";
 
 export default async function signup(req, res) {
@@ -24,7 +25,14 @@ export default async function signup(req, res) {
   // Hash Password
   newUser.password = await hashPassword(newUser.password);
 
-  await db.collection(collectionName).insertOne(newUser);
+  await db.collection(collectionName).insertOne({
+    ...newUser,
+    image: "/henry2.jpg",
+    uid: uuidv4(),
+    provider: "credentials",
+    admin: false,
+    bio: "",
+  });
 
   res
     .status(200)

@@ -6,7 +6,7 @@ import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import clientPromise from "@/lib/mongodb";
 
 import { isPasswordValid } from "@/lib/password";
-import { generateRandomUsername } from "@/lib/generate_username";
+import { generateRandomUsername } from "@/lib/username";
 
 export const authOptions = {
   adapter: MongoDBAdapter(clientPromise),
@@ -74,8 +74,6 @@ export const authOptions = {
         user.admin = false;
         user.bio = "";
       }
-
-      console.log("isNewUser", isNewUser);
       return true;
     },
 

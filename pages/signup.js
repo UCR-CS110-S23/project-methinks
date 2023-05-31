@@ -1,10 +1,9 @@
 import React, { useState } from "react";
+import axios from "axios";
 import Link from "next/link";
 import Image from "next/image";
 import { signIn } from "next-auth/react";
-import axios from "axios";
 
-import { generateRandomUID } from "@/lib/generate_uid";
 import { FaChevronLeft } from "react-icons/fa";
 import Cloud from "@/public/assets/landing_cloud.svg";
 
@@ -21,14 +20,9 @@ const Signup = () => {
     } else {
       const newUser = {
         name,
+        username: username.toLowerCase(),
         email,
-        image: "/henry2.jpg",
-        uid: generateRandomUID(),
-        username,
         password,
-        provider: "credentials",
-        admin: false,
-        bio: "",
       };
 
       axios
