@@ -41,6 +41,7 @@ const Feed = () => {
             src={mintcloud}
             alt="mint cloud img"
             onMouseEnter={() => setPostToggle(true)}
+            draggable={false}
           />
         )}
       </div>
