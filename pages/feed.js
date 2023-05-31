@@ -35,12 +35,14 @@ const Feed = () => {
             src={hovercloud}
             alt="hover cloud img"
             onMouseLeave={() => setPostToggle(false)}
+            draggable={false}
           />
         ) : (
           <Image
             src={mintcloud}
             alt="mint cloud img"
             onMouseEnter={() => setPostToggle(true)}
+            draggable={false}
           />
         )}
       </div>
