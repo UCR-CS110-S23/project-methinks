@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+
 import "../styles/globals.css";
 /* eslint-disable camelcase */
 import { Public_Sans } from "next/font/google";

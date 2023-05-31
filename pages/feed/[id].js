@@ -1,8 +1,14 @@
 // add the post with comments here
 import React from "react";
 
-const Comments = () => {
-  return <div>Comments</div>;
+import Comments from "@/components/Feed/Comments";
+
+const CommentPage = () => {
+  return (
+    <div className="flex flex-col justify-center items-center ">
+      <Comments />
+    </div>
+  );
 };
 
-export default Comments;
+export default CommentPage;
