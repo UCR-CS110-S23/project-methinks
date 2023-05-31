@@ -9,15 +9,15 @@ const Navigation = () => {
   };
 
   return (
-    <div className="w-full flex justify-center items-center ">
+    <div className="w-full flex justify-center items-center">
       <nav className="px-3 bg-gray-800 w-full flex justify-between items-center">
         <p className="mb-0 text-white text-2xl font-bold leading-8 pr-px">
           Feed
         </p>
         <p className="text-white text-2xl font-bold mb-0">meThinks...</p>
-        <div className="flex justify-center items-center">
+        <div className="relative">
           <Image
-            className="rounded-full h-8 w-8 m-2"
+            className="rounded-full h-8 w-8 m-2 cursor-pointer"
             src="/henry2.jpg"
             alt="Profile Photo"
             width={64}
@@ -26,7 +26,7 @@ const Navigation = () => {
           />
 
           {isDropdownOpen && (
-            <div className="absolute mt-2 py-2 w-48 bg-[1C1C1C] rounded-md shadow-lg">
+            <div className="absolute right-0 mt-2 py-2 w-48 bg-[1C1C1C] rounded-md shadow-lg">
               <a
                 href="#"
                 className="block px-4 py-2 text-white hover:bg-gray-200"
@@ -39,7 +39,6 @@ const Navigation = () => {
               >
                 Sign Out
               </a>
-              
             </div>
           )}
         </div>
