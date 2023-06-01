@@ -11,7 +11,7 @@ const Post = ({ id, image, username, date, text, tag }) => {
   return (
     <Link
       href={`/feed/${id}`}
-      className="flex justify-center drop-shadow-xl hover:shadow-2xl hover:scale-[1.01] hover:shadow-methinks-black duration-300 cursor-pointer rounded-xl font-publicSans no-underline"
+      className="flex justify-center drop-shadow-xl hover:shadow-2xl hover:scale-x-[1.004] hover:shadow-methinks-black duration-300 cursor-pointer rounded-xl font-publicSans no-underline"
     >
       <div className="bg-gray-200 w-full flex flex-col rounded-xl gap-y-5 p-5 pr-7">
         <div className="flex w-full">
