@@ -10,7 +10,7 @@ const Navigation = () => {
 
   return (
     <div className="w-full flex justify-center items-center">
-      <nav className="px-3 bg-gray-800 w-full flex justify-between items-center">
+      <nav className="px-3 bg-[24292F] w-full flex justify-between items-center">
         <p className="mb-0 text-white text-2xl font-bold leading-8 pr-px">
           Feed
         </p>
@@ -25,17 +25,20 @@ const Navigation = () => {
             onClick={profileClick}
           />
 
+{/* bg-[1C1C1C]  */}
           {isDropdownOpen && (
-            <div className="absolute right-0 mt-2 py-2 w-48 bg-[1C1C1C] rounded-md shadow-lg">
+            <div className="absolute right-0 mt-2 py-2 bg-black w-[129px] h-[74px] rounded-[12px] ">
               <a
                 href="#"
-                className="block px-4 py-2 text-white hover:bg-gray-200"
+                className="block px-4 py-2 text-white hover:underline text-12px no-underline
+                    font-public-sans font-semibold text-xs leading-4 cursor-pointer"
               >
                 Profile
               </a>
               <a
                 href="#"
-                className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                className="block px-4 py-2 w-48 h-14 text-white hover:underline text-12px no-underline 
+                    font-public-sans font-semibold text-xs leading-4 cursor-pointer"
               >
                 Sign Out
               </a>
