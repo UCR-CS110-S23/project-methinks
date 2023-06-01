@@ -10,7 +10,8 @@ const Post = ({ id, image, username, date, text, tag }) => {
 
   return (
     <Link
-      href={`/feed/${id}`}
+      href={`/feed/1b780097-bd80-45e0-9d01-5dff399a8c7a`}
+      // href={`/feed/${id}`}
       className="flex justify-center drop-shadow-xl hover:shadow-2xl hover:scale-[1.0034] hover:shadow-methinks-black duration-300 cursor-pointer rounded-xl font-publicSans no-underline"
     >
       <div className="bg-gray-200 w-full flex flex-col rounded-xl gap-y-5 p-5 pr-7">

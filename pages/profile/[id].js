@@ -25,7 +25,7 @@ export async function getStaticPaths() {
 }
 
 // gets current route id's data
-// localhost:3000/feed/[id]
+// localhost:3000/post/[id]
 export async function getStaticProps({ params }) {
   const userData = await getUserData(params.id);
   return {
