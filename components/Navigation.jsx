@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Image from 'next/image'
+import Image from "next/image";
 
 const Navigation = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -31,15 +31,32 @@ const Navigation = () => {
               <a
                 href="#"
                 className="block px-4 py-2 text-white hover:underline text-12px no-underline
-                    font-public-sans font-semibold text-xs leading-4 cursor-pointer"
+                    font-public-sans font-semibold text-xs leading-4 cursor-pointer justify-between flex-row"
               >
-                Profile
+                <Image 
+                src = "./dropdown_profile.svg"
+                alt ="sign out icon"
+                width={13.5}
+                height = {13.5}
+                viewBox="0 0 16 16"
+                className=" h-4 w-4"
+              />
+                <span className="">Profile</span>
               </a>
               <a
                 href="#"
                 className="block px-4 py-2 w-48 h-14 text-white hover:underline text-12px no-underline 
-                    font-public-sans font-semibold text-xs leading-4 cursor-pointer"
+                    font-public-sans font-semibold text-xs leading-4 cursor-pointer
+                    flex-row justify-between"
               >
+              <Image 
+                src = "./dropdown_signout.svg"
+                alt ="sign out icon"
+                width={13.5}
+                height={13.5}
+                className="mr-2"
+                viewBox="0 0 24 24"
+              />
                 Sign Out
               </a>
             </div>

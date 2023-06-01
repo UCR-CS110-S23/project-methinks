@@ -12,6 +12,7 @@ const Posts = () => {
       time: "11:11:11 PM",
       post: "1 Tell your boyfriend if says he's got beef that I'm a vegetarian and I aint fuckin scared of him",
       tag: "Politics",
+      id: "1",
     },
     {
       pic: "/henry2.jpg",
@@ -19,6 +20,7 @@ const Posts = () => {
       time: "11:11:11 PM",
       post: "2 Tell your boyfriend if says he's got beef that I'm a vegetarian and I aint fuckin scared of him",
       tag: "Sports",
+      id: "2",
     },
     {
       pic: "/henry2.jpg",
@@ -26,6 +28,7 @@ const Posts = () => {
       time: "11:11:11 PM",
       post: "3 Tell your boyfriend if says he's got beef that I'm a vegetarian and I aint fuckin scared of him",
       tag: "Culture",
+      id: "3",
     },
     {
       pic: "/henry2.jpg",
@@ -33,6 +36,7 @@ const Posts = () => {
       time: "11:11:11 PM",
       post: "4 Tell your boyfriend if says he's got beef that I'm a vegetarian and I aint fuckin scared of him",
       tag: "Music",
+      id: "4",
     },
     {
       pic: "/henry2.jpg",
@@ -40,6 +44,7 @@ const Posts = () => {
       time: "11:11:11 PM",
       post: "5 Tell your boyfriend if says he's got beef that I'm a vegetarian and I aint fuckin scared of him",
       tag: "Entertainment",
+      id: "5",
     },
     {
       pic: "/henry2.jpg",
@@ -47,6 +52,7 @@ const Posts = () => {
       time: "11:11:11 PM",
       post: "6 Tell your boyfriend if says he's got beef that I'm a vegetarian and I aint fuckin scared of him",
       tag: "Entertainment",
+      id: "6",
     },
     {
       pic: "/henry2.jpg",
@@ -54,6 +60,7 @@ const Posts = () => {
       time: "11:11:11 PM",
       post: "7 Tell your boyfriend if says he's got beef that I'm a vegetarian and I aint fuckin scared of him",
       tag: "Entertainment",
+      id: "7",
     },
     {
       pic: "/henry2.jpg",
@@ -61,6 +68,7 @@ const Posts = () => {
       time: "11:11:11 PM",
       post: "8 Tell your boyfriend if says he's got beef that I'm a vegetarian and I aint fuckin scared of him",
       tag: "Entertainment",
+      id: "8",
     },
   ];
   return (
@@ -73,6 +81,7 @@ const Posts = () => {
           time={feed.time}
           post={feed.post}
           tag={feed.tag}
+          id={feed.id}
         />
       ))}
       {/* <Navigation/> */}

@@ -3,8 +3,6 @@ import Posts from "@/components/Feed/Posts";
 import mintcloud from "@/public/mintcloud.svg";
 import hovercloud from "@/public/hovercloud.svg";
 import Image from "next/image";
-// import Navigation from "@/components/Navigation";
-
 import TopicBar from "@/components/Feed/TopicBar";
 
 const Feed = () => {
