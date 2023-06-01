@@ -22,26 +22,6 @@ export default function Profile({ userData }) {
   );
 }
 
-// // check for valid dynamic routes
-// export async function getStaticPaths() {
-//   const paths = await getAllUserIds();
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// }
-
-// // gets current route id's data
-// // localhost:3000/post/[id]
-// export async function getStaticProps({ params }) {
-//   const userData = await getUserData(params.id);
-//   return {
-//     props: {
-//       userData,
-//     },
-//   };
-// }
-
 export async function getServerSideProps({ params }) {
   // Fetch necessary data for the blog post using params.id
   const userData = await getUserData(params.id);
