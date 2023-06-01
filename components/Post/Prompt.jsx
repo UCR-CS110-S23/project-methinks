@@ -4,11 +4,6 @@ const PromptPost = ({ text, setText }) => {
   const [displayCount, setDisplayCount] = useState(false);
   const maxLength = 400;
 
-  const handleChange = (event) => {
-    const inputText = event.target.value;
-    setText(inputText);
-  };
-
   const handleFocus = () => {
     setDisplayCount(true);
   };
@@ -34,7 +29,7 @@ const PromptPost = ({ text, setText }) => {
         value={text}
         placeholder="________________."
         className="focus:outline-none resize-none w-full h-2/3 text-3xl font-serif bg-methinks-lightgray"
-        onChange={handleChange}
+        onChange={(e) => setText(e.target.value)}
         onFocus={handleFocus}
         onBlur={handleBlur}
         maxLength={maxLength}
