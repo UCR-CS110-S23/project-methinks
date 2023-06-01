@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
 const PromptPost = ({ text, setText }) => {
+  const [displayCount, setDisplayCount] = useState(false);
   const maxCharLength = 100;
 
   const handleChange = (event) => {
     const inputText = event.target.value;
     setText(inputText);
+  };
+
+  const handleFocus = () => {
+    setDisplayCount(true);
   };
 
   return (
@@ -18,11 +23,14 @@ const PromptPost = ({ text, setText }) => {
         placeholder="________________."
         className="focus:outline-none resize-none w-full h-2/3 text-3xl font-serif bg-methinks-lightgray"
         onChange={handleChange}
+        onFocus={handleFocus}
         maxCharLength={maxCharLength}
       />
-      <div className="text-sm text-black">
-        {text.length}/{maxCharLength}
-      </div>
+      {displayCount && (
+        <div className="text-sm text-black">
+          {text.length}/{maxCharLength}
+        </div>
+      )}
     </div>
   );
 };
