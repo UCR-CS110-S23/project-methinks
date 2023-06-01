@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const PromptPost = ({ text, setText }) => {
   const [displayCount, setDisplayCount] = useState(false);
-  const maxCharLength = 100;
+  const maxLength = 400;
 
   const handleChange = (event) => {
     const inputText = event.target.value;
@@ -21,7 +21,7 @@ const PromptPost = ({ text, setText }) => {
 
   useEffect(() => {
     if (!displayCount) {
-      setText(""); // Reset the text when character count disappears
+      setText("");
     }
   }, [displayCount]);
 
@@ -37,11 +37,11 @@ const PromptPost = ({ text, setText }) => {
         onChange={handleChange}
         onFocus={handleFocus}
         onBlur={handleBlur}
-        maxCharLength={maxCharLength}
+        maxLength={maxLength}
       />
       {displayCount && (
-        <div className="text-sm text-black">
-          {text.length}/{maxCharLength}
+        <div className="my-10 text-right text-sm text-black font-medium">
+          {text.length}/{maxLength}
         </div>
       )}
     </div>
