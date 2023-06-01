@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Tag from "../Tag";
 import { tagsList } from "@/public/data/tags";
 
-const Tags = () => {
-  const [selectedTag, setSelectedTag] = useState("");
-
-  const handleTagClick = (tagName) => {
-    setSelectedTag(tagName);
+const Tags = ({ tag, setTag }) => {
+  const handleTagClick = (tag) => {
+    setTag(tag);
   };
   return (
     <div className="flex items-baseline gap-x-4 w-full">
@@ -17,11 +15,11 @@ const Tags = () => {
         flex gap-4 overflow-x-auto scrollbar-none`}
       > */}
       <div className="flex flex-wrap gap-3">
-        {tagsList.map((tag, index) => (
+        {tagsList.map((tagName, index) => (
           <Tag
             key={index}
-            name={tag}
-            isSelected={selectedTag === tag}
+            name={tagName}
+            isSelected={tag === tagName}
             handleSelected={handleTagClick}
           />
         ))}

@@ -47,13 +47,13 @@ const MyCalendar = (Kalendaryo) => {
         >
           <BsFillCaretRightFill />
         </button> */}
-          <button onClick={setDatePrevMonth}>
+          <button className="calendarButton" onClick={setDatePrevMonth}>
             <BsFillCaretLeftFill />
           </button>
 
           <span>{currentDate}</span>
 
-          <button onClick={setDateNextMonth}>
+          <button className="calendarButton" onClick={setDateNextMonth}>
             <BsFillCaretRightFill />
           </button>
         </div>
