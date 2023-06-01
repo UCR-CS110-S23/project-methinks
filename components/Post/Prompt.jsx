@@ -36,7 +36,7 @@ const PromptPost = ({ text, setText }) => {
       />
       {displayCount && (
         <div className="my-10 text-right text-sm text-black font-medium">
-          {text.length}/{maxLength}
+          {text.length} / {maxLength}
         </div>
       )}
     </div>

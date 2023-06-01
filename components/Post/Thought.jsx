@@ -37,7 +37,7 @@ const ThoughtPost = ({ text, setText }) => {
       />
       {displayCount && (
         <div className="my-10 mx-6 text-right text-sm text-black font-medium">
-          {text.length}/{maxLength}
+          {text.length} / {maxLength}
         </div>
       )}
     </div>
