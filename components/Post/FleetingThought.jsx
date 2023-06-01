@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Fleeting = ({ text, setText }) => {
+  useEffect(() => {
+    setText("");
+  }, []);
   return (
     <div className="w-full h-full bg-methinks-purple rounded-xl relative z-[5] p-6 shadow-2xl">
       <div className="flex justify-between items-baseline w-full">

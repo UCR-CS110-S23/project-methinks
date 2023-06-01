@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const ThoughtPost = ({ text, setText }) => {
+  useEffect(() => {
+    setText("");
+  }, []);
+
   return (
     <div className="w-full h-full bg-methinks-white rounded-xl relative z-[6] shadow-2xl">
       <p className="text-methinks-lightblack text-2xl font-bold p-6 pb-0">
