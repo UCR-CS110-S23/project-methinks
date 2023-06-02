@@ -69,7 +69,7 @@ const Post = () => {
           </div>
         </div>
         <p
-          className="self-end bg-[#FFFFFF] p-1 px-5 rounded-3xl font-medium text-lg text-black hover:bg-methinks-green  hover:text-methinks-black duration-300 cursor-pointer"
+          className="self-end bg-[#FFFFFF] p-1 px-5 rounded-3xl font-medium text-lg text-black hover:bg-methinks-green  hover:text-methinks-black duration-300 cursor-pointer hover:drop-shadow-glow"
           onClick={handleSubmit}
         >
           Post

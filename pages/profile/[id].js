@@ -6,6 +6,7 @@ import { getAllUserIds, getUserData } from "@/lib/users";
 
 export default function Profile({ userData }) {
   const user = JSON.parse(userData)[0];
+  console.log("profile", user);
   return (
     user && (
       <>
@@ -28,6 +29,7 @@ export async function getStaticPaths() {
 // localhost:3000/feed/[id]
 export async function getStaticProps({ params }) {
   const userData = await getUserData(params.id);
+  console.log("back", userData);
   return {
     props: {
       userData,
