@@ -4,30 +4,40 @@ import { useRouter } from "next/router";
 import FriendsProfile from "@/components/Profile/FriendsProfile";
 
 import { getUserData } from "@/lib/users";
+import { getAllPostsByUser } from "@/lib/posts";
 
-export default function Profile({ userData }) {
-  const user = JSON.parse(userData)[0];
+export default function Profile({ userData, postsData }) {
   const router = useRouter();
+  const user = JSON.parse(userData)[0];
 
   if (!user) {
     router.replace("/404");
     return;
   }
   return (
-    user && (
-      <>
-        <FriendsProfile user={user} />
-      </>
-    )
+    <>
+      <FriendsProfile user={user} posts={postsData} />
+      {/* <UserProfile /> */}
+    </>
   );
 }
 
 export async function getServerSideProps({ params }) {
-  // Fetch necessary data for the blog post using params.id
   const userData = await getUserData(params.id);
+
+  if (!userData) {
+    return {
+      props: {
+        userData: null,
+        postsData: null,
+      },
+    };
+  }
+  const postsData = await getAllPostsByUser(params.id);
   return {
     props: {
       userData,
+      postsData: postsData.reverse(),
     },
   };
 }
