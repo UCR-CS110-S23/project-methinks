@@ -1,9 +1,25 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 const Fleeting = ({ text, setText }) => {
+  const [displayCount, setDisplayCount] = useState(false);
+  const maxLength = 400;
+
+  const handleFocus = () => {
+    setDisplayCount(true);
+  };
+
+  const handleBlur = () => {
+    if (text.trim().length === 0) {
+      setDisplayCount(false);
+    }
+  };
+
   useEffect(() => {
-    setText("");
-  }, []);
+    if (!displayCount) {
+      setText("");
+    }
+  }, [displayCount]);
+
   return (
     <div className="w-full h-full bg-methinks-purple rounded-xl relative z-[5] p-6 shadow-2xl">
       <div className="flex justify-between items-baseline w-full">
@@ -18,7 +34,15 @@ const Fleeting = ({ text, setText }) => {
         placeholder="Quick, first thought that comes to mind!"
         className="focus:outline-none resize-none w-full h-2/3 text-3xl font-normal bg-methinks-purple text-methinks-black"
         onChange={(e) => setText(e.target.value)}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        maxLength={maxLength}
       />
+      {displayCount && (
+        <div className="my-[14%] text-right text-sm text-black font-medium">
+          {text.length} / {maxLength}
+        </div>
+      )}
     </div>
   );
 };
