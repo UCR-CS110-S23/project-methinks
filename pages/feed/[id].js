@@ -9,10 +9,10 @@ const CommentPage = () => {
       <div className="w-1/2 m-2">
         <Post
           id={1}
-          pic="/henry2.jpg"
-          name="mariam"
-          time="1:11"
-          post="i love you"
+          image="/henry2.jpg"
+          username="mariam"
+          date="1:11"
+          text="i love you"
           tag="sports"
         />
       </div>

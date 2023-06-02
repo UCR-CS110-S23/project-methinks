@@ -5,55 +5,55 @@ import { FiSend } from "react-icons/fi";
 const Comments = () => {
   const commentData = [
     {
-      img: "Profile",
+      image: "Profile",
       username: "@blah",
       date: "08:30:05 PM",
       text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
     },
     {
-      img: "Profile",
+      image: "Profile",
       username: "@blah",
       date: "08:30:05 PM",
       text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
     },
     {
-      img: "Profile",
+      image: "Profile",
       username: "@blah",
       date: "08:30:05 PM",
       text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
     },
     {
-      img: "Profile",
+      image: "Profile",
       username: "@blah",
       date: "08:30:05 PM",
       text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
     },
     {
-      img: "Profile",
+      image: "Profile",
       username: "@blah",
       date: "08:30:05 PM",
       text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
     },
     {
-      img: "Profile",
+      image: "Profile",
       username: "@blah",
       date: "08:30:05 PM",
       text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
     },
     {
-      img: "Profile",
+      image: "Profile",
       username: "@blah",
       date: "08:30:05 PM",
       text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
     },
     {
-      img: "Profile",
+      image: "Profile",
       username: "@blah",
       date: "08:30:05 PM",
       text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
     },
     {
-      img: "Profile",
+      image: "Profile",
       username: "@blah",
       date: "08:30:05 PM",
       text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
@@ -76,7 +76,7 @@ const Comments = () => {
               {commentData.map((comment, index) => (
                 <Comment
                   key={index}
-                  img={comment.img}
+                  image={comment.image}
                   username={comment.username}
                   date={comment.date}
                   text={comment.text}
@@ -92,7 +92,6 @@ const Comments = () => {
             placeholder="Expand this thought..."
             className="w-full bg-white focus:outline-none"
           />
-          {/* <p className="cursor-pointer">{`>`}</p> */}
           <FiSend className="text-lg" />
         </div>
       </div>

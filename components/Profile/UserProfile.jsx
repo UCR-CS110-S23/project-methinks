@@ -39,6 +39,16 @@ const UserProfile = () => {
     setEditName(false);
     setEditUsername(false);
     setEditBio(false);
+
+    if (editName === "") {
+      setName(previousName);
+    }
+    if (editUsername === "") {
+      setUsername(previousUsername);
+    }
+    if (editBio === "") {
+      setBio(previousBio);
+    }
   };
 
   const handleCancel = () => {
@@ -55,7 +65,6 @@ const UserProfile = () => {
       setBio(previousBio);
     }
   };
-  console.log(editBio);
   return (
     <div className="h-screen w-full flex justify-between bg-methinks-background p-10">
       <div className="flex flex-col w-1/2 m-10 gap-y-10">
@@ -189,7 +198,7 @@ const UserProfile = () => {
         </div>
       </div>
       <div className="w-1/2 flex flex-col gap-y-10 m-10 font-publicSans">
-        <div className="flex gap-x-7 items-center">
+        <div className="flex gap-x-7 items-end">
           <p className="text-methinks-white font-bold text-4xl m-0">Memories</p>
           <p className="text-methinks-darkgray text-2xl m-0">5.16.23</p>
         </div>

@@ -1,50 +1,46 @@
 import React, { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import Posts from "@/components/Feed/Posts";
+
 import mintcloud from "@/public/mintcloud.svg";
 import hovercloud from "@/public/hovercloud.svg";
-import Image from "next/image";
-import TopicBar from "@/components/Feed/TopicBar";
 
+import Tags from "@/components/Feed/Tags";
 const Feed = () => {
-  const [newPostToggle, setPostToggle] = useState(false);
+  const [newPostToggle, setNewPostToggle] = useState(false);
 
   return (
-    <div className="w-full relative flex flex-col justify-center items-center py-5">
-      {/* MAYBE TAGS HERE? */}
-      {/* <div className="flex bg-red-500">
-        <div className="flex">
-          <p className="text-methinks-white">Helo</p>
-          <p className="text-methinks-white">Helo</p>
-          <p className="text-methinks-white">Helo</p>
-          <p className="text-methinks-white">Helo</p>
-          <p className="text-methinks-white">Helo</p>
-        </div> */}
-      <div className="">
-        <TopicBar />
+    <div className="w-full relative flex flex-col justify-center items-center gap-y-10 py-5 pb-20">
+      <div className="max-w-3/4 h-[50px] flex justify-center">
+        <Tags />
       </div>
-      {/* </div> */}
-      <div className="w-1/2 mt-24">
+      <div className="w-[40%]">
         <Posts />
       </div>
 
-      <div className="fixed right-[12%] bottom-[10%] z-[20]">
-        {newPostToggle ? (
-          <Image
-            src={hovercloud}
-            alt="hover cloud img"
-            onMouseLeave={() => setPostToggle(false)}
-            draggable={false}
-          />
-        ) : (
-          <Image
-            src={mintcloud}
-            alt="mint cloud img"
-            onMouseEnter={() => setPostToggle(true)}
-            draggable={false}
-          />
-        )}
-      </div>
-      {/* <Navigation/> */}
+      <Link
+        href="/post"
+        className="fixed right-[12%] bottom-[10%] z-[20] hover:drop-shadow-glow duration-300"
+      >
+        <div className="hover:text-methinks-darkgray">
+          {newPostToggle ? (
+            <Image
+              src={hovercloud}
+              alt="hover cloud img"
+              className="cursor-pointer scale-95 duration-[400ms]"
+              onMouseLeave={() => setNewPostToggle(false)}
+            />
+          ) : (
+            <Image
+              src={mintcloud}
+              alt="mint cloud img"
+              className="cursor-pointer scale-105 duration-[400ms]"
+              onMouseEnter={() => setNewPostToggle(true)}
+            />
+          )}
+        </div>
+      </Link>
     </div>
   );
 };

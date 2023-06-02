@@ -41,3 +41,13 @@ jobs:
           node-version: "16.14.2"
       - run: npm ci
       - run: npm run build
+    env:
+      MONGODB_URI: ${{secrets.MONGODB_URI}}
+      MONGODB_DB: ${{secrets.MONGODB_DB}}
+      USERS_COLLECTION_NAME: ${{secrets.USERS_COLLECTION_NAME}}
+      POSTS_COLLECTION_NAME: ${{secrets.POSTS_COLLECTION_NAME}}
+      GOOGLE_CLIENT_ID: ${{secrets.GOOGLE_CLIENT_ID}}
+      GOOGLE_CLIENT_SECRET: ${{secrets.GOOGLE_CLIENT_SECRET}}
+      NEXTAUTH_URL: ${{secrets.NEXTAUTH_URL}}
+      NEXTAUTH_SECRET: ${{secrets.NEXTAUTH_SECRET}}
+      SECRET: ${{secrets.SECRET}}

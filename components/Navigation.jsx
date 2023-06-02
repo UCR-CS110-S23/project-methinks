@@ -1,12 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
+// import Link from "next/link";
+import { useSession} from "next-auth/react";
+// import { useSession, signOut } from "next-auth/react";
+import {BsFillPersonFill} from "react-icons/Bs"; 
+import {RxExit} from "react-icons/Rx"; 
 
 const Navigation = () => {
+  const { data: session } = useSession();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [profileLink, setProfileLink] = useState("");
+
 
   const profileClick = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+
+
+  useEffect(() => {
+    if (session) {
+      setProfileLink(`/profile/${session.user.uid}`);
+    }
+  }, [session]);
+
+  console.log(profileLink)
 
   return (
     <div className="w-full flex justify-center items-center">
@@ -28,41 +45,31 @@ const Navigation = () => {
 {/* bg-[1C1C1C]  */}
           {isDropdownOpen && (
             <div className="absolute right-0 mt-2 py-2 bg-black w-[129px] h-[74px] rounded-[12px] ">
-              <a
+                <a
                 href="#"
                 className="block px-4 py-2 text-white hover:underline text-12px no-underline
-                    font-public-sans font-semibold text-xs leading-4 cursor-pointer justify-between flex-row"
+                    font-public-sans font-semibold text-xs leading-4 cursor-pointer justify-between flex flex-row"
               >
-                <Image 
-                src = "./dropdown_profile.svg"
-                alt ="sign out icon"
-                width={13.5}
-                height = {13.5}
-                viewBox="0 0 16 16"
-                className=" h-4 w-4"
-              />
+                <BsFillPersonFill
+                // className=" h-4 w-4"
+                />
                 <span className="">Profile</span>
               </a>
               <a
                 href="#"
                 className="block px-4 py-2 w-48 h-14 text-white hover:underline text-12px no-underline 
                     font-public-sans font-semibold text-xs leading-4 cursor-pointer
-                    flex-row justify-between"
+                    flex  flex-row justify-between"
               >
-              <Image 
-                src = "./dropdown_signout.svg"
-                alt ="sign out icon"
-                width={13.5}
-                height={13.5}
-                className="mr-2"
-                viewBox="0 0 24 24"
-              />
+              <RxExit/>
                 Sign Out
               </a>
             </div>
           )}
         </div>
       </nav>
+
+
     </div>
   );
 };
