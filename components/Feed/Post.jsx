@@ -3,23 +3,30 @@ import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
-const Post = ({ post }) => {
+const Post = ({ post, type }) => {
   const [toggle, setToggle] = useState(false);
 
   const [counter, setCounter] = useState(0);
   const [formatDate, setFormattedDate] = useState();
 
   useEffect(() => {
-    // 6-03-2023
-    const newDate = new Date(post.date)
-      .toLocaleDateString("en-US", {
-        month: "2-digit",
-        day: "2-digit",
-        year: "numeric",
-      })
-      .split("/")
-      .join("-");
-    setFormattedDate(newDate);
+    if (type === "today") {
+      const newDate = new Date(post.date).toLocaleTimeString([], {
+        timeStyle: "medium",
+      });
+      setFormattedDate(newDate);
+    } else if (type === "previous") {
+      // 6-03-2023
+      const newDate = new Date(post.date)
+        .toLocaleDateString("en-US", {
+          month: "2-digit",
+          day: "2-digit",
+          year: "numeric",
+        })
+        .split("/")
+        .join("-");
+      setFormattedDate(newDate);
+    }
   }, []);
 
   console.log(formatDate); // Output: 06-01-2023
