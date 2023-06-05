@@ -30,11 +30,12 @@ const Navigation = () => {
       <Link
         className="cursor-pointer hover:text-methinks-lightgray"
         href={profileLink}
-        onClick={() =>
+        onClick={(e) => {
+          e.preventDefault();
           signOut({
             callbackUrl: "/signin",
-          })
-        }
+          });
+        }}
       >
         Sign Out
       </Link>
