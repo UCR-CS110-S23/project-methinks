@@ -36,7 +36,7 @@ const Comments = () => {
             </div>
           </div>
         ) : (
-          <div className="h-[35rem] overflow-y-auto scrollbar-none">
+          <div className="max-h-[38rem] overflow-y-auto scrollbar-none">
             <div className="gap-y-5 flex flex-col">
               {commentData.map((comment, index) => (
                 <Comment key={index} comment={comment} />

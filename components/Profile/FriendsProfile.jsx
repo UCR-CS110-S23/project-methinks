@@ -4,8 +4,14 @@ import Posts from "../Feed/Posts";
 
 const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
   return (
-    <div className="w-full h-full flex justify-center items-center bg-methinks-background py-4">
-      <div className="w-[40%] flex flex-col justify-center items-center gap-y-8">
+    <div
+      className={`w-full ${
+        previousPosts.length === 0 && todayPosts.length === 0
+          ? `h-screen`
+          : `h-full`
+      } flex justify-center items-center bg-methinks-background py-4 pb-20`}
+    >
+      <div className="w-[40%] h-full flex flex-col justify-start items-center gap-y-8">
         <div className="gap-y-1 flex flex-col justify-center items-center">
           <Image
             referrerPolicy="no-referrer"
@@ -30,20 +36,36 @@ const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
           <p className="self-start text-methinks-white m-0 font-bold text-4xl pl-4">
             Today
           </p>
+
           <div className="w-full h-full flex flex-col gap-y-5 bg-methinks-gray p-4 rounded-xl">
-            <Posts postData={todayPosts} type="today" />
+            {todayPosts.length === 0 ? (
+              <p>No Thoughts Yet, Just Vibes!</p>
+            ) : (
+              <Posts postData={todayPosts} type="today" />
+            )}
           </div>
         </div>
-        <div className="w-full flex flex-col justify-center items-center gap-y-5 mb-5">
-          <p className="self-start text-methinks-white m-0 font-bold text-4xl pl-4">
-            From this Week
-          </p>
-          <div className="w-full h-[750px] bg-methinks-gray p-4 rounded-xl overflow-y-auto">
-            <div className="flex flex-col gap-y-5">
-              <Posts postData={previousPosts} type="previous" />
+        {previousPosts.length === 0 ? (
+          <>
+            <p className="self-start text-methinks-white m-0 font-bold text-4xl pl-4">
+              This Week
+            </p>
+            <div className="w-full h-1/12 flex flex-col gap-y-5 bg-methinks-gray p-4 rounded-xl">
+              <p>{"This user had nothing to say."} </p>
+            </div>
+          </>
+        ) : (
+          <div className="w-full h-full flex flex-col justify-center items-center gap-y-5 mb-5">
+            <p className="self-start text-methinks-white m-0 font-bold text-4xl pl-4">
+              This Week
+            </p>
+            <div className="w-full max-h-[750px] bg-methinks-gray p-4 rounded-xl overflow-y-auto">
+              <div className="flex flex-col gap-y-5">
+                <Posts postData={previousPosts} type="previous" />
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

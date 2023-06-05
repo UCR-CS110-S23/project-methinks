@@ -13,7 +13,7 @@ export default function Feed({ postData }) {
   const [newPostToggle, setNewPostToggle] = useState(false);
 
   return (
-    <div className="h-screen bg-methinks font-publicSans">
+    <div className="h-full bg-methinks font-publicSans">
       <div className="w-full relative flex flex-col justify-center items-center gap-y-10 py-5 pb-20">
         <div className="max-w-3/4 h-[50px] flex justify-center">
           <Tags />
