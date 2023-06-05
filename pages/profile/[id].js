@@ -19,7 +19,7 @@ export default function Profile({ userData, todayPosts, previousPosts }) {
       <FriendsProfile
         user={user}
         todayPosts={todayPosts}
-        posts={previousPosts}
+        previousPosts={previousPosts}
       />
       {/* <UserProfile /> */}
     </>
@@ -40,6 +40,21 @@ export async function getServerSideProps({ params }) {
   const { todayPosts, previousPosts } = JSON.parse(
     JSON.stringify(await getProfilePosts(params.id))
   );
+  todayPosts.map((post) => {
+    return (post.date = new Date(post.date).toLocaleTimeString([], {
+      timeStyle: "medium",
+    }));
+  });
+  previousPosts.map((post) => {
+    return (post.date = new Date(post.date)
+      .toLocaleDateString("en-US", {
+        month: "2-digit",
+        day: "2-digit",
+        year: "numeric",
+      })
+      .split("/")
+      .join("-"));
+  });
   return {
     props: {
       userData,
