@@ -8,7 +8,7 @@ import Tags from "@/components/Post/Tags";
 const Post = () => {
   const [text, setText] = useState("");
   const [tag, setTag] = useState("");
-  const [privateToggle, setPrivateToggle] = useState(false);
+  const [publicToggle, setPublicToggle] = useState(true);
   const [error, setError] = useState("");
 
   const router = useRouter();
@@ -22,7 +22,7 @@ const Post = () => {
       const newPost = {
         text,
         tag,
-        public: privateToggle,
+        public: publicToggle,
       };
 
       axios
@@ -32,7 +32,7 @@ const Post = () => {
             setError("");
             setText("");
             setTag("");
-            setPrivateToggle(false);
+            setPublicToggle(false);
             router.replace("/feed");
           }
         })
@@ -54,7 +54,7 @@ const Post = () => {
             <input
               type="checkbox"
               className="toggle toggle-custom-primary bg-gray-400 checked:bg-methinks-green duration-300"
-              onClick={() => setPrivateToggle(!privateToggle)}
+              onClick={() => setPublicToggle(!publicToggle)}
             />
           </div>
           <div className="w-full h-[30px] flex justify-center items-center">
