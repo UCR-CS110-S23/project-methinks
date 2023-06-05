@@ -6,19 +6,19 @@ import { FiSend } from "react-icons/fi";
 const Comments = () => {
   const commentData = [
     {
-      image: "Profile",
+      image: "/henry2.jpg",
       username: "@blah",
       date: "08:30:05 PM",
       text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
     },
     {
-      image: "Profile",
+      image: "/henry2.jpg",
       username: "@blah",
       date: "08:30:05 PM",
       text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
     },
     {
-      image: "Profile",
+      image: "/henry2.jpg",
       username: "@blah",
       date: "08:30:05 PM",
       text: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor",
@@ -39,13 +39,7 @@ const Comments = () => {
           <div className="h-[35rem] overflow-y-auto scrollbar-none">
             <div className="gap-y-5 flex flex-col">
               {commentData.map((comment, index) => (
-                <Comment
-                  key={index}
-                  image={comment.image}
-                  username={comment.username}
-                  date={comment.date}
-                  text={comment.text}
-                />
+                <Comment key={index} comment={comment} />
               ))}
             </div>
           </div>
