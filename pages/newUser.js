@@ -4,9 +4,6 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { TypeAnimation } from "react-type-animation";
 
-// import { getServerSession } from "next-auth/next";
-// import { authOptions } from "pages/api/auth/[...nextauth]";
-
 export default function NewUser() {
   const { data: session, update } = useSession();
   const router = useRouter();
@@ -98,22 +95,3 @@ export default function NewUser() {
     </div>
   );
 }
-
-// export async function getServerSideProps(context) {
-//   const session = await getServerSession(context.req, context.res, authOptions);
-
-//   if (!session) {
-//     return {
-//       redirect: {
-//         destination: "/signin",
-//         permanent: false,
-//       },
-//     };
-//   }
-
-//   return {
-//     props: {
-//       user: session.user,
-//     },
-//   };
-// }

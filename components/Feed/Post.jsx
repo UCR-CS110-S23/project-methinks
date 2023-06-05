@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
@@ -9,17 +10,46 @@ const Post = ({ post, type }) => {
   const [toggle, setToggle] = useState(false);
   const router = useRouter();
 
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(post.likes);
 
   const handleUnlike = (e) => {
     e.preventDefault();
     setCounter(counter - 1);
     setToggle(!toggle);
+
+    const postId = post.tid;
+    axios
+      .post("/api/unlike", { postId })
+      .then(({ data }) => {
+        console.log(data);
+        if (data.success) {
+          setCounter(response);
+          console.log(data);
+        }
+      })
+      .catch((error) => {
+        console.log("[Like-Error]", error);
+      });
   };
+
   const handleLike = (e) => {
     e.preventDefault();
     setCounter(counter + 1);
     setToggle(!toggle);
+
+    const postId = post.tid;
+    axios
+      .post("/api/like", { postId })
+      .then(({ data }) => {
+        // console.log(data);
+        if (data.success) {
+          setCounter(response);
+          console.log(data);
+        }
+      })
+      .catch((error) => {
+        console.log("[Like-Error]", error);
+      });
   };
 
   const handleProfileClick = (e) => {
