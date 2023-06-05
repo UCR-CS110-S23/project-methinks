@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { TiLockClosed } from "react-icons/ti";
 
 const Post = ({ post, type }) => {
+  const { data: session } = useSession();
   const router = useRouter();
   const [toggle, setToggle] = useState(false);
   const [counter, setCounter] = useState(post.likes);
 
   useEffect(() => {
-    const like = { uid: post.uid, tid: post.tid };
+    const like = { uid: session?.user?.uid, tid: post.tid };
+    // console.log(like);
     axios
       .post("/api/checkLike", like)
       .then(({ data }) => {
@@ -30,7 +33,7 @@ const Post = ({ post, type }) => {
     setCounter(counter - 1);
     setToggle(!toggle);
 
-    const like = { uid: post.uid, tid: post.tid };
+    const like = { uid: session?.user?.uid, tid: post.tid };
     axios
       .post("/api/unlike", like)
       .then(({ data }) => {
@@ -49,7 +52,7 @@ const Post = ({ post, type }) => {
     setCounter(counter + 1);
     setToggle(!toggle);
 
-    const like = { uid: post.uid, tid: post.tid };
+    const like = { uid: session?.user?.uid, tid: post.tid };
     axios
       .post("/api/like", like)
       .then(({ data }) => {

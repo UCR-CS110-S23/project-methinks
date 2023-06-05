@@ -13,13 +13,14 @@ export default async function incrementtLikes(req, res) {
   const db = (await clientPromise).db(process.env.MONGODB_DB);
   const collectionName = process.env.LIKES_COLLECTION_NAME;
   const like = req.body;
-  console.log("req", req.body);
 
   // Check if user has already liked this post
   const userAlreadyLiked = await db.collection(collectionName).findOne({
     uid: like.uid,
     tid: like.tid,
   });
+
+  console.log(userAlreadyLiked);
 
   if (userAlreadyLiked) {
     res.status(200).json({
