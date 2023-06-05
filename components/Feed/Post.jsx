@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -7,28 +7,40 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { TiLockClosed } from "react-icons/ti";
 
 const Post = ({ post, type }) => {
-  const [toggle, setToggle] = useState(false);
   const router = useRouter();
-
+  const [toggle, setToggle] = useState(false);
   const [counter, setCounter] = useState(post.likes);
+
+  useEffect(() => {
+    const like = { uid: post.uid, tid: post.tid };
+    axios
+      .post("/api/checkLike", like)
+      .then(({ data }) => {
+        if (data.userAlreadyLiked) {
+          setToggle(true);
+        }
+      })
+      .catch((error) => {
+        console.log("[Like-Error]", error);
+      });
+  }, []);
 
   const handleUnlike = (e) => {
     e.preventDefault();
     setCounter(counter - 1);
     setToggle(!toggle);
 
-    const postId = post.tid;
+    const like = { uid: post.uid, tid: post.tid };
     axios
-      .post("/api/unlike", { postId })
+      .post("/api/unlike", like)
       .then(({ data }) => {
-        console.log(data);
         if (data.success) {
           setCounter(response);
           console.log(data);
         }
       })
       .catch((error) => {
-        console.log("[Like-Error]", error);
+        console.log("[Unlike-Error]", error);
       });
   };
 
@@ -37,11 +49,10 @@ const Post = ({ post, type }) => {
     setCounter(counter + 1);
     setToggle(!toggle);
 
-    const postId = post.tid;
+    const like = { uid: post.uid, tid: post.tid };
     axios
-      .post("/api/like", { postId })
+      .post("/api/like", like)
       .then(({ data }) => {
-        // console.log(data);
         if (data.success) {
           setCounter(response);
           console.log(data);
