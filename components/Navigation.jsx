@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 // import { useSession, signOut } from "next-auth/react";
 import { BsFillPersonFill } from "react-icons/Bs";
+import { BsChat } from "react-icons/Bs";
 import { RxExit } from "react-icons/Rx";
 
 const Navigation = () => {
@@ -42,12 +43,19 @@ const Navigation = () => {
 
           {/* bg-[1C1C1C]  */}
           {isDropdownOpen && (
-            <div className="bg-red-500 absolute flex flex-col justify-center right-0 bg-black w-[129px] h-[74px] rounded-[12px] ">
+            <div className="bg-red-500 absolute flex flex-col justify-center right-0 bg-black w-[129px] h-[110px] rounded-[12px] ">
               <div
                 className="flex flex-row items-center space-x-4 mt-2">
                 <BsFillPersonFill className="ml-4"/>
                 <span className="ml-2">Profile</span>
               </div>
+
+              <div
+                className="flex flex-row items-center space-x-4 mt-2">
+                <BsChat className="ml-4"/>
+                <span className="ml-2">Messages</span>
+              </div>
+
               {/* flex flex-row justify-between items-center */}
               <div className="flex flex-row items-center space-x-4 mt-2">
                 <RxExit className="ml-4"/>
