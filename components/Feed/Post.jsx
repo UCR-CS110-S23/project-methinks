@@ -26,7 +26,6 @@ const Post = ({ post, type }) => {
     e.preventDefault();
     router.push(`/profile/${post.uid}`);
   };
-  console.log("public", post.public);
   return (
     <a
       href={!post.public || type === "comments" ? null : `/feed/${post.tid}`}
@@ -79,7 +78,13 @@ const Post = ({ post, type }) => {
               </div>
             </div>
           </div>
-          <div className="text-methinks-darkpurple text-lg flex justify-end items-center w-full">
+          <div
+            className={`${
+              type === "comments"
+                ? `text-methinks-purple`
+                : `text-methinks-darkpurple`
+            } text-lg flex justify-end items-center w-full`}
+          >
             {post.tag}
           </div>
         </div>
