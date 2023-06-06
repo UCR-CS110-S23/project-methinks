@@ -43,23 +43,25 @@ const Navigation = () => {
 
           {/* bg-[1C1C1C]  */}
           {isDropdownOpen && (
-            <div className="bg-red-500 absolute flex flex-col justify-center right-0 bg-black w-[129px] h-[110px] rounded-[12px] ">
+            <div className="bg-[#1C1C1C] absolute flex flex-col justify-center right-0 bg-black w-[129px] h-[110px] rounded-[12px] ">
               <div
                 className="flex flex-row items-center space-x-4 mt-2">
                 <BsFillPersonFill className="ml-4 fill-white"/>
-                <span className="ml-2">Profile</span>
+                <span className="ml-2 text-white text-[12px] font-semibold">Profile</span>
               </div>
 
               <div
                 className="flex flex-row items-center space-x-4 mt-2">
-                <BsChat className="ml-4 fill-white font-bold"/>
-                <span className="ml-2">Messages</span>
+                <BsChat className="ml-4 fill-white font-bold "/>
+                <span className="ml-2 text-white text-[12px] font-semibold">Messages</span>
               </div>
 
               {/* flex flex-row justify-between items-center */}
               <div className="flex flex-row items-center space-x-4 mt-2">
-                <RxExit className="ml-4 fill-white"/>
-                <span className="ml-2 font-white">Sign Out</span>
+              <div className="text-white ml-4 ">
+                <RxExit />
+              </div>
+                <span className="ml-2 text-white text-[12px] font-semibold">Sign Out</span>
               </div>
               
             </div>
