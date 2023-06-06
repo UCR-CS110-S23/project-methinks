@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Posts from "@/components/Feed/Posts";
 
+import { getAllPostData } from "@/lib/posts";
+import Posts from "@/components/Feed/Posts";
 import mintcloud from "@/public/mintcloud.svg";
 import hovercloud from "@/public/hovercloud.svg";
 
 import Tags from "@/components/Feed/Tags";
-const Feed = () => {
+
+export default function Feed({ postData }) {
   const [newPostToggle, setNewPostToggle] = useState(false);
 
   return (
@@ -16,7 +18,7 @@ const Feed = () => {
         <Tags />
       </div>
       <div className="w-[40%]">
-        <Posts />
+        <Posts postData={postData} />
       </div>
 
       <Link
@@ -43,6 +45,13 @@ const Feed = () => {
       </Link>
     </div>
   );
-};
+}
 
-export default Feed;
+export async function getServerSideProps() {
+  const postData = await getAllPostData();
+  return {
+    props: {
+      postData: postData.reverse(),
+    },
+  };
+}
