@@ -7,6 +7,8 @@ import { BsFillPersonFill } from "react-icons/Bs";
 import { BsChat } from "react-icons/Bs";
 import { RxExit } from "react-icons/Rx";
 
+import UserProfile from "./Profile/UserProfile";
+
 const Navigation = () => {
   const { data: session } = useSession();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -16,9 +18,18 @@ const Navigation = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const handleClick = () => {
+  const handleClickFeed = () => {
     window.location.href = './feed'; 
   }; 
+  // const handleClickProfile = () => {
+  //   window.location.href = './[id]]'; 
+  // }; 
+  // const handleClickMessages = () => {
+  //   window.location.href = './feed'; 
+  // }; 
+  // const handleClickSignout = () => {
+  //   window.location.href = './feed'; 
+  // }; 
 
   useEffect(() => {
     if (session) {
@@ -31,8 +42,8 @@ const Navigation = () => {
   return (
     <div className="w-full flex justify-center items-center">
       <nav className="px-3 bg-[24292F] w-full flex justify-between items-center">
-        <p className="mb-0 text-white text-2xl font-bold leading-8 pr-px"
-          onClick = {handleClick} >
+        <p className="mb-0 text-white text-2xl font-bold leading-8 pr-px cursor-pointer"
+          onClick = {handleClickFeed} >
           Feed
         </p>
         <p className="text-white text-2xl font-bold mb-0">meThinks...</p>
@@ -48,28 +59,29 @@ const Navigation = () => {
 
           {/* bg-[1C1C1C]  */}
           {isDropdownOpen && (
-            <div className="bg-[#1C1C1C] absolute flex flex-col justify-center right-0 bg-black w-[129px] h-[110px] rounded-[12px] ">
+            <div className=" bg-[#1C1C1C] absolute flex flex-col justify-center right-0 bg-black w-[129px] h-[110px] rounded-[12px] ">
               <div
-                className="flex flex-row items-center space-x-4 mt-2">
-                <BsFillPersonFill className="ml-4 fill-white"/>
-                <span 
-                  className="ml-2 text-white text-[12px] font-semibold"
-                  onMouseEnter={() => set}
-                >Profile</span>
+                className="flex flex-row items-center space-x-4 mt-2 cursor-pointer"
+                onClick = {<UserProfile/>}>
+                <BsFillPersonFill className="cursor-pointer ml-4 fill-white"/>
+                <p 
+                  className="cursor-pointer ml-2 text-white text-[12px] font-semibold "
+                  onClick = {profileLink}
+                >Profile</p>
               </div>
 
               <div
-                className="flex flex-row items-center space-x-4 mt-2">
+                className="cursor-pointer flex flex-row items-center space-x-4 mt-2">
                 <BsChat className="ml-4 fill-white font-bold "/>
-                <span className="ml-2 text-white text-[12px] font-semibold">Messages</span>
+                <span className="ml-2 text-white text-[12px] font-semibold cursor-pointer">Messages</span>
               </div>
 
               {/* flex flex-row justify-between items-center */}
-              <div className="flex flex-row items-center space-x-4 mt-2">
+              <div className=" cursor-pointer flex flex-row items-center space-x-4 mt-2">
               <div className="text-white ml-4 ">
                 <RxExit />
               </div>
-                <span className="ml-2 text-white text-[12px] font-semibold">Sign Out</span>
+                <span className="ml-2 text-white text-[12px] font-semibold cursor-pointer">Sign Out</span>
               </div>
               
             </div>

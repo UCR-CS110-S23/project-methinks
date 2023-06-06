@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Calendar from "@/components/Profile/Calendar";
-import { BsPen } from "react-icons/bs";
+import { BsPen } from "react-icons/Bs";
 
 const UserProfile = () => {
   const [name, setName] = useState("Mika");
