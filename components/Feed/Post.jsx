@@ -50,20 +50,25 @@ const Post = ({ post, type }) => {
       <div className="bg-gray-200 w-full flex flex-col rounded-xl gap-y-5 p-5 pr-7">
         <div className="flex w-full">
           <div className="gap-x-4 w-3/4 flex justify-start items-center  ">
-            <Image
-              src={post.image}
-              alt="hot hot henry"
-              referrerPolicy="no-referrer"
-              className="rounded-full"
-              width="50"
-              height="50"
-              draggable={false}
-            />
+            <Link href={`/profile/${post.uid}`}>
+              <Image
+                src={post.image}
+                alt="hot hot henry"
+                referrerPolicy="no-referrer"
+                className="rounded-full"
+                width="50"
+                height="50"
+                draggable={false}
+              />
+            </Link>
             <div className="flex items-baseline gap-x-5">
-              <div className=" text-black text-2xl font-medium">
+              <Link
+                href={`/profile/${post.uid}`}
+                className=" text-black text-2xl font-medium"
+              >
                 {post.username}
-              </div>
-              <div className="text-[##77818A] text-base">{formatDate}</div>
+              </Link>
+              <div className="text-[##77818A] text-base ">{formatDate}</div>
             </div>
           </div>
           <div className="text-methinks-darkpurple text-2xl flex justify-end items-center w-full">
