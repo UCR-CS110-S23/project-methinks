@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { TiLockClosed } from "react-icons/ti";
 
 const Post = ({ post, type }) => {
+  const { data: session } = useSession();
   const router = useRouter();
   const [toggle, setToggle] = useState(false);
   const [counter, setCounter] = useState(post.likes);
 
   useEffect(() => {
-    const like = { uid: post.uid, tid: post.tid };
+    const like = { uid: session?.user?.uid, tid: post.tid };
     axios
       .post("/api/checkLike", like)
       .then(({ data }) => {
@@ -30,13 +32,12 @@ const Post = ({ post, type }) => {
     setCounter(counter - 1);
     setToggle(!toggle);
 
-    const like = { uid: post.uid, tid: post.tid };
+    const like = { uid: session?.user?.uid, tid: post.tid };
     axios
       .post("/api/unlike", like)
       .then(({ data }) => {
         if (data.success) {
           setCounter(response);
-          console.log(data);
         }
       })
       .catch((error) => {
@@ -49,13 +50,12 @@ const Post = ({ post, type }) => {
     setCounter(counter + 1);
     setToggle(!toggle);
 
-    const like = { uid: post.uid, tid: post.tid };
+    const like = { uid: session?.user?.uid, tid: post.tid };
     axios
       .post("/api/like", like)
       .then(({ data }) => {
         if (data.success) {
           setCounter(response);
-          console.log(data);
         }
       })
       .catch((error) => {
@@ -86,7 +86,7 @@ const Post = ({ post, type }) => {
         } w-full flex flex-col rounded-xl gap-y-5 p-5 pr-7`}
       >
         <div className="flex w-full">
-          <div className="gap-x-4 w-3/4 flex justify-start items-center">
+          <div className="gap-x-4 w-full flex justify-start items-center">
             <Image
               src={post.image}
               alt="hot hot henry"
@@ -97,7 +97,7 @@ const Post = ({ post, type }) => {
               draggable={false}
               onClick={handleProfileClick}
             />
-            <div className="flex items-baseline gap-x-5">
+            <div className="flex items-center gap-x-5 w-full">
               <div
                 className={`${
                   type === "comments"
@@ -113,7 +113,7 @@ const Post = ({ post, type }) => {
                   type === "comments"
                     ? `text-methinks-lightgrayHover`
                     : `text-methinks-darkgray`
-                } text-base`}
+                } text-base w-full`}
               >
                 {post.date}
               </div>
@@ -124,7 +124,7 @@ const Post = ({ post, type }) => {
               type === "comments"
                 ? `text-methinks-purple`
                 : `text-methinks-darkpurple`
-            } text-lg flex justify-end items-center w-full`}
+            } text-lg flex justify-end items-center`}
           >
             {post.tag}
           </div>
