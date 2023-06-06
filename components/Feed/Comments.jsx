@@ -1,27 +1,32 @@
 import React, { useState } from "react";
-import { useSession } from "next-auth/react";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 import Comment from "./Comment";
 import { FiSend } from "react-icons/fi";
 
-const Comments = () => {
-  const { data: session } = useSession();
-
-  const [text, setText] = useState();
-  const [commentData, setCommentData] = useState([]);
+const Comments = ({ postID, commentsData }) => {
+  const [text, setText] = useState("");
+  const router = useRouter();
 
   const handleComment = () => {
     if (text) {
       const newComment = {
-        uid: session?.user?.uid,
-        image: session?.user?.image,
-        username: session?.user?.username,
-        date: new Date().toLocaleTimeString([], {
-          timeStyle: "medium",
-        }),
+        tid: postID,
         text,
       };
-      setCommentData([...commentData, newComment]);
+
+      axios
+        .post("/api/addComment", newComment)
+        .then(({ data }) => {
+          if (data.success) {
+            setText("");
+            router.reload();
+          }
+        })
+        .catch((error) => {
+          console.log("[Comment-Error]", error);
+        });
     }
   };
 
@@ -29,9 +34,9 @@ const Comments = () => {
     <div className="bg-[#1C1C1C] p-5 px-7 rounded-xl">
       <div className="flex w-full flex-col gap-y-8">
         <p className="font-semibold text-2xl text-white">Comments</p>
-        {commentData.length === 0 ? (
+        {commentsData?.length === 0 ? (
           <div className="h-[20rem] flex justify-center items-center">
-            <div className="text-white text-center text-2xl flex flex-col font-semibold">
+            <div className="text-methinks-darkgray text-center text-2xl flex flex-col font-semibold">
               <p>The minds are calm and quiet...</p>
               <p>Be the first to build on this thought!</p>
             </div>
@@ -39,7 +44,7 @@ const Comments = () => {
         ) : (
           <div className="max-h-[28rem] overflow-y-auto">
             <div className="gap-y-5 flex flex-col">
-              {commentData.map((comment, index) => (
+              {commentsData?.reverse().map((comment, index) => (
                 <Comment key={index} comment={comment} />
               ))}
             </div>

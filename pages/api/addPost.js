@@ -19,7 +19,7 @@ export default async function addPost(req, res) {
     ...newPost,
     tid: uuidv4(),
     date: new Date().toISOString(),
-    type: "post",
+    type: "thought",
     likes: 0,
     uid: session?.user?.uid,
     image: session?.user?.image,

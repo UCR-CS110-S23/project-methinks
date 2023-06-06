@@ -20,8 +20,6 @@ export default async function incrementtLikes(req, res) {
     tid: like.tid,
   });
 
-  console.log(userAlreadyLiked);
-
   if (userAlreadyLiked) {
     res.status(200).json({
       success: false,

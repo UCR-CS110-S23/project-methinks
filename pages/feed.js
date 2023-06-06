@@ -13,13 +13,17 @@ export default function Feed({ postData }) {
   const [newPostToggle, setNewPostToggle] = useState(false);
 
   return (
-    <div className="h-full bg-methinks font-publicSans">
+    <div
+      className={`${
+        postData.length < 4 ? `h-screen` : `h-full`
+      } bg-methinks font-publicSans`}
+    >
       <div className="w-full relative flex flex-col justify-center items-center gap-y-10 py-5 pb-20">
         <div className="max-w-3/4 h-[50px] flex justify-center">
           <Tags />
         </div>
         {postData.length === 0 ? (
-          <div className="text-white flex flex-col gap-y-2 justify-center items-center text-3xl w-[40%] h-[750px] font-semibold">
+          <div className="text-methinks-darkgray flex flex-col gap-y-2 justify-center items-center text-3xl w-[40%] h-[750px] font-semibold">
             <p>{"Everyone's asleep but your mind is alive..."}</p>
             <p>Speak your Truth!</p>
           </div>
