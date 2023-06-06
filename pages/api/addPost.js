@@ -24,6 +24,7 @@ export default async function addPost(req, res) {
     uid: session?.user?.uid,
     image: session?.user?.image,
     username: session?.user?.username,
+    comments: [],
   });
 
   res.status(200).json({ success: true, message: "Post added successfully" });

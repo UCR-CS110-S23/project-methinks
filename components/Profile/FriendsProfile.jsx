@@ -39,7 +39,7 @@ const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
 
           <div className="w-full h-full flex flex-col gap-y-5 bg-methinks-gray p-4 rounded-xl">
             {todayPosts.length === 0 ? (
-              <p>No Thoughts Yet, Just Vibes!</p>
+              <p>No thoughts yet, just vibes!</p>
             ) : (
               <Posts postData={todayPosts} type="today" />
             )}
@@ -51,7 +51,7 @@ const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
               This Week
             </p>
             <div className="w-full h-1/12 flex flex-col gap-y-5 bg-methinks-gray p-4 rounded-xl">
-              <p>{"This user had nothing to say."} </p>
+              <p>{"Nothing to see here :("} </p>
             </div>
           </>
         ) : (

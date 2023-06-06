@@ -86,7 +86,7 @@ const Post = ({ post, type }) => {
         } w-full flex flex-col rounded-xl gap-y-5 p-5 pr-7`}
       >
         <div className="flex w-full">
-          <div className="gap-x-4 w-full flex justify-start items-center">
+          <div className="gap-x-4 w-3/4 flex justify-start items-center">
             <Image
               src={post.image}
               alt="hot hot henry"
@@ -97,7 +97,7 @@ const Post = ({ post, type }) => {
               draggable={false}
               onClick={handleProfileClick}
             />
-            <div className="flex items-center gap-x-5 w-full">
+            <div className="flex items-baseline gap-x-5">
               <div
                 className={`${
                   type === "comments"
@@ -113,7 +113,7 @@ const Post = ({ post, type }) => {
                   type === "comments"
                     ? `text-methinks-lightgrayHover`
                     : `text-methinks-darkgray`
-                } text-base w-full`}
+                } text-base`}
               >
                 {post.date}
               </div>
@@ -124,7 +124,7 @@ const Post = ({ post, type }) => {
               type === "comments"
                 ? `text-methinks-purple`
                 : `text-methinks-darkpurple`
-            } text-lg flex justify-end items-center`}
+            } text-lg flex justify-end items-center w-full`}
           >
             {post.tag}
           </div>

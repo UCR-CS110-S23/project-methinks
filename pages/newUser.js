@@ -31,7 +31,6 @@ export default function NewUser() {
         })
         .then(({ data }) => {
           if (data.success) {
-            console.log(data);
             // NextAuth function to update mutated session object attribute
             update({ username: username.toLowerCase() });
             setUsername("");
