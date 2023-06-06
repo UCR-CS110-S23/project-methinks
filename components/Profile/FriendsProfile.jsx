@@ -36,7 +36,7 @@ const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
         </div>
         <div className="w-full flex flex-col justify-center items-center gap-y-5 mb-5">
           <p className="self-start text-methinks-white m-0 font-bold text-4xl pl-4">
-            Previous
+            From this Week
           </p>
           <div className="w-full h-[750px] bg-methinks-gray p-4 rounded-xl overflow-y-auto">
             <div className="flex flex-col gap-y-5">
