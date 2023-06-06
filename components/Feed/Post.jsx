@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import Link from "next/link";
+
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { TiLockClosed } from "react-icons/ti";
 
 const Post = ({ post }) => {
   const [toggle, setToggle] = useState(false);
@@ -25,10 +26,13 @@ const Post = ({ post }) => {
     e.preventDefault();
     router.push(`/profile/${post.uid}`);
   };
+  console.log("public", post.public);
   return (
-    <Link
-      href={`/feed/${post.tid}`}
-      className="flex justify-center drop-shadow-xl hover:shadow-2xl hover:scale-[1.0025] hover:shadow-methinks-black duration-300 cursor-pointer rounded-xl font-publicSans no-underline relative"
+    <a
+      href={!post.public ? null : `/feed/${post.tid}`}
+      className={`flex justify-center drop-shadow-xl hover:shadow-2xl hover:scale-[1.0025] hover:shadow-methinks-black duration-300 rounded-xl font-publicSans no-underline relative ${
+        !post.public ? `` : ` cursor-pointer `
+      }`}
     >
       <div className="bg-gray-200 w-full flex flex-col rounded-xl gap-y-5 p-5 pr-7">
         <div className="flex w-full">
@@ -58,25 +62,31 @@ const Post = ({ post }) => {
           </div>
         </div>
 
-        <div className="text-black text-2xl pl-5 font-normal break-words">
+        <div className="text-black text-xl pl-5 font-normal break-words">
           {post.text}
         </div>
-        <div className=" flex justify-end text-2xl w-full  items-center text-methinks-black gap-x-1 duration-300 select-none">
-          {toggle ? (
-            <AiFillHeart
-              className="cursor-pointer hover:text-methinks-darkgray"
-              onClick={handleUnlike}
-            />
+        <div className="flex justify-end text-2xl w-full  items-center text-methinks-black gap-x-1 duration-300 select-none">
+          {!post.public ? (
+            <TiLockClosed className="text-3xl" />
           ) : (
-            <AiOutlineHeart
-              className="cursor-pointer hover:text-methinks-darkgray"
-              onClick={handleLike}
-            />
+            <>
+              {toggle ? (
+                <AiFillHeart
+                  className="cursor-pointer hover:text-methinks-darkgray"
+                  onClick={handleUnlike}
+                />
+              ) : (
+                <AiOutlineHeart
+                  className="cursor-pointer hover:text-methinks-darkgray"
+                  onClick={handleLike}
+                />
+              )}
+              <span className="text-2xl">{counter}</span>
+            </>
           )}
-          <span className="text-2xl">{counter}</span>
         </div>
       </div>
-    </Link>
+    </a>
   );
 };
 

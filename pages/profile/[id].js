@@ -13,7 +13,6 @@ export default function Profile({ userData, todayPosts, previousPosts }) {
     router.replace("/404");
     return;
   }
-  console.log(todayPosts, previousPosts);
   return (
     <>
       <FriendsProfile
