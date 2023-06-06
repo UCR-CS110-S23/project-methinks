@@ -5,7 +5,7 @@ import { getPostData } from "@/lib/posts";
 import Post from "@/components/Feed/Post";
 import Comments from "@/components/Feed/Comments";
 
-const CommentPage = ({ postData }) => {
+export default function CommentsPage({ postData }) {
   const post = JSON.parse(postData)[0];
   const router = useRouter();
 
@@ -16,45 +16,14 @@ const CommentPage = ({ postData }) => {
   return (
     <div className="flex flex-col justify-center items-center ">
       <div className="w-1/2 m-2">
-        <Post
-          id={post.id}
-          image={post.image}
-          username={post.username}
-          date={post.date}
-          text={post.text}
-          tag={post.tag}
-        />
+        <Post post={post} />
       </div>
       <Comments />
     </div>
   );
-};
-
-export default CommentPage;
-
-// check for valid dynamic routes
-// export async function getStaticPaths() {
-//   const paths = await getAllPostIds();
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// }
-
-// // gets current route id's data
-// // localhost:3000/feed/[id]
-// export async function getStaticProps({ params }) {
-//   console.log(params.id);
-//   const postData = await getPostData(params.id);
-//   return {
-//     props: {
-//       postData,
-//     },
-//   };
-// }
+}
 
 export async function getServerSideProps({ params }) {
-  // Fetch necessary data for the blog post using params.id
   const postData = await getPostData(params.id);
   return {
     props: {
