@@ -34,7 +34,7 @@ const Post = ({ post, type }) => {
   return (
     <Link
       href={`/feed/${post.tid}`}
-      className="flex justify-center drop-shadow-xl hover:shadow-2xl hover:scale-[1.0035] hover:shadow-methinks-black duration-300 cursor-pointer rounded-xl font-publicSans no-underline"
+      className="flex justify-center drop-shadow-xl hover:shadow-2xl hover:scale-[1.0035] hover:shadow-methinks-black duration-300 cursor-pointer rounded-xl font-publicSans no-underline relative"
     >
       <div className="bg-gray-200 w-full flex flex-col rounded-xl gap-y-5 p-5 pr-7">
         <div className="flex w-full">
@@ -52,7 +52,7 @@ const Post = ({ post, type }) => {
               <div className=" text-black text-2xl font-medium">
                 {post.username}
               </div>
-              <div className="text-[##77818A] text-base ">{formatDate}</div>
+              <div className="text-[##77818A] text-base">{formatDate}</div>
             </div>
           </div>
           <div className="text-methinks-darkpurple text-2xl flex justify-end items-center w-full">
@@ -60,7 +60,9 @@ const Post = ({ post, type }) => {
           </div>
         </div>
 
-        <div className="text-black text-2xl pl-5 font-normal">{post.text}</div>
+        <div className="text-black text-2xl pl-5 font-normal break-words">
+          {post.text}
+        </div>
         <div className=" flex justify-end text-2xl w-full  items-center text-methinks-black gap-x-1 hover:text-methinks-darkgray duration-300 select-none">
           {toggle ? (
             <AiFillHeart
