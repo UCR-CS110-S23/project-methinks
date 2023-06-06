@@ -2,11 +2,10 @@ import React from "react";
 import { useRouter } from "next/router";
 // import UserProfile from "@/components/Profile/UserProfile";
 import FriendsProfile from "@/components/Profile/FriendsProfile";
-
 import { getUserData } from "@/lib/users";
-import { getAllPostsByUser } from "@/lib/posts";
+import { getProfilePosts } from "@/lib/posts";
 
-export default function Profile({ userData, postsData }) {
+export default function Profile({ userData, todayPosts, previousPosts }) {
   const router = useRouter();
   const user = JSON.parse(userData)[0];
 
@@ -14,9 +13,14 @@ export default function Profile({ userData, postsData }) {
     router.replace("/404");
     return;
   }
+  console.log(todayPosts, previousPosts);
   return (
     <>
-      <FriendsProfile user={user} posts={postsData} />
+      <FriendsProfile
+        user={user}
+        todayPosts={todayPosts}
+        posts={previousPosts}
+      />
       {/* <UserProfile /> */}
     </>
   );
@@ -33,11 +37,14 @@ export async function getServerSideProps({ params }) {
       },
     };
   }
-  const postsData = await getAllPostsByUser(params.id);
+  const { todayPosts, previousPosts } = JSON.parse(
+    JSON.stringify(await getProfilePosts(params.id))
+  );
   return {
     props: {
       userData,
-      postsData: postsData.reverse(),
+      todayPosts: todayPosts.reverse(),
+      previousPosts: previousPosts.reverse(),
     },
   };
 }
