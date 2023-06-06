@@ -1,24 +1,33 @@
-// add the post with comments here
 import React from "react";
+import { useRouter } from "next/router";
+
+import { getPostData } from "@/lib/posts";
 import Post from "@/components/Feed/Post";
 import Comments from "@/components/Feed/Comments";
 
-const CommentPage = () => {
+export default function CommentsPage({ postData }) {
+  const post = JSON.parse(postData)[0];
+  const router = useRouter();
+
+  if (!post) {
+    router.replace("/404");
+    return;
+  }
   return (
     <div className="flex flex-col justify-center items-center ">
       <div className="w-1/2 m-2">
-        <Post
-          id={1}
-          image="/henry2.jpg"
-          username="mariam"
-          date="1:11"
-          text="i love you"
-          tag="sports"
-        />
+        <Post post={post} />
       </div>
       <Comments />
     </div>
   );
-};
+}
 
-export default CommentPage;
+export async function getServerSideProps({ params }) {
+  const postData = await getPostData(params.id);
+  return {
+    props: {
+      postData,
+    },
+  };
+}

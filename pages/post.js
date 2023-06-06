@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { useRouter } from "next/router";
+
 import Cards from "@/components/Post/Cards";
 import Tags from "@/components/Post/Tags";
 // import Navigation from "@/components/Navigation";
@@ -7,6 +9,7 @@ import Tags from "@/components/Post/Tags";
 const Post = () => {
   const [text, setText] = useState("");
   const [tag, setTag] = useState("");
+  const [privateToggle, setPrivateToggle] = useState(false);
   const [error, setError] = useState("");
 
   const router = useRouter();
@@ -22,6 +25,27 @@ const Post = () => {
       setText("");
       setTag("");
       router.replace("/feed");
+
+      const newPost = {
+        text,
+        tag,
+        public: privateToggle,
+      };
+
+      axios
+        .post("/api/addPost", newPost)
+        .then(({ data }) => {
+          if (data.success) {
+            setError("");
+            setText("");
+            setTag("");
+            setPrivateToggle(false);
+            router.replace("/feed");
+          }
+        })
+        .catch((error) => {
+          console.log("[Post-Error]", error);
+        });
     }
   };
 
@@ -38,6 +62,7 @@ const Post = () => {
             <input
               type="checkbox"
               className="toggle toggle-custom-primary bg-gray-400 checked:bg-methinks-green duration-300"
+              onClick={() => setPrivateToggle(!privateToggle)}
             />
           </div>
           <div className="w-full h-[30px] flex justify-center items-center">
@@ -45,7 +70,7 @@ const Post = () => {
           </div>
         </div>
         <p
-          className="self-end bg-[#FFFFFF] p-1 px-5 rounded-3xl font-medium text-lg text-black hover:bg-methinks-green  hover:text-methinks-black duration-300 cursor-pointer"
+          className="self-end bg-[#FFFFFF] p-1 px-5 rounded-3xl font-medium text-lg text-black hover:bg-methinks-green  hover:text-methinks-black duration-300 cursor-pointer hover:drop-shadow-glow"
           onClick={handleSubmit}
         >
           Post
