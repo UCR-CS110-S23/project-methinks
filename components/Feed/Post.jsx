@@ -31,6 +31,17 @@ const Post = ({ post, type }) => {
 
   console.log(formatDate); // Output: 06-01-2023
 
+  const handleUnlike = (e) => {
+    e.preventDefault();
+    setCounter(counter - 1);
+    setToggle(!toggle);
+  };
+  const handleLike = (e) => {
+    e.preventDefault();
+    setCounter(counter + 1);
+    setToggle(!toggle);
+  };
+
   return (
     <Link
       href={`/feed/${post.tid}`}
@@ -65,21 +76,9 @@ const Post = ({ post, type }) => {
         </div>
         <div className=" flex justify-end text-2xl w-full  items-center text-methinks-black gap-x-1 hover:text-methinks-darkgray duration-300 select-none">
           {toggle ? (
-            <AiFillHeart
-              className="cursor-pointer"
-              onClick={() => {
-                setCounter(counter - 1);
-                setToggle(!toggle);
-              }}
-            />
+            <AiFillHeart className="cursor-pointer" onClick={handleUnlike} />
           ) : (
-            <AiOutlineHeart
-              className="cursor-pointer"
-              onClick={() => {
-                setCounter(counter + 1);
-                setToggle(!toggle);
-              }}
-            />
+            <AiOutlineHeart className="cursor-pointer" onClick={handleLike} />
           )}
           <span className="text-2xl">{counter}</span>
         </div>
