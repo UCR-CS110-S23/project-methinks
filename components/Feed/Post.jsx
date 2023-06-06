@@ -15,7 +15,6 @@ const Post = ({ post, type }) => {
 
   useEffect(() => {
     const like = { uid: session?.user?.uid, tid: post.tid };
-    // console.log(like);
     axios
       .post("/api/checkLike", like)
       .then(({ data }) => {
@@ -39,7 +38,6 @@ const Post = ({ post, type }) => {
       .then(({ data }) => {
         if (data.success) {
           setCounter(response);
-          console.log(data);
         }
       })
       .catch((error) => {
@@ -58,7 +56,6 @@ const Post = ({ post, type }) => {
       .then(({ data }) => {
         if (data.success) {
           setCounter(response);
-          console.log(data);
         }
       })
       .catch((error) => {
