@@ -1,12 +1,18 @@
 import React from "react";
+import { useRouter } from "next/router";
 
-import { getAllPostIds, getPostData } from "@/lib/posts";
+import { getPostData } from "@/lib/posts";
 import Post from "@/components/Feed/Post";
 import Comments from "@/components/Feed/Comments";
 
 const CommentPage = ({ postData }) => {
   const post = JSON.parse(postData)[0];
-  console.log(post);
+  const router = useRouter();
+
+  if (!post) {
+    router.replace("/404");
+    return;
+  }
   return (
     <div className="flex flex-col justify-center items-center ">
       <div className="w-1/2 m-2">
@@ -27,18 +33,28 @@ const CommentPage = ({ postData }) => {
 export default CommentPage;
 
 // check for valid dynamic routes
-export async function getStaticPaths() {
-  const paths = await getAllPostIds();
-  return {
-    paths,
-    fallback: false,
-  };
-}
+// export async function getStaticPaths() {
+//   const paths = await getAllPostIds();
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// }
 
-// gets current route id's data
-// localhost:3000/feed/[id]
-export async function getStaticProps({ params }) {
-  console.log(params.id);
+// // gets current route id's data
+// // localhost:3000/feed/[id]
+// export async function getStaticProps({ params }) {
+//   console.log(params.id);
+//   const postData = await getPostData(params.id);
+//   return {
+//     props: {
+//       postData,
+//     },
+//   };
+// }
+
+export async function getServerSideProps({ params }) {
+  // Fetch necessary data for the blog post using params.id
   const postData = await getPostData(params.id);
   return {
     props: {
