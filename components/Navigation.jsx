@@ -16,6 +16,10 @@ const Navigation = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const handleClick = () => {
+    window.location.href = './feed'; 
+  }; 
+
   useEffect(() => {
     if (session) {
       setProfileLink(`/profile/${session.user.uid}`);
@@ -27,7 +31,8 @@ const Navigation = () => {
   return (
     <div className="w-full flex justify-center items-center">
       <nav className="px-3 bg-[24292F] w-full flex justify-between items-center">
-        <p className="mb-0 text-white text-2xl font-bold leading-8 pr-px">
+        <p className="mb-0 text-white text-2xl font-bold leading-8 pr-px"
+          onClick = {handleClick} >
           Feed
         </p>
         <p className="text-white text-2xl font-bold mb-0">meThinks...</p>
@@ -47,7 +52,10 @@ const Navigation = () => {
               <div
                 className="flex flex-row items-center space-x-4 mt-2">
                 <BsFillPersonFill className="ml-4 fill-white"/>
-                <span className="ml-2 text-white text-[12px] font-semibold">Profile</span>
+                <span 
+                  className="ml-2 text-white text-[12px] font-semibold"
+                  onMouseEnter={() => set}
+                >Profile</span>
               </div>
 
               <div
