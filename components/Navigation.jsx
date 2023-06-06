@@ -1,21 +1,19 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 // import Link from "next/link";
-import { useSession} from "next-auth/react";
+import { useSession } from "next-auth/react";
 // import { useSession, signOut } from "next-auth/react";
-import {BsFillPersonFill} from "react-icons/Bs"; 
-import {RxExit} from "react-icons/Rx"; 
+import { BsFillPersonFill } from "react-icons/Bs";
+import { RxExit } from "react-icons/Rx";
 
 const Navigation = () => {
   const { data: session } = useSession();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [profileLink, setProfileLink] = useState("");
 
-
   const profileClick = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
-
 
   useEffect(() => {
     if (session) {
@@ -23,7 +21,7 @@ const Navigation = () => {
     }
   }, [session]);
 
-  console.log(profileLink)
+  console.log(profileLink);
 
   return (
     <div className="w-full flex justify-center items-center">
@@ -42,34 +40,26 @@ const Navigation = () => {
             onClick={profileClick}
           />
 
-{/* bg-[1C1C1C]  */}
+          {/* bg-[1C1C1C]  */}
           {isDropdownOpen && (
-            <div className="absolute right-0 mt-2 py-2 bg-black w-[129px] h-[74px] rounded-[12px] ">
-                <a
-                href="#"
-                className="block px-4 py-2 text-white hover:underline text-12px no-underline
-                    font-public-sans font-semibold text-xs leading-4 cursor-pointer justify-between flex flex-row"
+            <div className="bg-red-500 absolute flex flex-col justify-center right-0 bg-black w-[129px] h-[74px] rounded-[12px] ">
+              <div
+                className="items-center justify-between flex flex-row"
               >
                 <BsFillPersonFill
-                // className=" h-4 w-4"
                 />
                 <span className="">Profile</span>
-              </a>
-              <a
-                href="#"
-                className="block px-4 py-2 w-48 h-14 text-white hover:underline text-12px no-underline 
-                    font-public-sans font-semibold text-xs leading-4 cursor-pointer
-                    flex  flex-row justify-between"
-              >
-              <RxExit/>
-                Sign Out
-              </a>
+              </div>
+              {/* flex flex-row justify-between items-center */}
+              <div className="flex flex-row  space-x-4 mt-2">
+                <RxExit />
+                <span className="ml-2">Sign Out</span>
+              </div>
+              
             </div>
           )}
         </div>
       </nav>
-
-
     </div>
   );
 };
