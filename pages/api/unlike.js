@@ -2,7 +2,7 @@ import clientPromise from "@/lib/mongodb";
 import { authOptions } from "pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth/next";
 
-export default async function decrementLikes(req, res) {
+export default async function decrementtLikes(req, res) {
   const session = await getServerSession(req, res, authOptions);
 
   if (!session) {
@@ -10,24 +10,35 @@ export default async function decrementLikes(req, res) {
     return;
   }
 
-  const { postId } = req.body;
-  console.log(postId);
+  const db = (await clientPromise).db(process.env.MONGODB_DB);
+  const like = req.body;
 
   try {
-    const db = (await clientPromise).db(process.env.MONGODB_DB);
-    const collectionName = process.env.POSTS_COLLECTION_NAME;
+    // delete from likes collection
+    const likesCollectionName = process.env.LIKES_COLLECTION_NAME;
+    await db.collection(likesCollectionName).deleteOne({
+      uid: like.uid,
+      tid: like.tid,
+    });
+  } catch (error) {
+    console.error("Failed to delete like:", error);
+    res.status(500).json({ message: "Failed to delete like" });
+  }
 
+  try {
+    // update comments collection
+    const postsCollectionName = process.env.POSTS_COLLECTION_NAME;
     const updatedPost = await db
-      .collection(collectionName)
+      .collection(postsCollectionName)
       .findOneAndUpdate(
-        { tid: postId },
+        { tid: like.tid },
         { $inc: { likes: -1 } },
         { returnOriginal: false }
       );
-    console.log("back likes", updatedPost.value.likes);
+
     res.status(200).json(updatedPost.value.likes);
   } catch (error) {
-    console.error("Failed to increment likes:", error);
-    res.status(500).json({ message: "Failed to increment likes" });
+    console.error("Failed to decrement likes:", error);
+    res.status(500).json({ message: "Failed to decrement likes" });
   }
 }
