@@ -44,15 +44,13 @@ const Navigation = () => {
           {isDropdownOpen && (
             <div className="bg-red-500 absolute flex flex-col justify-center right-0 bg-black w-[129px] h-[74px] rounded-[12px] ">
               <div
-                className="items-center justify-between flex flex-row"
-              >
-                <BsFillPersonFill
-                />
-                <span className="">Profile</span>
+                className="flex flex-row items-center space-x-4 mt-2">
+                <BsFillPersonFill className="ml-4"/>
+                <span className="ml-2">Profile</span>
               </div>
               {/* flex flex-row justify-between items-center */}
-              <div className="flex flex-row  space-x-4 mt-2">
-                <RxExit />
+              <div className="flex flex-row items-center space-x-4 mt-2">
+                <RxExit className="ml-4"/>
                 <span className="ml-2">Sign Out</span>
               </div>
               
