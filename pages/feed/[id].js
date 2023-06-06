@@ -5,7 +5,7 @@ import { getPostData } from "@/lib/posts";
 import Post from "@/components/Feed/Post";
 import Comments from "@/components/Feed/Comments";
 
-const CommentPage = ({ postData }) => {
+export default function CommentsPage({ postData }) {
   const post = JSON.parse(postData)[0];
   const router = useRouter();
 
@@ -21,12 +21,9 @@ const CommentPage = ({ postData }) => {
       <Comments />
     </div>
   );
-};
-
-export default CommentPage;
+}
 
 export async function getServerSideProps({ params }) {
-  // Fetch necessary data for the blog post using params.id
   const postData = await getPostData(params.id);
   return {
     props: {

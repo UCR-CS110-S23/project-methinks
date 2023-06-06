@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Posts from "../Feed/Posts";
 
-const FriendsProfile = ({ user }) => {
+const FriendsProfile = ({ user, posts }) => {
   return (
     <div className="w-full h-full flex justify-center items-center bg-methinks-background py-4">
       <div className="w-[40%] flex flex-col justify-center items-center gap-y-8">
@@ -31,7 +31,7 @@ const FriendsProfile = ({ user }) => {
             Today
           </p>
           <div className="w-full h-full flex flex-col gap-y-5 bg-methinks-gray p-4 rounded-xl">
-            <Posts />
+            <Posts postData={posts} />
           </div>
         </div>
         <div className="w-full flex flex-col justify-center items-center gap-y-5 mb-5">
@@ -40,7 +40,7 @@ const FriendsProfile = ({ user }) => {
           </p>
           <div className="w-full h-[750px] bg-methinks-gray p-4 rounded-xl overflow-y-auto">
             <div className="flex flex-col gap-y-5">
-              <Posts />
+              <Posts postData={posts} />
             </div>
           </div>
         </div>

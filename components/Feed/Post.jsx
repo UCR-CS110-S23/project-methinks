@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
@@ -7,6 +7,22 @@ const Post = ({ post }) => {
   const [toggle, setToggle] = useState(false);
 
   const [counter, setCounter] = useState(0);
+  const [formatDate, setFormattedDate] = useState();
+
+  useEffect(() => {
+    // 6-03-2023
+    const newDate = new Date(post.date)
+      .toLocaleDateString("en-US", {
+        month: "2-digit",
+        day: "2-digit",
+        year: "numeric",
+      })
+      .split("/")
+      .join("-");
+    setFormattedDate(newDate);
+  }, []);
+
+  console.log(formatDate); // Output: 06-01-2023
 
   return (
     <Link
@@ -29,7 +45,7 @@ const Post = ({ post }) => {
               <div className=" text-black text-2xl font-medium">
                 {post.username}
               </div>
-              <div className="text-[##77818A] text-base ">{post.date}</div>
+              <div className="text-[##77818A] text-base ">{formatDate}</div>
             </div>
           </div>
           <div className="text-methinks-darkpurple text-2xl flex justify-end items-center w-full">

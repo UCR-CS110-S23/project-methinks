@@ -32,7 +32,7 @@ const Posts = ({ postData }) => {
   // console.log(postData);
   return (
     <div className="w-full flex flex-col justify-center gap-y-6">
-      {postData?.map((post, index) => (
+      {postData.map((post, index) => (
         <Post key={index} post={post} />
       ))}
     </div>
