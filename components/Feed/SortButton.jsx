@@ -3,7 +3,7 @@ import React from "react";
 import { FaArrowDown, FaCircle } from "react-icons/fa";
 
 const SortButton = () => {
-  const [sortFilter, setSortFilter] = useState(false);
+  const [sortFilter, setSortFilter] = useState("latest");
   const [sortDropDown, setSortDropDown] = useState(false);
   return (
     <div className="w-[150px] flex flex-wrap text-methinks-white hover:text-methinks-white select-none">
@@ -18,24 +18,35 @@ const SortButton = () => {
           <p className="text-lg">Sort </p>
         </div>
         {sortDropDown && (
-          <button className="bg-methinks-darkgray rounded-xl p-3 text-white flex flex-col text-lg w-[200px]">
+          <div className="bg-methinks-darkgray rounded-xl p-3 text-white flex flex-col text-lg w-[200px]">
             <p
               className=" w-full  flex justify-between items-baseline text-methinks-white hover:text-methinks-lightgrayHover cursor-pointer duration-300"
               onClick={() => {
-                setSortFilter(false);
+                setSortFilter("latest");
               }}
             >
-              Latest {!sortFilter && <FaCircle className="text-xs" />}
+              Latest Posts
+              {sortFilter === "latest" && <FaCircle className="text-xs" />}
             </p>
             <p
               className=" w-full flex  justify-between items-baseline text-methinks-white hover:text-methinks-lightgrayHover cursor-pointer duration-300"
               onClick={() => {
-                setSortFilter(true);
+                setSortFilter("oldest");
               }}
             >
-              Highest Rating {sortFilter && <FaCircle className="text-xs" />}
+              Oldest Posts
+              {sortFilter === "oldest" && <FaCircle className="text-xs" />}
             </p>
-          </button>
+            <p
+              className=" w-full flex  justify-between items-baseline text-methinks-white hover:text-methinks-lightgrayHover cursor-pointer duration-300"
+              onClick={() => {
+                setSortFilter("highest");
+              }}
+            >
+              Highest Rating{" "}
+              {sortFilter === "highest" && <FaCircle className="text-xs" />}
+            </p>
+          </div>
         )}
       </div>
     </div>
