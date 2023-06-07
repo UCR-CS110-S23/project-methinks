@@ -33,6 +33,7 @@ const PromptPost = ({ text, setText }) => {
         onFocus={handleFocus}
         onBlur={handleBlur}
         maxLength={maxLength}
+        disabled
       />
       {displayCount && (
         <div className="my-10 text-right text-sm text-black font-medium">
