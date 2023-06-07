@@ -14,6 +14,7 @@ export default function CommentsPage({ postData }) {
     router.replace("/404");
     return;
   }
+
   return (
     <div className="h-screen w-full flex flex-col justify-center items-center">
       <p className="absolute left-[20%] top-[10%] flex items-center text-methinks-lightgray hover:text-methinks-lightgrayHover duration-300 cursor-pointer text-lg">
@@ -22,7 +23,7 @@ export default function CommentsPage({ postData }) {
       </p>
       <div className="w-[40%] h-full py-10 flex flex-col gap-y-5">
         <Post post={post} type="comments" />
-        <Comments />
+        <Comments postID={post.tid} commentsData={post.comments} />
       </div>
     </div>
   );

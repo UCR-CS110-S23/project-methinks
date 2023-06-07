@@ -6,7 +6,7 @@ const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
   return (
     <div
       className={`w-full ${
-        previousPosts.length === 0 && todayPosts.length === 0
+        previousPosts.length < 2 && todayPosts.length < 2
           ? `h-screen`
           : `h-full`
       } flex justify-center items-center bg-methinks-background py-4 pb-20`}
@@ -51,7 +51,7 @@ const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
               This Week
             </p>
             <div className="w-full h-1/12 flex flex-col gap-y-5 bg-methinks-gray p-4 rounded-xl">
-              <p>{"Nothing to see here :("} </p>
+              <p>{"No thoughts at all"} </p>
             </div>
           </>
         ) : (
