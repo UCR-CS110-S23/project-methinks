@@ -35,7 +35,7 @@ const Comments = ({ postID, commentsData }) => {
       <div className="flex w-full flex-col gap-y-8">
         <p className="font-semibold text-2xl text-white">Comments</p>
         {commentsData?.length === 0 ? (
-          <div className="h-[20rem] flex justify-center items-center">
+          <div className="h-[10rem] flex justify-center items-center">
             <div className="text-methinks-darkgray text-center text-2xl flex flex-col font-semibold">
               <p>The minds are calm and quiet...</p>
               <p>Be the first to build on this thought!</p>

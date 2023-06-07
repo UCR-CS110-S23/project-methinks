@@ -14,12 +14,25 @@ const Post = ({ post, type }) => {
   const [counter, setCounter] = useState(post.likes);
 
   useEffect(() => {
+    axios
+      .get(`/api/getLikes?tid=${post.tid}`)
+      .then((response) => {
+        setCounter(response.data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }, [post.likes]);
+
+  useEffect(() => {
     const like = { uid: session?.user?.uid, tid: post.tid };
     axios
       .post("/api/checkLike", like)
       .then(({ data }) => {
         if (data.userAlreadyLiked) {
           setToggle(true);
+        } else {
+          setToggle(false);
         }
       })
       .catch((error) => {
@@ -33,16 +46,9 @@ const Post = ({ post, type }) => {
     setToggle(!toggle);
 
     const like = { uid: session?.user?.uid, tid: post.tid };
-    axios
-      .post("/api/unlike", like)
-      .then(({ data }) => {
-        if (data.success) {
-          setCounter(response);
-        }
-      })
-      .catch((error) => {
-        console.log("[Unlike-Error]", error);
-      });
+    axios.post("/api/unlike", like).catch((error) => {
+      console.log("[Unlike-Error]", error);
+    });
   };
 
   const handleLike = (e) => {
@@ -51,16 +57,9 @@ const Post = ({ post, type }) => {
     setToggle(!toggle);
 
     const like = { uid: session?.user?.uid, tid: post.tid };
-    axios
-      .post("/api/like", like)
-      .then(({ data }) => {
-        if (data.success) {
-          setCounter(response);
-        }
-      })
-      .catch((error) => {
-        console.log("[Like-Error]", error);
-      });
+    axios.post("/api/like", like).catch((error) => {
+      console.log("[Like-Error]", error);
+    });
   };
 
   const handleProfileClick = (e) => {
@@ -157,6 +156,7 @@ const Post = ({ post, type }) => {
                   onClick={handleLike}
                 />
               )}
+              {/* {console.log(post, post.text, post.likes, counter)} */}
               <span className="text-2xl">{counter}</span>
             </>
           )}

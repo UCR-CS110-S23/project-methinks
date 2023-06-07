@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import Tag from "./Tag";
-import { tagsList } from "@/public/data/tags";
 import SortButton from "@/components/Feed/SortButton";
 
-const Tags = () => {
-  const feedTags = ["All", ...tagsList];
-
-  const [selectedTags, setSelectedTags] = useState(["All"]);
-
+const Tags = ({
+  feedTags,
+  selectedTags,
+  setSelectedTags,
+  sortFilter,
+  setSortFilter,
+}) => {
   const handleTagSelection = (tagName) => {
     if (tagName === "All") {
       setSelectedTags(["All"]);
@@ -36,7 +37,7 @@ const Tags = () => {
         ))}
       </div>
       <div className="relative">
-        <SortButton />
+        <SortButton sortFilter={sortFilter} setSortFilter={setSortFilter} />
       </div>
     </div>
   );

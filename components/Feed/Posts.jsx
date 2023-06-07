@@ -5,7 +5,7 @@ const Posts = ({ postData }) => {
   return (
     <div className="w-full flex flex-col justify-center gap-y-6">
       {postData?.map((post, index) => (
-        <Post key={index} post={post} />
+        <Post key={post.tid} post={post} />
       ))}
     </div>
   );
