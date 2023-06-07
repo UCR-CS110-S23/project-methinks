@@ -27,9 +27,9 @@ const Navigation = () => {
   // const handleClickMessages = () => {
   //   window.location.href = './feed'; 
   // }; 
-  // const handleClickSignout = () => {
-  //   window.location.href = './feed'; 
-  // }; 
+  const handleClickSignOut = () => {
+    window.location.href = './signin'; 
+  }; 
 
   useEffect(() => {
     if (session) {
@@ -77,12 +77,15 @@ const Navigation = () => {
               </div>
 
               {/* flex flex-row justify-between items-center */}
-              <div className=" cursor-pointer flex flex-row items-center space-x-4 mt-2">
-              <div className="text-white ml-4 ">
-                <RxExit />
-              </div>
-                <span className="ml-2 text-white text-[12px] font-semibold cursor-pointer">Sign Out</span>
-              </div>
+              <div className=" cursor-pointer flex flex-row items-center space-x-4 mt-2"
+                  onClick = {handleClickSignOut} >
+                
+
+                <div className="text-white ml-4 ">
+                  <RxExit />
+                </div>
+                  <span className="ml-2 text-white text-[12px] font-semibold cursor-pointer">Sign Out</span>
+                </div>
               
             </div>
           )}
