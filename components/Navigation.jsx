@@ -6,8 +6,13 @@ import { useSession } from "next-auth/react";
 import { BsFillPersonFill } from "react-icons/Bs";
 import { BsChat } from "react-icons/Bs";
 import { RxExit } from "react-icons/Rx";
-
-import UserProfile from "./Profile/UserProfile";
+// import CDropdown from '@coreui/react/src/components/dropdown/CDropdown'
+// import CDropdownToggle from '@coreui/react/src/components/dropdown/CDropdownToggle'
+// import CDropdownItem from '@coreui/react/src/components/dropdown/CDropdownItem'
+// import CDropdownMenu from '@coreui/react/src/components/dropdown/CDropdownMenu'
+// import Dropdown from 'rsuite/Dropdown';
+// import UserProfile from "./Profile/UserProfile";
+import Link from 'next/link';
 
 const Navigation = () => {
   const { data: session } = useSession();
@@ -19,7 +24,7 @@ const Navigation = () => {
   };
 
   const handleClickFeed = () => {
-    window.location.href = './feed'; 
+    window.location.href = './feed';  <Link></Link>
   }; 
   // const handleClickProfile = () => {
   //   window.location.href = './[id]]'; 
@@ -57,27 +62,33 @@ const Navigation = () => {
             onClick={profileClick}
           />
 
+          
+          {/* make working link tags  */}
           {/* bg-[1C1C1C]  */}
           {isDropdownOpen && (
             <div className=" bg-[#1C1C1C] absolute flex flex-col justify-center right-0 bg-black w-[129px] h-[110px] rounded-[12px] ">
-              <div
-                className="flex flex-row items-center space-x-4 mt-2 cursor-pointer"
+              {/* <div
+                className="flx flex-row items-center space-x-4 mt-2 cursor-pointer"
                 onClick = {<UserProfile/>}>
                 <BsFillPersonFill className="cursor-pointer ml-4 fill-white"/>
-                <p 
-                  className="cursor-pointer ml-2 text-white text-[12px] font-semibold "
-                  onClick = {profileLink}
-                >Profile</p>
-              </div>
+                <Link href="/feed" className="cursor-pointer ml-2 text-white text-[12px] font-semibold">
+                  Profile
+                </Link>
+              </div> */}
 
-              <div
+              {/* <Link href="/feed" className="flex flex-row items-center space-x-4 mt-2 cursor-pointer">
+                <BsFillPersonFill className="cursor-pointer ml-4 fill-white" />
+              </Link> */}
+
+
+              {/* <div
                 className="cursor-pointer flex flex-row items-center space-x-4 mt-2">
                 <BsChat className="ml-4 fill-white font-bold "/>
                 <span className="ml-2 text-white text-[12px] font-semibold cursor-pointer">Messages</span>
-              </div>
+              </div> */}
 
               {/* flex flex-row justify-between items-center */}
-              <div className=" cursor-pointer flex flex-row items-center space-x-4 mt-2"
+              {/* <div className=" cursor-pointer flex flex-row items-center space-x-4 mt-2"
                   onClick = {handleClickSignOut} >
                 
 
@@ -86,13 +97,40 @@ const Navigation = () => {
                 </div>
                   <span className="ml-2 text-white text-[12px] font-semibold cursor-pointer">Sign Out</span>
                 </div>
-              
+                
+               */}
+            <div className="flx flex-row items-center space-x-4 mt-2 ">
+              <Link href='/feed' className=" cursor-pointer ml-2 text-white text-[12px] font-semibold flex items-center">
+                <BsFillPersonFill className="ml-4 fill-white font-bold " />
+                <span className="ml-2 text-white text-[12px] font-semibold">Profile</span>
+              </Link>
             </div>
+
+            <div className="cursor-pointer flex flex-row items-center space-x-4 mt-2">
+              <Link href="/messaging" className="cursor-pointer ml-2 text-white text-[12px] font-semibold flex items-center">
+                <BsChat className="ml-4 fill-white font-bold "/>
+                <span className="ml-2 text-white text-[12px] font-semibold ">Messages</span>
+              </Link>
+            </div>
+
+            <div className="cursor-pointer flex flex-row items-center space-x-4 mt-2">
+              <Link href="/signin" className=" cursor-pointer ml-2 text-white text-[12px] font-semibold flex items-center">
+                  <RxExit className="ml-4 fill-white font-bold "/>
+        
+                  <span className="ml-2 text-white text-[12px] font-semibold">Sign Out</span>
+              </Link>
+            </div>
+            
+
+            
+
+          </div>
           )}
         </div>
       </nav>
     </div>
   );
 };
+// ReactDOM.render(<App />, document.getElementById('root'));
 
 export default Navigation;
