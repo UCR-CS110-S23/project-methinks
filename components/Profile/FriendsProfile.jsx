@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import Posts from "../Feed/Posts";
+import { BsChat } from "react-icons/bs";
+import Link from "next/link";
 
 const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
   return (
@@ -29,9 +31,20 @@ const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
           </p>
         </div>
         <div className="w-full flex flex-col justify-center items-center mb-3 gap-y-5">
-          <p className="self-start text-methinks-white m-0 font-bold text-4xl pl-4">
-            Today
-          </p>
+          <div className="flex w-full justify-between items-center">
+            <p className="text-methinks-white m-0 font-bold text-4xl pl-4">
+              Today
+            </p>
+            <Link
+              href="/chat"
+              className="flex items-center gap-x-4 m-0 p-1 px-4 rounded-3xl font-medium text-lg text-black bg-methinks-green  hover:text-methinks-black duration-300 cursor-pointer hover:drop-shadow-glow"
+            >
+              <p className="m-0">Message</p>
+              <p className="m-0">
+                <BsChat />
+              </p>
+            </Link>
+          </div>
 
           <div className="w-full h-full flex flex-col gap-y-5 bg-methinks-gray p-4 rounded-xl">
             {todayPosts.length === 0 ? (
@@ -47,7 +60,7 @@ const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
               This Week
             </p>
             <div className="w-full h-1/12 flex flex-col gap-y-5 bg-methinks-gray p-4 rounded-xl">
-              <p>{"No thoughts at all"} </p>
+              <p>{"Head empty all week :("} </p>
             </div>
           </>
         ) : (
