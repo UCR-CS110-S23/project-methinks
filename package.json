@@ -29,6 +29,8 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
     "react-type-animation": "^3.0.1",
+    "socket.io": "^4.6.2",
+    "socket.io-client": "^4.6.2",
     "tailwind-scrollbar": "^3.0.4",
     "uuid": "^9.0.0"
   },
