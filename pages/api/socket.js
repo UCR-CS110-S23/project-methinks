@@ -8,7 +8,6 @@ export default function SocketHandler(req, res) {
     res.end();
     return;
   }
-
   const io = new Server(res.socket.server, {
     path: "/api/socket_io",
     addTrailingSlash: false,

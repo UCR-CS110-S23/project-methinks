@@ -1,14 +1,21 @@
 import React from "react";
+import { useRouter } from "next/router";
+
 import Image from "next/image";
 import Posts from "../Feed/Posts";
-import { BsChat } from "react-icons/bs";
-import Link from "next/link";
+import { FaChevronLeft } from "react-icons/fa";
 
 const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
+  const router = useRouter();
+
   return (
     <div
       className={`w-full h-full min-h-screen flex justify-center items-start bg-methinks-background py-4 pb-20`}
     >
+      <p className="absolute left-[20%] top-[10%] flex items-center text-methinks-lightgray hover:text-methinks-lightgrayHover duration-300 cursor-pointer text-lg">
+        <FaChevronLeft className="text-2xl" />
+        <span onClick={() => router.back()}>Back</span>
+      </p>
       <div className="w-[40%] h-full flex flex-col justify-start items-center gap-y-8">
         <div className="gap-y-1 flex flex-col justify-center items-center">
           <Image
@@ -35,15 +42,6 @@ const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
             <p className="text-methinks-white m-0 font-bold text-4xl pl-4">
               Today
             </p>
-            <Link
-              href="/chat"
-              className="flex items-center gap-x-4 m-0 p-1 px-4 rounded-3xl font-medium text-lg text-black bg-methinks-green  hover:text-methinks-black duration-300 cursor-pointer hover:drop-shadow-glow"
-            >
-              <p className="m-0">Message</p>
-              <p className="m-0">
-                <BsChat />
-              </p>
-            </Link>
           </div>
 
           <div className="w-full h-full flex flex-col gap-y-5 bg-methinks-gray p-4 rounded-xl">

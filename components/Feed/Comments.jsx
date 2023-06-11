@@ -30,6 +30,14 @@ const Comments = ({ postID, commentsData }) => {
     }
   };
 
+  const handleKeypress = (e) => {
+    if (e.keyCode === 13) {
+      if (text) {
+        handleComment();
+      }
+    }
+  };
+
   return (
     <div className="bg-[#1C1C1C] p-5 px-7 rounded-xl">
       <div className="flex w-full flex-col gap-y-8">
@@ -56,10 +64,12 @@ const Comments = ({ postID, commentsData }) => {
             type="text"
             value={text}
             placeholder="Expand this thought..."
+            autoComplete={"off"}
             className="w-full bg-methinks-lightblack focus:outline-none"
             onChange={(e) => {
               setText(e.target.value);
             }}
+            onKeyUp={handleKeypress}
           />
           <FiSend
             className="text-lg cursor-pointer hover:text-methinks-darkgray duration-300"
