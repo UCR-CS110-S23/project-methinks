@@ -18,8 +18,6 @@ const Navigation = () => {
     window.location.href = "./feed";
   };
 
-
-
   useEffect(() => {
     if (session) {
       setProfileLink(`/profile/${session.user.uid}`);
@@ -71,7 +69,7 @@ const Navigation = () => {
                   </span>
                 </Link>
 
-                {/* <Link
+                <Link
                   href={"/signin"}
                   className="cursor-pointer ml-2 text-white text-[12px] font-semibold flex items-center"
                   onClick={(e) => {
@@ -81,9 +79,11 @@ const Navigation = () => {
                     });
                   }}
                 >
-                  Sign Out
-                </Link> */}
-
+                  <RiExitFill className="ml-4 fill-white font-bold" />
+                  <span className="ml-2 text-white text-[12px] font-semibold">
+                    Sign Out
+                  </span>
+                </Link>
               </ul>
             </div>
           )}
@@ -94,6 +94,3 @@ const Navigation = () => {
 };
 
 export default Navigation;
-
-
-
