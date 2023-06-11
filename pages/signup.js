@@ -16,7 +16,11 @@ const Signup = () => {
 
   const handleSignup = () => {
     if (!name || !username || !email || !password) {
-      setError("Please Complete your Information!");
+      setError("Please complete your information!");
+    } else if (!validateEmail(email)) {
+      setError("Please enter a valid email address!");
+    } else if (!validateUsername(username)) {
+      setError("Username can only contain alphanumeric characters!");
     } else {
       const newUser = {
         name,
@@ -47,6 +51,17 @@ const Signup = () => {
         });
     }
   };
+
+  const validateEmail = (email) => {
+    const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    return regex.test(email);
+  };
+
+  const validateUsername = (username) => {
+    const regex = /^[a-zA-Z0-9]+$/;
+    return regex.test(username);
+  };
+
   console.log(error, name);
   const handleSignin = async () => {
     await signIn("credentials", {
