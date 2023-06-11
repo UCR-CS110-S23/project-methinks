@@ -5,7 +5,7 @@ import Posts from "../Feed/Posts";
 const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
   return (
     <div
-      className={`w-full h-full min-h-screen flex justify-center items-center bg-methinks-background py-4 pb-20`}
+      className={`w-full h-full min-h-screen flex justify-center items-start bg-methinks-background py-4 pb-20`}
     >
       <div className="w-[40%] h-full flex flex-col justify-start items-center gap-y-8">
         <div className="gap-y-1 flex flex-col justify-center items-center">
