@@ -34,7 +34,7 @@ const FeedPosts = () => {
           post={feed.post}
         />
       ))}
-      <Navigation/>
+      <Navigation />
     </div>
   );
 };
