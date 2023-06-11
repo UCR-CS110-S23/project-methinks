@@ -1,9 +1,12 @@
 import React from "react";
 import { useRouter } from "next/router";
+import { authOptions } from "pages/api/auth/[...nextauth]";
+import { getServerSession } from "next-auth/next";
+
 // import UserProfile from "@/components/Profile/UserProfile";
 import FriendsProfile from "@/components/Profile/FriendsProfile";
 import { getUserData } from "@/lib/users";
-import { getProfilePosts } from "@/lib/posts";
+import { getProfilePosts, getAnotherUsersProfilePosts } from "@/lib/posts";
 
 export default function Profile({ userData, todayPosts, previousPosts }) {
   const router = useRouter();
@@ -25,8 +28,8 @@ export default function Profile({ userData, todayPosts, previousPosts }) {
   );
 }
 
-export async function getServerSideProps({ params }) {
-  const userData = await getUserData(params.id);
+export async function getServerSideProps(context) {
+  const userData = await getUserData(context.params.id);
 
   if (!userData) {
     return {
@@ -36,14 +39,24 @@ export async function getServerSideProps({ params }) {
       },
     };
   }
-  const { todayPosts, previousPosts } = JSON.parse(
-    JSON.stringify(await getProfilePosts(params.id))
-  );
+
+  const session = await getServerSession(context.req, context.res, authOptions);
+
+  let profileData = "";
+  if (context.params.id !== session?.user?.uid) {
+    profileData = await getAnotherUsersProfilePosts(context.params.id);
+  } else {
+    profileData = await getProfilePosts(context.params.id);
+  }
+
+  const { todayPosts, previousPosts } = JSON.parse(JSON.stringify(profileData));
+
   todayPosts.map((post) => {
     return (post.date = new Date(post.date).toLocaleTimeString([], {
       timeStyle: "medium",
     }));
   });
+
   previousPosts.map((post) => {
     return (post.date = new Date(post.date)
       .toLocaleDateString("en-US", {

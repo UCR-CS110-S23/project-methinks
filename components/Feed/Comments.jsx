@@ -44,7 +44,7 @@ const Comments = ({ postID, commentsData }) => {
         ) : (
           <div className="max-h-[28rem] overflow-y-auto">
             <div className="gap-y-5 flex flex-col">
-              {commentsData?.reverse().map((comment, index) => (
+              {commentsData?.map((comment, index) => (
                 <Comment key={index} comment={comment} />
               ))}
             </div>

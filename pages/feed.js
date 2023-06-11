@@ -14,9 +14,7 @@ export default function Feed({ postData }) {
 
   return (
     <div
-      className={`${
-        postData.length < 4 ? `h-screen` : `h-full`
-      } bg-methinks font-publicSans`}
+      className={`w-full h-full min-h-screen bg-methinks-background font-publicSans`}
     >
       <div className="w-full relative flex flex-col justify-center items-center gap-y-10 py-5 pb-20">
         <div className="max-w-3/4 h-[50px] flex justify-center">
