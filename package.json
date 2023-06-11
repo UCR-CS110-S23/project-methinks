@@ -19,6 +19,7 @@
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.2.3",
     "date-fns": "^2.30.0",
+    "framer-motion": "^10.12.16",
     "kalendaryo": "^1.11.1",
     "moment": "^2.29.4",
     "mongodb": "^5.5.0",

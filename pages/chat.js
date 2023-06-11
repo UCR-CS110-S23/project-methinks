@@ -62,7 +62,8 @@ const Chat = () => {
         ...currentMsg,
         {
           author: msg.author,
-          uid: session.user.uid,
+          uid: msg.uid,
+          image: msg.image,
           message: msg.message,
           room: msg.room,
         },
@@ -77,12 +78,19 @@ const Chat = () => {
       socket.emit("createdMessage", {
         author: session.user.username,
         uid: session.user.uid,
+        image: session.user.image,
         message,
         room,
       });
       setMessages((currentMsg) => [
         ...currentMsg,
-        { author: session.user.username, uid: session.user.uid, message, room },
+        {
+          author: session.user.username,
+          uid: session.user.uid,
+          image: session.user.image,
+          message,
+          room,
+        },
       ]);
       setMessage("");
       return true;
@@ -166,7 +174,7 @@ const Chat = () => {
                           className="rounded-full"
                         >
                           <Image
-                            src={session.user.image}
+                            src={msg.image}
                             alt="hot hot henry"
                             referrerPolicy="no-referrer"
                             className="rounded-full hover:opacity-70 duration-300 cursor-pointer"
