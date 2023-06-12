@@ -19,6 +19,7 @@
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.2.3",
     "date-fns": "^2.30.0",
+    "framer-motion": "^10.12.16",
     "kalendaryo": "^1.11.1",
     "moment": "^2.29.4",
     "mongodb": "^5.5.0",
@@ -28,7 +29,10 @@
     "react-bootstrap": "^2.7.4",
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
+    "react-scroll-to-bottom": "^4.2.0",
     "react-type-animation": "^3.0.1",
+    "socket.io": "^4.6.2",
+    "socket.io-client": "^4.6.2",
     "tailwind-scrollbar": "^3.0.4",
     "uuid": "^9.0.0"
   },

@@ -14,12 +14,25 @@ const Post = ({ post, type }) => {
   const [counter, setCounter] = useState(post.likes);
 
   useEffect(() => {
+    axios
+      .get(`/api/getLikes?tid=${post.tid}`)
+      .then((response) => {
+        setCounter(response.data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }, [post.likes]);
+
+  useEffect(() => {
     const like = { uid: session?.user?.uid, tid: post.tid };
     axios
       .post("/api/checkLike", like)
       .then(({ data }) => {
         if (data.userAlreadyLiked) {
           setToggle(true);
+        } else {
+          setToggle(false);
         }
       })
       .catch((error) => {
@@ -33,16 +46,9 @@ const Post = ({ post, type }) => {
     setToggle(!toggle);
 
     const like = { uid: session?.user?.uid, tid: post.tid };
-    axios
-      .post("/api/unlike", like)
-      .then(({ data }) => {
-        if (data.success) {
-          setCounter(response);
-        }
-      })
-      .catch((error) => {
-        console.log("[Unlike-Error]", error);
-      });
+    axios.post("/api/unlike", like).catch((error) => {
+      console.log("[Unlike-Error]", error);
+    });
   };
 
   const handleLike = (e) => {
@@ -51,16 +57,9 @@ const Post = ({ post, type }) => {
     setToggle(!toggle);
 
     const like = { uid: session?.user?.uid, tid: post.tid };
-    axios
-      .post("/api/like", like)
-      .then(({ data }) => {
-        if (data.success) {
-          setCounter(response);
-        }
-      })
-      .catch((error) => {
-        console.log("[Like-Error]", error);
-      });
+    axios.post("/api/like", like).catch((error) => {
+      console.log("[Like-Error]", error);
+    });
   };
 
   const handleProfileClick = (e) => {
@@ -86,7 +85,7 @@ const Post = ({ post, type }) => {
         } w-full flex flex-col rounded-xl gap-y-5 p-5 pr-7`}
       >
         <div className="flex w-full">
-          <div className="gap-x-4 w-3/4 flex justify-start items-center">
+          <div className="gap-x-4 w-full flex justify-start items-center">
             <Image
               src={post.image}
               alt="hot hot henry"
@@ -97,7 +96,7 @@ const Post = ({ post, type }) => {
               draggable={false}
               onClick={handleProfileClick}
             />
-            <div className="flex items-baseline gap-x-5">
+            <div className="flex items-center gap-x-5 w-full">
               <div
                 className={`${
                   type === "comments"
@@ -113,7 +112,7 @@ const Post = ({ post, type }) => {
                   type === "comments"
                     ? `text-methinks-lightgrayHover`
                     : `text-methinks-darkgray`
-                } text-base`}
+                } text-base w-full`}
               >
                 {post.date}
               </div>
@@ -124,7 +123,7 @@ const Post = ({ post, type }) => {
               type === "comments"
                 ? `text-methinks-purple`
                 : `text-methinks-darkpurple`
-            } text-lg flex justify-end items-center w-full`}
+            } text-lg flex justify-end items-center`}
           >
             {post.tag}
           </div>
@@ -157,6 +156,7 @@ const Post = ({ post, type }) => {
                   onClick={handleLike}
                 />
               )}
+              {/* {console.log(post, post.text, post.likes, counter)} */}
               <span className="text-2xl">{counter}</span>
             </>
           )}

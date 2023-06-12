@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { signIn } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
+import { signIn } from "next-auth/react";
+import { motion } from "framer-motion";
 
 import { FcGoogle } from "react-icons/fc";
 import Cloud from "@/public/assets/landing_cloud.svg";
@@ -59,14 +60,22 @@ const Signin = () => {
     <div className="h-screen w-full bg-methinks-background flex justify-center items-center font-publicSans">
       <div className="w-1/4 h-full flex flex-col justify-center py-20 items-center gap-y-5">
         <div className="w-full flex flex-col justify-center items-center">
-          <Link href="/">
-            <Image
-              src={Cloud}
-              alt="cloud"
-              draggable="false"
-              className="mb-10"
-            />
-          </Link>
+          <motion.div
+            animate={{ y: [5, -12, 5] }}
+            transition={{
+              repeat: Infinity,
+              duration: 6,
+            }}
+          >
+            <Link href="/">
+              <Image
+                src={Cloud}
+                alt="cloud"
+                draggable="false"
+                className="mb-10"
+              />
+            </Link>
+          </motion.div>
           <div className="flex flex-col gap-y-3 w-full text-xl">
             <input
               placeholder="Email"

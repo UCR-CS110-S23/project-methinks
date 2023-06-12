@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 
 import Cards from "@/components/Post/Cards";
 import Tags from "@/components/Post/Tags";
+// import Navigation from "@/components/Navigation";
 
 const Post = () => {
   const [text, setText] = useState("");

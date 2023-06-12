@@ -72,7 +72,7 @@ export const authOptions = {
         );
         user.provider = account.provider;
         user.admin = false;
-        user.bio = "";
+        user.bio = "Feelin Supersonic";
       }
       return true;
     },
@@ -83,9 +83,21 @@ export const authOptions = {
         token.user = user;
       }
       // Listens for mutated attributes in session object
+      if (trigger === "update" && session?.name) {
+        token.user.name = session.name;
+      }
       if (trigger === "update" && session?.username) {
         token.user.username = session.username;
       }
+      if (trigger === "update" && session?.bio) {
+        token.user.bio = session.bio;
+      }
+      console.log(
+        "token",
+        token.user.name,
+        token.user.username,
+        token.user.bio
+      );
       return token;
     },
 
