@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { BsFillPersonFill, BsChat } from "react-icons/bs";
-// import { RiExitFill } from "react-icons/ri";
-// import { useSession, signOut } from "next-auth/react";
+import { RiExitFill } from "react-icons/ri";
+import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
+// import { useSession } from 'next-auth/client';
 
 const Navigation = () => {
   const { data: session } = useSession();
@@ -48,28 +49,27 @@ const Navigation = () => {
 
           {isDropdownOpen && (
             <div className="bg-[#1C1C1C] absolute flex flex-col justify-center right-0 bg-black w-[129px] h-[110px] rounded-[12px] ">
-              <ul>
-                <Link
-                  href={profileLink}
-                  className="cursor-pointer ml-2 text-white text-[12px] font-semibold flex items-center"
-                >
-                  <BsFillPersonFill className="ml-4 fill-white font-bold" />
-                  <span className="ml-2 text-white text-[12px] font-semibold">
-                    Profile
-                  </span>
-                </Link>
+              <Link
+                href={profileLink}
+                className="cursor-pointer ml-2 text-white text-[12px] font-semibold flex items-center"
+              >
+                <BsFillPersonFill className="ml-4 fill-white font-bold" />
+                <span className="ml-2 text-white text-[12px] font-semibold">
+                  Profile
+                </span>
+              </Link>
 
-                <Link
-                  href="/messages"
-                  className="cursor-pointer ml-2 text-white text-[12px] font-semibold flex items-center"
-                >
-                  <BsChat className="ml-4 fill-white font-bold" />
-                  <span className="ml-2 text-white text-[12px] font-semibold">
-                    Messages
-                  </span>
-                </Link>
+              <Link
+                href="/messages"
+                className="cursor-pointer ml-2 text-white text-[12px] font-semibold flex items-center"
+              >
+                <BsChat className="ml-4 fill-white font-bold" />
+                <span className="ml-2 text-white text-[12px] font-semibold">
+                  Messages
+                </span>
+              </Link>
 
-                {/* <Link
+              {/* <Link
                   href={"/signin"}
                   className="cursor-pointer ml-2 text-white text-[12px] font-semibold flex items-center"
                   onClick={(e) => {
@@ -84,7 +84,21 @@ const Navigation = () => {
                     Sign Out
                   </span>
                 </Link> */}
-              </ul>
+
+              <p
+                className="cursor-pointer hover:text-methinks-lightgray"
+                onClick={(e) => {
+                  e.preventDefault();
+                  signOut({
+                    callbackUrl: "/signin",
+                  });
+                }}
+              >
+                <RiExitFill className="ml-4 fill-white font-bold" />
+                <span className="ml-2 text-white text-[12px] font-semibold">
+                  Sign Out
+                </span>
+              </p>
             </div>
           )}
         </div>
