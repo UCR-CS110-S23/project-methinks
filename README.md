@@ -18,7 +18,14 @@ This is the codebase for our CS110 project MeThinks. MeThinks is a twitter style
 <img src= "https://github.com/UCR-CS110-S23/project-methinks/assets/56405905/4ffdeb69-d837-4cd2-9278-d7b4328e80ae" width= "200" height = "200"/>
 
 # Tech Stack
-<img src= "https://github.com/UCR-CS110-S23/project-methinks/assets/56405905/fb720e48-7690-4c4a-b780-279bedbd03fa" width= "300" height = "100"/> 
+![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
+![Prettier](https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E)
+![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
+
+![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
 
 # Screenshots
 ## Sign In
