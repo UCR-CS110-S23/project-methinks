@@ -2,7 +2,7 @@ import clientPromise from "@/lib/mongodb";
 import { authOptions } from "pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth/next";
 
-export default async function signup(req, res) {
+export default async function setupUsername(req, res) {
   const session = await getServerSession(req, res, authOptions);
 
   if (!session) {
