@@ -92,12 +92,7 @@ export const authOptions = {
       if (trigger === "update" && session?.bio) {
         token.user.bio = session.bio;
       }
-      console.log(
-        "token",
-        token.user.name,
-        token.user.username,
-        token.user.bio
-      );
+
       return token;
     },
 
