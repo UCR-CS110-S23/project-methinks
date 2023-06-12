@@ -219,9 +219,9 @@ const Chat = () => {
                         <p
                           className={`${
                             msg.author === session.user.username
-                              ? `text-right bg-red-500`
+                              ? `text-right`
                               : `text-left`
-                          }text-methinks-white`}
+                          } text-methinks-white`}
                         >
                           {msg.author}
                         </p>
