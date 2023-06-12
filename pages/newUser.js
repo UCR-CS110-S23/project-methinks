@@ -59,7 +59,7 @@ export default function NewUser() {
                 4000,
                 "Cloudy thoughts ahead... ",
                 4000,
-                "Ready to wander?",
+                "Ready to wonder?",
                 4000,
               ]}
               speed={30}
