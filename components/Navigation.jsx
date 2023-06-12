@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { BsFillPersonFill, BsChat } from "react-icons/bs";
-import { RiExitFill } from "react-icons/ri";
+// import { RiExitFill } from "react-icons/ri";
 import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 // import { useSession } from 'next-auth/client';
@@ -86,7 +86,7 @@ const Navigation = () => {
                 </Link> */}
 
               <p
-                className="cursor-pointer hover:text-methinks-lightgray"
+                className="cursor-pointer hover:text-methinks-lightgray text-white text-[12px] font-semibold"
                 onClick={(e) => {
                   e.preventDefault();
                   signOut({
@@ -94,10 +94,10 @@ const Navigation = () => {
                   });
                 }}
               >
-                <RiExitFill className="ml-4 fill-white font-bold" />
-                <span className="ml-2 text-white text-[12px] font-semibold">
-                  Sign Out
-                </span>
+                {/* <RiExitFill className="ml-4 fill-white font-bold" />
+                  <span className="ml-2 text-white text-[12px] font-semibold"> */}
+                Sign Out
+                {/* </span> */}
               </p>
             </div>
           )}
