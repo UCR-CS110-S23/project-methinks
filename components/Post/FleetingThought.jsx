@@ -37,6 +37,7 @@ const Fleeting = ({ text, setText }) => {
         onFocus={handleFocus}
         onBlur={handleBlur}
         maxLength={maxLength}
+        disabled
       />
       {displayCount && (
         <div className="my-[14%] text-right text-sm text-black font-medium">
