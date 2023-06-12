@@ -9,12 +9,12 @@ const Fleeting = () => {
       </p>
       <textarea
         name="thought"
-        className="focus:outline-none resize-none w-full h-1/3 px-6 text-3xl font-normal text-methinks-white bg-methinks-lightblack text-whhite "
+        className="focus:outline-none resize-none w-full px-6 text-3xl font-normal text-methinks-white bg-methinks-lightblack"
         placeholder="Speak now or forever hold your peace!"
         disabled
       />
-      <div className="flex justify-center">
-        <GiSoundWaves className=" text-9xl  " />
+      <div className="flex justify-center items-center h-[60%]">
+        <GiSoundWaves className=" text-[25rem]" />
       </div>
     </div>
   );
