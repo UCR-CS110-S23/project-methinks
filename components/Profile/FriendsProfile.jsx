@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 
@@ -16,9 +16,18 @@ const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [error, setError] = useState("");
 
-  const [name, setName] = useState(session?.user?.name);
-  const [username, setUsername] = useState(session?.user?.username);
-  const [bio, setBio] = useState(session?.user?.bio);
+  const [name, setName] = useState(user.name);
+  const [username, setUsername] = useState(user.username);
+  const [bio, setBio] = useState(user.bio);
+
+  useEffect(() => {
+    console.log("running");
+    if (session && session?.user.uid === user.uid) {
+      setName(session?.user?.name);
+      setUsername(session?.user?.username);
+      setBio(session?.user?.bio);
+    }
+  }, []);
 
   const handleCancel = () => {
     setIsEditing(false);
@@ -48,12 +57,7 @@ const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
             setName(name);
             setUsername(username.toLowerCase());
             setBio(bio);
-            // router.reload();
           }
-          // if (data.success === false) {
-          //   setError("Username already exists!");
-          //   // router.reload();
-          // }
           console.log(data);
         })
         .catch((error) => {
@@ -65,7 +69,6 @@ const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
         });
     }
   };
-  console.log(name, username.toLowerCase(), bio);
   return (
     <div
       className={`w-full h-full min-h-screen flex justify-center items-start bg-methinks-background py-4 pb-20`}
@@ -91,7 +94,7 @@ const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
                 quality={100}
                 className="rounded-full bg-methinks-darkgray "
               />
-              {isEditing ? (
+              {isEditing && user.uid === session.user.uid ? (
                 <>
                   <input
                     value={name}
@@ -99,16 +102,12 @@ const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
                     className="text-methinks-white m-0 font-bold text-4xl bg-methinks-background text-center w-full focus:outline-none"
                     onChange={(e) => setName(e.target.value)}
                   />
-
-                  {/* <div className="flex items-center w-1/2">
-                    <p className="text-methinks-white">@</p> */}
                   <input
                     value={username}
                     placeholder="@____________________________"
                     className="text-methinks-lightgray m-0 font-medium text-2xl bg-methinks-background text-center focus:outline-none"
                     onChange={(e) => setUsername(e.target.value)}
                   />
-                  {/* </div> */}
                   <input
                     value={bio}
                     placeholder="____________________________"
@@ -131,7 +130,7 @@ const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
               )}
             </div>
             <div className="absolute top-0 right-0">
-              {mouseHover && !isEditing && (
+              {mouseHover && !isEditing && user.uid === session.user.uid && (
                 <p
                   className="text-lg text-methinks-white hover:text-methinks-darkgray m-0"
                   // onClick={handleName}
