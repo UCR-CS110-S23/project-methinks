@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { BsFillPersonFill, BsChat } from "react-icons/bs";
-import { RiExitFill } from "react-icons/ri";
-import { useSession, signOut } from "next-auth/react";
+// import { RiExitFill } from "react-icons/ri";
+// import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 
 const Navigation = () => {
@@ -69,7 +69,7 @@ const Navigation = () => {
                   </span>
                 </Link>
 
-                <Link
+                {/* <Link
                   href={"/signin"}
                   className="cursor-pointer ml-2 text-white text-[12px] font-semibold flex items-center"
                   onClick={(e) => {
@@ -83,7 +83,7 @@ const Navigation = () => {
                   <span className="ml-2 text-white text-[12px] font-semibold">
                     Sign Out
                   </span>
-                </Link>
+                </Link> */}
               </ul>
             </div>
           )}
