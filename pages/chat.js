@@ -65,7 +65,7 @@ export default function Home() {
 
   console.log(messages);
   return (
-    <div className="flex items-center p-4 mx-auto min-h-screen justify-center bg-purple-500">
+    <div className="flex items-center p-4 mx-auto min-h-screen justify-center bg-methinks-background">
       <main className="gap-4 flex flex-col items-center justify-center w-full h-full">
         {!chosenUsername ? (
           <>
@@ -115,7 +115,7 @@ export default function Home() {
                   onChange={(e) => setMessage(e.target.value)}
                   onKeyUp={handleKeypress}
                 />
-                <div className="border-l border-gray-300 flex justify-center items-center  rounded-br-md group hover:bg-purple-500 transition-all">
+                <div className="border-l border-gray-300 flex justify-center items-center  rounded-br-md group hover:bg-methinks-background transition-all">
                   <button
                     className="group-hover:text-white px-3 h-full"
                     onClick={() => {
