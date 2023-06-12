@@ -7,6 +7,7 @@ const Posts = ({ postData }) => {
       {postData?.map((post, index) => (
         <Post key={post.tid} post={post} />
       ))}
+      {/* <Navigation/> */}
     </div>
   );
 };

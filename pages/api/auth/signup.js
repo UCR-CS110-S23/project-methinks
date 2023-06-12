@@ -31,7 +31,7 @@ export default async function signup(req, res) {
     uid: uuidv4(),
     provider: "credentials",
     admin: false,
-    bio: "",
+    bio: "Feelin Supersonic",
   });
 
   res

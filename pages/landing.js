@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 import { TbMoodLookRight } from "react-icons/tb";
 import { TbMoodSing } from "react-icons/tb";
@@ -10,8 +11,16 @@ const Landing = () => {
   const [isHover, setIsHover] = useState(false);
 
   return (
-    <div className="bg-methinks-background w-full h-screen flex flex-col justify-center items-center">
-      <Image src={Cloud} alt="Cloud" draggable="false" />
+    <div className="bg-methinks-background w-full min-h-screen h-full flex flex-col justify-center items-center">
+      <motion.div
+        animate={{ y: [5, -25, 5] }}
+        transition={{
+          repeat: Infinity,
+          duration: 5,
+        }}
+      >
+        <Image src={Cloud} alt="Cloud" draggable="false" />
+      </motion.div>
       <span
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}

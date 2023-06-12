@@ -3,6 +3,7 @@ import axios from "axios";
 import Link from "next/link";
 import Image from "next/image";
 import { signIn } from "next-auth/react";
+import { motion } from "framer-motion";
 
 import { FaChevronLeft } from "react-icons/fa";
 import Cloud from "@/public/assets/landing_cloud.svg";
@@ -67,7 +68,17 @@ const Signup = () => {
         <span>Back to Login</span>
       </Link>
       <div className="w-1/4 h-full flex flex-col justify-center py-20 items-center gap-y-8">
-        <Image src={Cloud} alt="cloud" draggable="false" />
+        <motion.div
+          animate={{ y: [5, -12, 5] }}
+          transition={{
+            repeat: Infinity,
+            duration: 6,
+          }}
+        >
+          <Link href="/">
+            <Image src={Cloud} alt="cloud" draggable="false" />
+          </Link>
+        </motion.div>
         <form
           autoComplete="none"
           className="flex flex-col gap-y-5 w-full text-xl"
