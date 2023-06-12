@@ -157,7 +157,6 @@ const Chat = () => {
       socket.emit("joinRoom", thisRoom);
     }
   };
-  console.log(messages);
   return (
     <div className="min-h-screen h-full w-full flex items-center justify-center p-5">
       <div className="h-[37em]">

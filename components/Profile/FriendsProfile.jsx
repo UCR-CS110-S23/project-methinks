@@ -57,7 +57,6 @@ const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
             setUsername(username.toLowerCase());
             setBio(bio);
           }
-          console.log(data);
         })
         .catch((error) => {
           if (error?.response?.data.userAlreadyExists) {
