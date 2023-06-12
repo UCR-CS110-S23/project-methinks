@@ -7,3 +7,14 @@ export const tagsList = [
   "School",
   "Random",
 ];
+
+export const chatRooms = [
+  "#general",
+  "#news",
+  "#entertainment",
+  "#political",
+  "#lifestyle",
+  "#culture",
+  "#school",
+  "#random",
+];
