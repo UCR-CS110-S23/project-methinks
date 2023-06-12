@@ -23,7 +23,7 @@ export default function CommentsPage({ postData }) {
       </p>
       <div className="w-[40%] h-full py-10 flex flex-col gap-y-5">
         <Post post={post} type="comments" />
-        <Comments postID={post.tid} commentsData={post.comments} />
+        <Comments postID={post.tid} commentsData={post.comments.reverse()} />
       </div>
     </div>
   );
