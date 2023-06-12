@@ -2,8 +2,7 @@ import { useState } from "react";
 import React from "react";
 import { FaArrowDown, FaCircle } from "react-icons/fa";
 
-const SortButton = () => {
-  const [sortFilter, setSortFilter] = useState("latest");
+const SortButton = ({ sortFilter, setSortFilter }) => {
   const [sortDropDown, setSortDropDown] = useState(false);
   return (
     <div className="w-[150px] flex flex-wrap text-methinks-white hover:text-methinks-white select-none">
@@ -37,7 +36,7 @@ const SortButton = () => {
               Oldest Posts
               {sortFilter === "oldest" && <FaCircle className="text-xs" />}
             </p>
-            <p
+            {/* <p
               className=" w-full flex  justify-between items-baseline text-methinks-white hover:text-methinks-lightgrayHover cursor-pointer duration-300"
               onClick={() => {
                 setSortFilter("highest");
@@ -45,7 +44,7 @@ const SortButton = () => {
             >
               Highest Rating{" "}
               {sortFilter === "highest" && <FaCircle className="text-xs" />}
-            </p>
+            </p> */}
           </div>
         )}
       </div>

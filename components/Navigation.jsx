@@ -29,7 +29,7 @@ const Navigation = () => {
       </Link>
       <Link
         className="cursor-pointer hover:text-methinks-lightgray"
-        href={profileLink}
+        href={"/signin"}
         onClick={(e) => {
           e.preventDefault();
           signOut({
