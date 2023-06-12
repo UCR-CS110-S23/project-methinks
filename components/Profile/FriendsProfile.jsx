@@ -21,7 +21,6 @@ const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
   const [bio, setBio] = useState(user.bio);
 
   useEffect(() => {
-    console.log("running");
     if (session && session?.user.uid === user.uid) {
       setName(session?.user?.name);
       setUsername(session?.user?.username);
@@ -71,7 +70,7 @@ const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
   };
   return (
     <div
-      className={`w-full h-full min-h-screen flex justify-center items-start bg-methinks-background py-4 pb-20`}
+      className={`w-full h-full min-h-screen flex justify-center items-start bg-methinks-background py-4 pb-20 mt-10`}
     >
       <p className="absolute left-[20%] top-[10%] flex items-center text-methinks-lightgray hover:text-methinks-lightgrayHover duration-300 cursor-pointer text-lg">
         <FaChevronLeft className="text-2xl" />
@@ -172,7 +171,7 @@ const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
             </p>
           </div>
 
-          <div className="w-full h-full flex flex-col gap-y-5 bg-methinks-gray p-4 rounded-xl">
+          <div className="w-full h-full flex flex-col gap-y-5 bg-methinks-gray p-4 rounded-xl text-methinks-lightgray">
             {todayPosts.length === 0 ? (
               <p>No thoughts yet, just vibes!</p>
             ) : (
@@ -185,7 +184,7 @@ const FriendsProfile = ({ user, todayPosts, previousPosts }) => {
             <p className="self-start text-methinks-white m-0 font-bold text-4xl pl-4">
               This Week
             </p>
-            <div className="w-full h-1/12 flex flex-col gap-y-5 bg-methinks-gray p-4 rounded-xl">
+            <div className="w-full h-1/12 flex flex-col gap-y-5 bg-methinks-gray p-4 rounded-xl text-methinks-lightgray">
               <p>{"Head empty all week :("} </p>
             </div>
           </>
