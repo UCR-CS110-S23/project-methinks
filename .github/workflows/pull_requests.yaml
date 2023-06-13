@@ -1,0 +1,53 @@
+name: meThinks
+on:
+  pull_request:
+    branches: [prod, dev]
+  workflow_dispatch:
+
+jobs:
+  format:
+    name: formatting
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.14.2"
+      - run: npm ci
+      - run: npm run check
+  lint:
+    name: linting
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.14.2"
+      - run: npm ci
+      - run: npm run eslint
+  build:
+    name: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.14.2"
+      - run: npm ci
+      - run: npm run build
+    env:
+      MONGODB_URI: ${{secrets.MONGODB_URI}}
+      MONGODB_DB: ${{secrets.MONGODB_DB}}
+      USERS_COLLECTION_NAME: ${{secrets.USERS_COLLECTION_NAME}}
+      POSTS_COLLECTION_NAME: ${{secrets.POSTS_COLLECTION_NAME}}
+      GOOGLE_CLIENT_ID: ${{secrets.GOOGLE_CLIENT_ID}}
+      GOOGLE_CLIENT_SECRET: ${{secrets.GOOGLE_CLIENT_SECRET}}
+      NEXTAUTH_URL: ${{secrets.NEXTAUTH_URL}}
+      NEXTAUTH_SECRET: ${{secrets.NEXTAUTH_SECRET}}
+      SECRET: ${{secrets.SECRET}}

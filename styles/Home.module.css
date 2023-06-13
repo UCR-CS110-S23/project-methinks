@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+/* * {
+  padding: 0;
+  margin: 0;
+  color: #333;
+  font-family: "Source Sans Pro", sans-serif;
+  box-sizing: border-box;
+} */
+
+.rbc-header {
+  background: blue !important;
+}
+
+.button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+}
+
+.my-calendar {
+  margin: 5% auto !important;
+  box-shadow: 0 1px 3px #aeaeae !important;
+  width: 350px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: #333 !important;
+  font-family: "Source Sans Pro", sans-serif !important;
+  box-sizing: border-box !important;
+}
+
+.my-calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: crimson;
+}
+
+.my-calendar-header span {
+  color: #fff;
+  font-weight: bold;
+}
+
+.my-calendar-body {
+  background-color: #fff;
+}
+
+.week {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.week:not(:first-of-type) {
+  border-top: 1px solid #efefef;
+  border: none !important;
+}
+
+.week.day-labels {
+  background: #f8f8f8;
+  border: none !important;
+}
+
+.day {
+  width: calc(100% / 7);
+  flex-basis: calc(100% / 7);
+  padding: 1rem 0.5rem;
+  text-align: center;
+  cursor: default;
+  color: white;
+}
+
+.day[disabled] {
+  color: #dedede;
+  cursor: not-allowed !important;
+  background: inherit !important;
+}
+
+.week:not(.day-labels) .day:not(:last-of-type) {
+  border-right: 1px solid #efefef;
+  border: none !important;
+}
+
+.week:not(.day-labels) .day {
+  cursor: pointer;
+}
+
+.week:not(.day-labels) .day.is-selected.is-selected {
+  background-color: crimson;
+  border-radius: 50px;
+  /* background-color: crimson; */
+  color: #fff;
+}
+
+.week:not(.day-labels) .day.is-today.is-today {
+  font-weight: bold;
+  color: crimson;
+}
+
+.week:not(.day-labels) .day.is-today.is-today.is-selected {
+  color: #fff;
+}
+
+.week:not(.day-labels) .day:hover {
+  background-color: #f3f3f3;
+}
