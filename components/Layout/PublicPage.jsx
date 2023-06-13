@@ -3,7 +3,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
 const PublicPage = ({ children }) => {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const router = useRouter();
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const PublicPage = ({ children }) => {
   //   return <p className="bg-red-500 h-screen w-screen">Loading...</p>;
   // }
 
-  console.log("session", session?.user, status);
+  // console.log("session", session?.user, status);
 
   return (
     status !== "loading" &&
