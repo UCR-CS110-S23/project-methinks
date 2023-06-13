@@ -54,9 +54,9 @@ This is the codebase for our CS110 project MeThinks. MeThinks is a twitter style
 
 ## Accessing project locally
 To access the project locally, there are a few installs required. 
-1. In terminal, do the following: 
-\t `npm i`
-\t `npm run dev`
+1. In terminal, run the following commands in order: 
+`npm i`
+ `npm run dev`
 
 
 
