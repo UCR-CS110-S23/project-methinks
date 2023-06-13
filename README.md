@@ -5,6 +5,13 @@ This is the codebase for our CS110 project MeThinks. MeThinks is a twitter style
 
 ### [Check it out!](https://me-thinks.herokuapp.com/)
 
+
+# Accessing project locally
+In terminal, run the following commands in order: 
+
+1. npm i
+2. npm run dev
+
 # Team
 ## Mika Shanela Carodan
 
@@ -51,8 +58,6 @@ This is the codebase for our CS110 project MeThinks. MeThinks is a twitter style
 
 ## Chat
 ![pika-1686690578984-1x](https://github.com/UCR-CS110-S23/project-methinks/assets/60799725/726533ae-6a60-4735-ba8d-5dd023e2ee42)
-
-
 
 
 
