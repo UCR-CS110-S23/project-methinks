@@ -44,7 +44,7 @@ This is the codebase for our CS110 project MeThinks. MeThinks is a twitter style
 ![pika-1686690644270-1x](https://github.com/UCR-CS110-S23/project-methinks/assets/60799725/2331a1fb-252a-4213-ae27-c0c09ba32b63)
 
 ## Comment 
-![pika-1686694055156-1x](https://github.com/UCR-CS110-S23/project-methinks/assets/60799725/e7f45deb-cbd7-4888-b8de-59360c631701)
+![pika-1686697250461-1x](https://github.com/UCR-CS110-S23/project-methinks/assets/60799725/48b9ef82-3186-40f6-99ef-fb0cff7ede98)
 
 ## Profile
 ![pika-1686690600724-1x](https://github.com/UCR-CS110-S23/project-methinks/assets/60799725/b0b44791-611b-4cf1-a053-9823dbaf9ee6)
