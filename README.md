@@ -3,6 +3,8 @@
 # Overview
 This is the codebase for our CS110 project MeThinks. MeThinks is a twitter style social media that encourages thought sharing and discussions. Posts only last on your feed for a day and on your profile for week for an ephemeral, low stakes vibes. There is a chat feature to facilitate real time conversations about the most relevant topics: news, entertainment, politics, lifestyle, culture, school, random, and general. Ready to wonder? 
 
+### [Check it out!](https://me-thinks.herokuapp.com/)
+
 # Team
 ## Mika Shanela Carodan
 
@@ -28,23 +30,27 @@ This is the codebase for our CS110 project MeThinks. MeThinks is a twitter style
 ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
 
 # Screenshots
-## Sign In
-<img width="960" alt="image" src="https://github.com/UCR-CS110-S23/project-methinks/assets/56405905/d51f56b1-b598-4369-b62a-d426cdcd0d9e">
 
-## Make A Post
-<img width="946" alt="image" src="https://github.com/UCR-CS110-S23/project-methinks/assets/56405905/36d27acc-2d92-49b1-a9fc-fd2c42c04cfa">
+## Sign In
+![pika-1686690351322-1x](https://github.com/UCR-CS110-S23/project-methinks/assets/60799725/6429021b-fb87-4f22-ae81-79eb970b4ece)
+
+## Sign Up
+![pika-1686690322571-1x](https://github.com/UCR-CS110-S23/project-methinks/assets/60799725/db1573ea-7d5d-40b1-8714-c3d8d542de94)
+
+## Make A "Thought" Post
+![pika-1686690696530-1x](https://github.com/UCR-CS110-S23/project-methinks/assets/60799725/a5b89ac0-4b58-43be-947c-1a49fcf7bf0a)
 
 ## Feed
-<img width="949" alt="image" src="https://github.com/UCR-CS110-S23/project-methinks/assets/56405905/1b3e8044-8cc4-4edf-9441-b2fba663defd">
-
-## Profile
-<img width="949" alt="image" src="https://github.com/UCR-CS110-S23/project-methinks/assets/56405905/5d9ec723-4db1-44f7-b1df-b980d3aa7a3a">
+![pika-1686690644270-1x](https://github.com/UCR-CS110-S23/project-methinks/assets/60799725/2331a1fb-252a-4213-ae27-c0c09ba32b63)
 
 ## Comment 
-<img width="946" alt="image" src="https://github.com/UCR-CS110-S23/project-methinks/assets/56405905/c08b6dce-e748-41b9-9294-b178a1414e38">
+![pika-1686694055156-1x](https://github.com/UCR-CS110-S23/project-methinks/assets/60799725/e7f45deb-cbd7-4888-b8de-59360c631701)
+
+## Profile
+![pika-1686690600724-1x](https://github.com/UCR-CS110-S23/project-methinks/assets/60799725/b0b44791-611b-4cf1-a053-9823dbaf9ee6)
 
 ## Chat
-<img width="944" alt="image" src="https://github.com/UCR-CS110-S23/project-methinks/assets/56405905/7facac22-f637-4a2d-9b69-412bfc0593f1">
+![pika-1686690578984-1x](https://github.com/UCR-CS110-S23/project-methinks/assets/60799725/726533ae-6a60-4735-ba8d-5dd023e2ee42)
 
 
 
