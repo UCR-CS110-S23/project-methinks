@@ -25,12 +25,7 @@ const Navigation = () => {
         className="flex gap-x-2 justify-center items-center text-2xl font-bold text-methinks-white"
       >
         <div className="w-14">
-          <Image
-            src={Cloud}
-            alt="Cloud"
-            layout="responsive"
-            objectFit="contain"
-          />
+          <Image src={Cloud} alt="Cloud" />
         </div>
         meThinks...
       </Link>

@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import Navigation from "../Navigation";
 
 const ProtectedPage = ({ children }) => {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const router = useRouter();
 
   useEffect(() => {
@@ -13,7 +13,7 @@ const ProtectedPage = ({ children }) => {
     }
   }, [status, router]);
 
-  console.log("session", session?.user, status);
+  // console.log("session", session?.user, status);
 
   if (router.pathname === "/newUser") {
     return (
