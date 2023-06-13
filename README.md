@@ -52,7 +52,11 @@ This is the codebase for our CS110 project MeThinks. MeThinks is a twitter style
 ## Chat
 ![pika-1686690578984-1x](https://github.com/UCR-CS110-S23/project-methinks/assets/60799725/726533ae-6a60-4735-ba8d-5dd023e2ee42)
 
-
+## Accessing project locally
+To access the project locally, there are a few installs required. 
+1. In terminal, do the following: 
+\t `npm i`
+\t `npm run dev`
 
 
 
