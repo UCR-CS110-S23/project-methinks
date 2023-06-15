@@ -1,7 +1,7 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/w5ovOekq)
 
 # Overview
-This is the codebase for our CS110 project MeThinks. meThinks... is a twitter style social media that encourages thought sharing and discussions. Posts only last on your feed for a day and on your profile for week for an ephemeral, low stakes vibes. There is a chat feature to facilitate real time conversations about the most relevant topics: news, entertainment, politics, lifestyle, culture, school, random, and general. Ready to wonder? 
+This is the codebase for our CS110 project, meThinks. meThinks... is a twitter style social media that encourages thought sharing and discussions. Posts only last on your feed for a day and on your profile for week for an ephemeral, low stakes vibes. There is a chat feature to facilitate real time conversations about the most relevant topics: news, entertainment, politics, lifestyle, culture, school, random, and general. Ready to wonder? 
 
 ### [Check it out!](https://me-thinks.herokuapp.com/)
 
@@ -9,8 +9,8 @@ This is the codebase for our CS110 project MeThinks. meThinks... is a twitter st
 # Accessing project locally
 In terminal, run the following commands in order: 
 
-1. npm i
-2. npm run dev
+1. ```npm i```
+2. ```npm run dev```
 
 # Team
 ## Mika Shanela Carodan
@@ -42,6 +42,8 @@ In terminal, run the following commands in order:
 ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
 ![Prettier](https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E)
 ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
+<br/>
+![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
 
 
 # Screenshots
