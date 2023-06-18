@@ -1,7 +1,7 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/w5ovOekq)
 
 # Overview
-This is the codebase for our CS110 project MeThinks. MeThinks is a twitter style social media that encourages thought sharing and discussions. Posts only last on your feed for a day and on your profile for week for an ephemeral, low stakes vibes. There is a chat feature to facilitate real time conversations about the most relevant topics: news, entertainment, politics, lifestyle, culture, school, random, and general. Ready to wonder? 
+This is the codebase for our CS110 project, meThinks. meThinks... is a twitter style social media that encourages thought sharing and discussions. Posts only last on your feed for a day and on your profile for week for an ephemeral, low stakes vibes. There is a chat feature to facilitate real time conversations about the most relevant topics: news, entertainment, politics, lifestyle, culture, school, random, and general. Ready to wonder? 
 
 ### [Check it out!](https://me-thinks.herokuapp.com/)
 
@@ -9,8 +9,8 @@ This is the codebase for our CS110 project MeThinks. MeThinks is a twitter style
 # Accessing project locally
 In terminal, run the following commands in order: 
 
-1. npm i
-2. npm run dev
+1. ```npm i```
+2. ```npm run dev```
 
 # Team
 ## Mika Shanela Carodan
@@ -28,13 +28,23 @@ In terminal, run the following commands in order:
 
 # Tech Stack
 ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+<br/>
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer-black?style=for-the-badge&logo=framer&logoColor=blue)
+<br/>
+![Socket.io](https://img.shields.io/badge/Socket.io-010101?&style=for-the-badge&logo=Socket.io&logoColor=white)
+<br/>
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+<br/>
+![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
+<br/>
 ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
 ![Prettier](https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E)
 ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
+<br/>
+![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
 
-![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
 
 # Screenshots
 
